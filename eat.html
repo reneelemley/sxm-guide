@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Eat · R&amp;R's Guide To SXM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@1,9..144,600&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function(){try{if(localStorage.getItem('sxm-key')!=='friendlyisland'){location.replace('./');}}catch(e){}})();
+</script>
+<style>
+:root{
+--cream:#FFFDF5;--ink:#3C4A52;--body:#57666F;--mute:#8A97A0;--line:#E4D9CA;
+--deep:#0A5F86;--coral:#D94F2B;--gold:#E0A32B;--green:#2C6B4E;
+--footer:#0A4A55;--footer-rule:#1B6570;--footer-head:#7FD4DC;--footer-link:#D6EEF2;--footer-mute:#9FCDD4;
+--banner:#FDF0DA;--banner-rule:#EBC98A;--banner-ink:#7A5410;--banner-head:#8A5F12;--banner-mute:#A6813C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+a{color:inherit}
+.nav{background:#B93F1E;padding:10px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20}
+.nav .stamp{display:inline-block;border:1.5px solid #F2A93B;border-radius:5px;padding:2px;text-decoration:none;flex:none}
+.nav .stamp span{display:block;border:.5px solid #F2A93B;border-radius:3px;padding:2px 8px;text-align:center}
+.nav .stamp b{display:block;font-family:Montserrat,sans-serif;font-weight:800;font-size:14px;letter-spacing:.1em;color:var(--cream);line-height:1.05}
+.nav .stamp i{display:block;font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:7.5px;color:#F2A93B;line-height:1}
+.nav .crumb{font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:#F8CDBF;text-decoration:none}
+.mast{background:#D94F2B;padding:6px 16px 26px;text-align:center}
+.mast .badge{width:64px;height:64px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #FFFDF7,0 3px 8px rgba(90,25,8,.3);margin:0 auto 14px;transform:rotate(-6deg)}
+.mast .badge img{width:36px;height:36px}
+.mast h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:38px;letter-spacing:.1em;color:#FFF3DC;margin:0;line-height:1}
+.mast .sub{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.3em;color:#F8CDBF;margin:8px 0 0}
+.mast .blurb{font-family:Caveat,cursive;font-style:italic;font-size:19px;color:#FFF3DC;margin:14px auto 0;max-width:440px;line-height:1.45}
+.rail{padding:16px 0 4px}
+.rail-scroll{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 14px 10px;-webkit-overflow-scrolling:touch}
+.rail-scroll::-webkit-scrollbar{height:5px}
+.rail-scroll::-webkit-scrollbar-thumb{background:#DCD1BE;border-radius:3px}
+.pc{flex:0 0 42%;max-width:210px;scroll-snap-align:center;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.pc .ph{display:block;width:100%;height:auto}
+.pc .cap{padding:6px 9px 8px;font-size:10px;color:var(--mute);line-height:1.35}
+.pc .cap b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:11.5px;color:var(--deep)}
+.filters{padding:12px 14px 4px}
+.flabel{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--mute);margin:0 0 8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{font-size:12.5px;background:#fff;color:var(--deep);padding:6px 12px;border-radius:20px;border:1px solid var(--line);cursor:pointer;display:inline-flex;align-items:center;gap:5px;user-select:none}
+.chip img{width:16px;height:16px}
+.chip.on{background:var(--deep);color:var(--cream);border-color:var(--deep)}
+.chip.co{background:#F4EADB;border-color:#DCC8A4;color:#5A4A34}
+.chip.co.on{background:#8A5A2B;border-color:#8A5A2B;color:var(--cream)}
+.fmeta{display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--mute);margin:0 0 6px}
+.clear{cursor:pointer;text-decoration:underline}
+.sec{padding:10px 14px 0}
+.sec h2{font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;letter-spacing:.09em;color:var(--coral);margin:16px 0 2px}
+.sec .note{font-size:12.5px;color:var(--body);margin:0 0 11px;line-height:1.5}
+.cards{display:grid;grid-template-columns:1fr;gap:9px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.card.top{border-left:4px solid var(--green);border-radius:0 12px 12px 0}
+.card.skip{background:#F4F1EA;border:1px dashed #C7BBA6}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.nm{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;color:var(--deep);margin:0;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.nm img.flag{width:17px;height:17px;border-radius:2px;flex:none}
+.meta{font-size:11px;color:var(--mute);margin:4px 0 0}
+.coco{display:inline-flex;gap:2px;flex:none}
+.coco img{width:22px;height:22px;filter:sepia(.5) saturate(1.6) hue-rotate(-8deg) contrast(1.12) brightness(1.04) drop-shadow(0 0 1.2px #FFFDF5) drop-shadow(0 0 1.2px #FFFDF5) drop-shadow(1px 1.5px 1.5px rgba(15,51,80,.25))}
+.pill{font-size:10px;background:#DDD4C2;color:#4F4739;padding:3px 9px;border-radius:20px;white-space:nowrap;flex:none}
+.desc{margin:9px 0 10px;font-size:13.5px;color:var(--body);line-height:1.6}
+.card.skip .nm{color:#6B6153}
+.card.skip .desc{color:#6B6153;margin-bottom:0}
+.acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.act{font-size:11.5px;padding:6px 12px;border-radius:20px;background:var(--deep);color:var(--cream);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.act.o{background:#fff;color:var(--deep);border:1px solid #C9D3D8}
+.act svg{width:11px;height:11px}
+.warn{font-size:11px;background:#FDF0DA;color:#7A5410;padding:5px 11px;border-radius:20px;border:1px solid #EBC98A}
+.empty{padding:28px 14px;text-align:center;color:var(--mute);font-size:13px}
+.banner{background:var(--banner);border-top:1px solid var(--banner-rule);border-bottom:1px solid var(--banner-rule);padding:12px 14px 13px;margin-top:28px}
+.banner-top{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.banner-label{margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:var(--banner-head)}
+.banner-date{margin-left:auto;font-size:9.5px;color:var(--banner-mute)}
+.wxrow{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:6px 0 8px}
+.wx{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--banner-ink)}
+.wx img{width:15px;height:15px}
+.wxdiv{width:1px;height:14px;background:#E4C68A;flex:none}
+.banner p.advice{margin:0;font-size:11.5px;color:var(--banner-ink);line-height:1.45}
+.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px}
+.ext svg{width:10px;height:10px;flex:none}
+footer{background:var(--footer);padding:26px 16px 16px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.fcol{margin-bottom:16px}
+.fcol h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--footer-head);margin:0 0 6px}
+.fcol a{display:block;font-size:11.5px;color:var(--footer-link);margin:0 0 4px;line-height:1.45;text-decoration:none}
+.fcol a svg{width:10px;height:10px}
+.fbottom{border-top:1px solid var(--footer-rule);padding-top:14px;margin-top:2px;text-align:center}
+.fbottom .eyebrow{font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:12px;color:var(--footer-head);margin:0}
+.fbottom .mark{font-family:Montserrat,sans-serif;font-weight:800;font-size:20px;letter-spacing:.12em;color:var(--cream);margin:1px 0 0}
+.fbottom .legal{font-size:11px;color:var(--footer-mute);margin:11px 0 0;line-height:1.6}
+.fbottom a{color:var(--footer-head)}
+@media(min-width:820px){
+.nav,.mast,.filters,.sec,footer{padding-left:32px;padding-right:32px}
+.mast h1{font-size:54px}.mast .blurb{font-size:22px;max-width:560px}
+.rail-scroll{padding-left:32px;padding-right:32px;max-width:1144px;margin:0 auto}
+.pc{flex:0 0 172px}
+.filters,.sec{max-width:1080px;margin:0 auto}
+.cards{grid-template-columns:1fr 1fr;gap:12px}
+.banner{max-width:1080px;margin:34px auto 0;border:1px solid var(--banner-rule);border-radius:8px;padding:14px 22px 15px;display:grid;grid-template-columns:auto 1fr;column-gap:30px;row-gap:5px;align-items:center}
+.banner-top{margin:0}.wxrow{margin:0;justify-content:flex-start;gap:22px}
+.wxdiv{display:none}.wx{font-size:13px}.wx img{width:17px;height:17px}
+.banner p.advice{font-size:13px;grid-column:1/-1}.ext{grid-column:1/-1;margin-top:0}
+.fgrid{grid-template-columns:repeat(4,1fr);max-width:1080px;margin:0 auto}
+.fbottom{max-width:1080px;margin:6px auto 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<a class="stamp" href="./"><span><i>R&amp;R's Guide To</i><b>SXM</b></span></a>
+<a class="crumb" href="./">← ALL SECTIONS</a>
+</nav>
+
+<header class="mast">
+<div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f37d.svg" alt=""></div>
+<h1>EAT</h1>
+<p class="sub">THE REASON WE MOVED TO THIS ISLAND</p>
+<p class="blurb">We eat on the French side. If you are a foodie, you will understand.</p>
+</header>
+
+<section class="rail"><div class="rail-scroll" id="rail"></div></section>
+
+<section class="filters">
+<p class="flabel">NEIGHBORHOOD</p>
+<div class="chips" id="chips-hood"></div>
+<p class="flabel">HOW GOOD</p>
+<div class="chips" id="chips-coco"></div>
+<p class="flabel">WHEN &amp; HOW MUCH</p>
+<div class="chips" id="chips-when"></div>
+<div class="fmeta"><span id="count">—</span><span class="clear" id="clear">clear all</span></div>
+</section>
+
+<main id="out"></main>
+
+<section class="banner" id="today">
+<div class="banner-top"><p class="banner-label">TODAY IN SXM</p><span class="banner-date" id="wx-date">—</span></div>
+<div class="wxrow">
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/2600.svg" alt=""><b id="wx-temp">—</b></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f4a8.svg" alt=""><span id="wx-wind">—</span></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f327.svg" alt=""><span id="wx-rain">—</span></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6a2.svg" alt=""><span id="wx-ships">—</span></span>
+</div>
+<p class="advice" id="wx-advice">Checking today's conditions…</p>
+<a class="ext" href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Check sargassum reports<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>
+</section>
+
+<footer>
+<div class="fgrid">
+<div class="fcol"><h3>DAY ONE</h3><a href="day-one.html#comms">Comms &amp; Apps</a><a href="day-one.html#cash">Cash &amp; Tipping</a><a href="day-one.html#passport">Passport &amp; Borders</a><a href="day-one.html#dogs">Coconut Retrievers</a><a href="day-one.html#safety">Safety</a></div>
+<div class="fcol"><h3>BEACHES</h3><a href="beaches.html">French Beaches</a><a href="beaches.html">Dutch Beaches</a><a href="beaches.html#favorites">Local Favorites</a><a href="beaches.html#upscale">Upscale &amp; Unique</a><a href="beaches.html#busy">Tourist Hotspots</a><a href="beaches.html#skip">Beaches With Blockers</a><a href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Sargassum Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
+<div class="fcol"><h3>EAT</h3><a href="#grand-case">Grand Case</a><a href="#anse-marcel">Anse Marcel</a><a href="#orient-bay">Orient Bay</a><a href="#oyster-pond">Oyster Pond</a><a href="#simpson-bay">Cole Bay &amp; Simpson Bay</a><a href="#" data-meal="lunch">Lunch Spots</a><a href="#" data-meal="dinner">Dinner Spots</a><a href="#bakeries">French Bakeries</a><a href="#skip">Skip It, Mon</a></div>
+<div class="fcol"><h3>THINGS TO DO</h3><a href="things-to-do.html#excursions">Excursions</a><a href="things-to-do.html#day-trips">Island Day Trips</a><a href="things-to-do.html#ziplines">Ziplines &amp; Adventure</a><a href="things-to-do.html#boats">Boats &amp; Snorkeling</a><a href="things-to-do.html#crawl">Beach Bar Crawl</a></div>
+<div class="fcol"><h3>GETTING AROUND</h3><a href="getting-around.html#taxis">Taxis</a><a href="getting-around.html#buses">Buses</a><a href="getting-around.html#cars">Rental Cars</a></div>
+<div class="fcol"><h3>GROCERIES</h3><a href="groceries.html#french">French Side</a><a href="groceries.html#dutch">Dutch Side</a><a href="groceries.html#bodegas">Bodegas</a></div>
+<div class="fcol"><h3>WHERE TO STAY</h3><a href="where-to-stay.html">Our Top 3 Hotels</a><a href="#">R&amp;R BnB <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f512.svg" alt="password protected" style="width:11px;height:11px;vertical-align:-1px"></a></div>
+</div>
+<div class="fbottom">
+<p class="eyebrow">R&amp;R's Guide To</p><p class="mark">SXM</p>
+<p class="legal">Hosted By Renée &amp; Ryan<br>© 2026 All rights reserved.<br>Have feedback? <a href="feedback.html">Let us know.</a></p>
+</div>
+</footer>
+
+<script>
+var T='https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/';
+var FR=T+'1f1eb-1f1f7.svg', SX=T+'1f1f8-1f1fd.svg', CO=T+'1f965.svg';
+
+var HOODS=[
+ ['grand-case','GRAND CASE','fr','Do NOT skip this. Under any circumstances. Make SURE you carve out a Grand Case beach day and if you can’t do that, then carve out a Grand Case dinner night. And if you REALLY want to do things right, do a Grand Case beach day, shower up, and do a Grand Case dinner night.'],
+ ['anse-marcel','ANSE MARCEL','fr','There are several great dining experiences up there that are worth the trip, but these are the only ones we’re going to talk about…'],
+ ['orient-bay','ORIENT BAY','fr','Orient Bay is the breezy, beachy sister to Grand Case with a more relaxed, tropical-chic vibe. While Orient is known more for its stunning beach clubs and laid-back lounging than white-tablecloth dining, there are still some absolute bangers on the culinary front. Here we go!'],
+ ['oyster-pond','OYSTER POND','sx','Oyster Pond used to be an epic destination for cruisers (people on sailboats) until Irma hit. That hurricane decimated Oyster Pond. The famous Dinghy Dock was washed away. This is the home of the JW Marriott and Dawn Beach…a popular place for visitors to stay. Oyster Pond doesn’t get talked about enough, but this quiet lil’ area on the east side’s got a few culinary treasures, mon!'],
+ ['simpson-bay','COLE BAY &amp; SIMPSON BAY','sx','Dis part o’ de island’s got a whole different kinda vibe. Simpson Bay is like the main drag on the Dutch side. Lots of bars and restaurants. Super touristy. We don’t go there on purpose, but when we do, this is where we stop.'],
+ ['bakeries','FRENCH BAKERIES','fr','Are you ready for this?'],
+ ['skip','SKIP IT, MON','','Zero coconuts. We tried so you don’t have to.']
+];
+
+var R=[
+{h:'grand-case',n:'Le Pressoir + Canne &amp; Melasse Rum Bar',c:3,cu:'French / Rum Bar',p:'$$$$',meals:['dinner'],side:'fr',
+ d:"Most amazing French menu + great service with the coolest Rum/Cigar Bar on the island. Repeatedly ranked the top restaurant in the Caribbean. We visit the Rum/Cigar bar often. Feels like you’re somewhere.",
+ web:'https://lepressoirsxm.com',warn:'Rum bar needs 2 days’ notice and a deposit for groups'},
+{h:'grand-case',n:'L’Auberge Gourmande',c:3,cu:'French',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Cozy French Country vibe, friendly owner Chantal. This has been one of Ryan’s favorites.",
+ tel:'+590590877337',email:'reservations@laubergegourmande.com',web:'https://laubergegourmande.com'},
+{h:'grand-case',n:'Ocean 82',c:3,cu:'Contemporary French / Seafood',p:'$$$$',meals:['dinner'],side:'fr',
+ d:"Reliably consistent service &amp; quality experience, especially for picky eaters.",
+ tel:'+590590529812',web:'https://ocean82.fr'},
+{h:'grand-case',n:'Spiga',c:2,cu:'Italian',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Italian with French vibe, super friendly, cozy dining room.",
+ tel:'+590690611082',wa:'590690611082',email:'spiga.sxm@gmail.com',web:'https://spigasxm.com'},
+{h:'grand-case',n:'La Villa',c:2,cu:'French',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Nice people, good food, always busy. We always feel a bit rushed which is not typical of French dining experiences.",
+ tel:'+590690501204',wa:'590690501204',web:'https://lavillasxm.com',warn:'OpenTable'},
+{h:'grand-case',n:'Le Cottage',c:2,cu:'French / Seafood',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Cute spot, friendly folks, local favorite.",
+ tel:'+590690563269',email:'le.cottage@live.fr',web:'https://lecottagesxm.com'},
+{h:'grand-case',n:'Bistrot Caraibes',c:2,cu:'French',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Top-rated Caribbean favorite, but tight quarters. Famous for the lobsters.",
+ tel:'+590590290829',email:'bistrotcaraibes@yahoo.fr',web:'https://bistrot-caraibes.com',warn:'OpenTable'},
+{h:'grand-case',n:'Calmos Café',c:2,cu:'International / Seafood',p:'$$$',meals:['lunch','dinner'],side:'fr',
+ d:"Probably THE friendliest vibe on Restaurant Row. Ask for a table down on the beach.",
+ wa:'590690479318',email:'calmoscafesxm@gmail.com',web:'https://calmoscafesxm.com'},
+{h:'grand-case',n:'Rainbow Café &amp; Beach Bar',c:1,cu:'Fusion / Sushi',p:'$$$',meals:['lunch'],side:'fr',
+ d:"Great daytime, Instagrammable spot, but feels overpriced for dinner. Music can get loud and people can get annoying. But it’s not hard to understand why it’s always packed. There’s a nice little boutique for the ladies on the top floor that’s worth the steps.",
+ web:'https://rainbowcafesxm.com'},
+{h:'grand-case',n:'Temps des Cerises',c:3,cu:'French Creole / Dessert',p:'$$',meals:['lunch'],side:'fr',
+ d:"We LOVE this place. It’s our #1 Go-To if we’re spending a day in Grand Case. We’ve stayed at the hotel on staycations because we love it so much. It’s a charming little spot with pretty incredible food. Beach chairs are comfy and perfectly distanced from the EDM blasting out of Rainbow Café.",
+ web:'https://ltclaplage.com/fr',warn:'Great lunch spot'},
+{h:'grand-case',n:'Balaou',c:3,cu:'Seafood / Local · floating bar',p:'$$–$$$',meals:['lunch'],side:'fr',
+ d:"Rustic floating bar – great casual lunch spot. Wear your bathing suit because you’ll be chillin’ on floating seats. You need a reservation because the boat has to pick you up to take you there. Kind of hard not to drink too much.",
+ web:'https://balaou-restaurant.com',warn:'Reservation required — the boat collects you'},
+{h:'grand-case',n:'Friars Bay Beach Café',c:3,cu:'French Bistro meets Beachy Speakeasy',p:'$$',meals:['lunch'],side:'fr',
+ d:"This is an IYKYK place. Chairs are $10/person. Food is fantastic. Vibe is unlike any other.",
+ warn:'Just go. No booking.'},
+{h:'skip',n:'Java',c:0,cu:'Mediterranean / Bar',p:'$$',meals:[],side:'fr',
+ d:"Ok for a cocktail and a view but not much else. We tried it twice. Just disappointing."},
+{h:'skip',n:'Lolos',c:0,cu:'Creole',p:'$',meals:[],side:'fr',
+ d:"Don’t do it. Do NOT do it. A “lolo” is a small, traditional, open-air restaurant, typically centered around a barbecue, offering local Caribbean cuisine. They’re on every island we’ve visited. They’re known for their “authentic flavors,” lively atmosphere, and community spirit. But that does not mean you should eat at one. The ribs are dry. The lobster is overcooked. I cook better…and that’s sayin’ somethin’. We strongly advise you to politely pass by."},
+
+{h:'anse-marcel',n:'Le Gourmet',c:3,cu:'French-Caribbean fusion',p:'$$$',meals:['dinner'],side:'fr',
+ d:"There aren’t words qualified enough to describe the French vibe and the stunning exclusivity.",
+ web:'https://instagram.com/legourmetsxm',warn:'Reserve at ledomaineansemarcelbeach.com'},
+{h:'anse-marcel',n:'The Beach House',c:3,cu:'French-Caribbean fusion',p:'$$',meals:['lunch'],side:'fr',
+ d:"Get chairs (or don’t), get your cocktails, get in the water, get out, eat lunch, cry a little from the overwhelming joy of it all. Get back in the water. Laugh out loud at the absurdity of what you’re experiencing. Repeat as often as possible.",
+ web:'https://instagram.com/anse_marcel_beach_house'},
+
+{h:'orient-bay',n:'Orange Fever',c:null,cu:'Beach Grill / French',p:'$$',meals:['lunch'],side:'fr',
+ d:"Our fave. Consistently great french food, cheap comfy loungers, toes in the sand. The tuna tartare is always a hit.",
+ web:'https://orangefeversxm.com',warn:'WhatsApp, walk-in or call ahead'},
+{h:'orient-bay',n:'La Plage',c:null,cu:'French / Beach Fusion · at La Playa Hotel',p:'$$',meals:['lunch'],side:'fr',
+ d:"Stylish, breezy, and perfect for sipping rosé over grilled fish or salad Niçoise. Renée likes this one. REALLY cranky bartender (if you just sit at the bar)…it’s his schtick…roll with it.",
+ web:'https://hotel-laplaya.com'},
+{h:'orient-bay',n:'Coco Beach',c:null,cu:'French / Beach Bistro',p:'$$$',meals:['lunch'],side:'fr',
+ d:"Upscale beach club energy with fresh ingredients and artisan cocktails. Incredible food. Nice, private beachfront. A bougie day for sure. Surf can get a little rough at that end of the beach, though.",
+ web:'https://cocobeachsxm.com',warn:'Book chairs and lunch'},
+{h:'orient-bay',n:'Good Morning Café',c:null,cu:'Breakfast / Brunch / Lunch',p:'$$',meals:['breakfast','lunch'],side:'fr',
+ d:"Bright and casual café with great coffee, pastries, and light bites. A local fave to start the day but would save your tummy space for Lunch on the beach.",
+ web:'https://facebook.com/goodmorningsxm/',warn:'Walk-ins welcome'},
+{h:'orient-bay',n:'L’Atelier Bar à Viande',c:3,cu:'French / Steakhouse',p:'$$$$',meals:['dinner'],side:'fr',
+ d:"Sophisticated and cool. Carnivore heaven with cool apps and excellent wine pairing. Not cheap and the steaks aren’t better than the ones we buy from The Butcher who supplies the mega yachts, but if you have a hankerin’ for steak, this is pretty much THE place to go for the highest quality. (You can still get great steaks at just about any French restaurant, but this is the Ruth’s Chris of SXM.)",
+ wa:'590690267233',web:'https://latelier-sxm.com'},
+{h:'orient-bay',n:'Maison Mère',c:3,cu:'French with Creole flair',p:'$$$$',meals:['dinner'],side:'fr',
+ d:"Warm &amp; convivial with refined menu &amp; classy cocktails. Tablecloths. Colonial Caribbean vibe.",
+ tel:'+590690381139',web:'https://maisonmeresxm.com'},
+{h:'orient-bay',n:'Le Bouchon',c:3,cu:'French Bistro',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Quintessential bistro with rotating chalkboard menu. Local favorite for foodies. Ryan loves this place because he eats organs and weird animal parts. This is rustic French country cooking. Renée accommodates because there is a dessert here that is TO DIE FOR: raspberry clafoutis. It’s insanely good. Crème brulee meets raspberry tart.",
+ tel:'+590690563990',web:'https://facebook.com/lebouchonsxm'},
+{h:'orient-bay',n:'SAO Asian Factory',c:2,cu:'Thai / Japanese / Fusion',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Stylish, modern decor with great sushi and Thai classics.",
+ tel:'+590590874673',web:'https://sao-sxm.com'},
+{h:'orient-bay',n:'Ti Palm',c:2,cu:'French / Creole',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Hidden gem with intimate atmosphere, homemade dishes, and great wine.",
+ tel:'+590690716218',web:'https://facebook.com/tipalmsxm'},
+{h:'orient-bay',n:'Le Plantation Restaurant',c:2,cu:'French / Continental',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Peaceful terrace dining tucked away in Hotel La Plantation. Intimate and flavorful.",
+ tel:'+590590874273',web:'https://hotel-plantation.com'},
+{h:'orient-bay',n:'Le Sud',c:2,cu:'French / Mediterranean',p:'$$$',meals:['dinner'],side:'fr',
+ d:"Airy, modern, and welcoming with fresh local seafood and creative dishes.",
+ tel:'+590690563456',web:'https://lesud-sxm.com'},
+{h:'orient-bay',n:'Yellow Sub / Pirate Hideout',c:1,cu:'Pub / Caribbean Bites',p:'$$',meals:['lunch','dinner'],side:'fr',
+ d:"Casual, good for drinks &amp; game-watching.",warn:'Walk-ins welcome'},
+{h:'orient-bay',n:'Hibiscus',c:null,cu:'French Gastronomic',p:'$$$$$$$$',meals:['dinner'],side:'fr',
+ d:"Elegant and artistic plating, ideal for a refined dinner. Hidden away in Hope Estate. Let us be clear. This is an “experience.” We went for Valentine’s Day. 7 courses of highly unique and memorable fusions. It was rather expensive but kind of a once-in-a-lifetime gastronomic experience. We would go there again if we were with folks who want to do something you could only do in a few major cities in the world…NY, Tokyo, Paris…except the prices would be higher and the service would be better in those cities.",
+ tel:'+590690748366',web:'https://facebook.com/restaurantlehibiscus',warn:'Refined dining'},
+
+{h:'oyster-pond',n:'BZH Crêperie',c:3,cu:'Breton crêpes &amp; galettes',p:'$$',meals:['breakfast','lunch','dinner'],side:'fr',
+ d:"Charming, homey, and just all-around easy roadside gem, on the corner, just before you drop into Oyster Pond from the north. Perfect for a brunchy bite or a sweet treat. Real-deal crêpes and cider that’ll transport you to Brittany—SXM-style. Great, friendly service too. We like it for dinner and you 100% need a reservation.",
+ tel:'+590690101601',web:'https://bzh-oysterpond.com',warn:'Reservation essential for dinner'},
+{h:'oyster-pond',n:'Mama Pizza',c:2,cu:'Italian / Pizza / Pasta',p:'$$',meals:['lunch','dinner'],side:'sx',
+ d:"No-frills neighborhood spot with what might just be the best pizza on the island. (Only other rival is a French pizza truck, but you never know where it’ll be.) Fresh ingredients, fast service, and a local-favorite vibe. Great view overlooking the Pond. Grab it to go or enjoy it with a cold Carib on their covered patio. Best pizza on the menu? Steph’s Favorite. (Trust us.)",
+ web:'https://mamapizzasxm.com',warn:'First come, first served'},
+{h:'oyster-pond',n:'Big Fish',c:1,cu:'Contemporary Seafood',p:'$$$',meals:['dinner'],side:'sx',
+ d:"Upscale Caribbean chic with candlelit tables and fresh-catch specials. Great spot for a romantic dinner or celebratory meal or a REALLY big party (ask for the “big table”), especially if you want something on the fancier side but still island relaxed. We aren’t huge fans because it makes us feel like we’re in Miami. And the portions are absurdly large. We had to roll ourselves home the last time we went. But people dig it. So maybe you will, too.",
+ tel:'+17215222066',web:'https://facebook.com/bigfish2020'},
+
+{h:'simpson-bay',n:'Bamboo House',c:3,cu:'International Fusion · Cole Bay',p:'$$$',meals:['dinner'],side:'sx',
+ d:"Let’s be real—this ain’t where you go for an unforgettable plate, but it’s absolutely where you go for an unforgettable killer sunset cocktail and de best view of de lagoon and airport. Bamboo House is perched high up in Cole Bay and offers epic, panoramic, jaw-dropping nighttime views that you won’t forget. The vibe is chill, breezy, and perfect for one last drink before heading home. I usually dress up a little extra for Bamboo. Just feels like the right thing to do. This is often our “goodbye SXM” spot for visitors—and there’s no better send-off.",
+ tel:'+17215239494',web:'https://bamboohouse-sxm.com',warn:'Coconuts for the view, not the food'},
+{h:'simpson-bay',n:'Babacool',c:3,cu:'French! · beach club',p:'$$$',meals:['lunch','dinner'],side:'sx',
+ d:"Just opened in August 2025…this place makes Simpson Bay a next-level experience. We try to pop in there to sit on the bar swings for a cocktail every Saturday. It’s vibe-y AF. If you’re in Simpson Bay and haven’t stopped in here, you haven’t experienced the best of Simpson Bay. If the waves are a bit much for you, it’s the only beach club on the island with a pool. Coooooool.",
+ wa:'17215238896',web:'https://babacoolsxm.com',warn:'Michelin-star chef'},
+{h:'simpson-bay',n:'Tap &amp; Still',c:2,cu:'Burgers, dogs and wings',p:'$',meals:['lunch','dinner'],side:'sx',
+ d:"Island vibe. Sports on TVs. Franchise in the USVI. We hit it every Saturday on the way back from the beach. $3 happy hour from 3pm – 6pm. Like, not rail drinks, real drinks…$3. It's nuts. Also, really good fries. Don’t skip the fries. Ryan loves the milkshakes with a shot of peanut butter whiskey on top. Renée is lactose intolerant as it is, but: Dairy + Alcohol = Hospital.",
+ web:'https://tapstill.com/sxm.php',warn:'$3 happy hour 3–6pm'},
+{h:'simpson-bay',n:'Emilio’s Restaurant',c:1,cu:'Caribbean/International Fusion · Emilio Wilson Estate',p:'$$$',meals:['breakfast','lunch'],side:'sx',
+ d:"Historic estate vibes (and a little museum) with breezy open-air seating and live jazz that sets the tone. Think bottomless mimosas, decadent dishes like truffle eggs Benedict, fried plantain, and Caribbean-style breakfast platters. Family-friendly, but elegant enough for a special treat. The setting is unique…but…it’s not French.",
+ tel:'+17215221848',web:'https://facebook.com/emiliossxm',warn:'Sunday brunch — reservations essential'},
+{h:'simpson-bay',n:'Sint Maarten Yacht Club',c:2,cu:'Bar food · next to the drawbridge',p:'$–$$',meals:['lunch','dinner'],side:'sx',
+ d:"Definitely gotta stop in during the high season when the mega yachts are here to watch them squeeeeeeeeze through the drawbridge opening. Many have scraped their sides and more than a handful have literally taken the controller’s booth out. It’s a spectator sport, to be sure.",
+ web:'https://smyc.com'},
+{h:'simpson-bay',n:'Huppel the Pub',c:1,cu:'All the weird Dutch fried mystery meats you can handle',p:'$',meals:['lunch','dinner'],side:'sx',
+ d:"Legit Dutch pub. No frills. Just frikandels and such. Smakelijk eten.",
+ web:'https://huppelthepub.com'},
+
+{h:'bakeries',n:'Sébastien Quillere Pâtisserie',c:3,cu:'Chef Pâtissier, Glaçier, Chocolatier · Mont Vernon',p:'Who Cares',meals:['breakfast'],side:'fr',
+ d:"Just look at this place… It’s INSANE. It’s not “in” Grand Case, but it’s not too far. Frankly, I’d make the trip if I had to crawl there—and you’ve seen the roads here. It’s THAT good.",
+ web:'https://instagram.com/sebastienqpatisserie'},
+{h:'bakeries',n:'La Sucrière',c:null,cu:'Bakery · Simpson Bay',p:'$',meals:['breakfast'],side:'sx',
+ d:"",web:'https://instagram.com/lasucrieresxm'},
+{h:'bakeries',n:'Chez Fernand la French Bakery',c:null,cu:'Bakery · Marigot',p:'$',meals:['breakfast'],side:'fr',
+ d:"",web:'https://instagram.com/chezfernandsxm'},
+{h:'bakeries',n:'The Express by Bacchus',c:null,cu:'Bakery · Hope Estate',p:'$',meals:['breakfast','lunch'],side:'fr',
+ d:"They have good baguette sandwiches, too."}
+];
+
+var POSTCARDS=[['Grand Case','Restaurant row'],['Le Pressoir','Top in the Caribbean'],['Temps des Cerises','Our #1 lunch'],['Babacool','Bar swings'],['Bamboo House','The goodbye spot'],['Sébastien Quillere','Worth the crawl']];
+
+var active={};
+function esc(s){return s;}
+function renderRail(){
+ document.getElementById('rail').innerHTML=POSTCARDS.map(function(p){
+  return '<figure class="pc" style="margin:0">'+
+   '<svg class="ph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Photo placeholder">'+
+   '<rect width="420" height="260" fill="#F2E6D6"/><rect y="150" width="420" height="46" fill="#E8CFC0"/>'+
+   '<rect y="196" width="420" height="64" fill="#E3D2AE"/><circle cx="330" cy="70" r="30" fill="#F5D3A8"/>'+
+   '<g stroke="#C3B79C" stroke-width="2" stroke-dasharray="6 6" fill="none"><rect x="10" y="10" width="400" height="240" rx="4"/></g>'+
+   '<rect x="86" y="112" width="248" height="36" rx="4" fill="#FFFDF5" opacity=".88"/>'+
+   '<text x="210" y="136" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="17" letter-spacing="3" fill="#8A97A0">PHOTOS TO COME</text>'+
+   '</svg><figcaption class="cap"><b>'+p[0]+'</b> · '+p[1]+'</figcaption></figure>';
+ }).join('');
+}
+function renderChips(){
+ document.getElementById('chips-hood').innerHTML=HOODS.filter(function(h){return h[0]!=='skip';}).map(function(h){
+   return '<span class="chip" data-k="h:'+h[0]+'">'+h[1].replace('&amp;','&')+'</span>';}).join('');
+ document.getElementById('chips-coco').innerHTML=
+   '<span class="chip co" data-k="c:3"><img src="'+CO+'" alt="">Three only</span>'+
+   '<span class="chip co" data-k="c:2">Two and up</span>'+
+   '<span class="chip" data-k="c:skip">Show the skips</span>';
+ document.getElementById('chips-when').innerHTML=
+   ['breakfast','lunch','dinner'].map(function(m){
+     return '<span class="chip" data-k="m:'+m+'">'+m.charAt(0).toUpperCase()+m.slice(1)+'</span>';}).join('')+
+   '<span class="chip" data-k="p:cheap">$ – $$</span>';
+}
+function keys(pre){return Object.keys(active).filter(function(k){return active[k]&&k.indexOf(pre)===0;})
+  .map(function(k){return k.split(':')[1];});}
+function matches(r){
+ var hs=keys('h:'),cs=keys('c:'),ms=keys('m:'),ps=keys('p:');
+ var showSkips=cs.indexOf('skip')>-1;
+ if(r.c===0&&!showSkips)return false;
+ if(hs.length&&hs.indexOf(r.h)===-1)return false;
+ if(cs.indexOf('3')>-1&&r.c!==3)return false;
+ if(cs.indexOf('2')>-1&&!(r.c>=2))return false;
+ if(ms.length&&!ms.some(function(m){return (r.meals||[]).indexOf(m)>-1;}))return false;
+ if(ps.indexOf('cheap')>-1&&!/^\$\$?(–|$)/.test(r.p||''))return false;
+ return true;
+}
+function actions(r){
+ var a=[];
+ if(r.tel)a.push('<a class="act" href="tel:'+r.tel+'">Call</a>');
+ if(r.wa)a.push('<a class="act o" href="https://wa.me/'+r.wa+'" target="_blank" rel="noopener">WhatsApp</a>');
+ if(r.email)a.push('<a class="act o" href="mailto:'+r.email+'">Email</a>');
+ if(r.web)a.push('<a class="act o" href="'+r.web+'" target="_blank" rel="noopener">Website<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>');
+ if(r.warn)a.push('<span class="warn">'+r.warn+'</span>');
+ return a.length?'<div class="acts">'+a.join('')+'</div>':'';
+}
+function card(r){
+ var cls='card'+(r.c===3?' top':'')+(r.c===0?' skip':'');
+ var h='<article class="'+cls+'">';
+ h+='<div class="chead"><div><p class="nm">'+r.n+' <img class="flag" src="'+(r.side==='fr'?FR:SX)+'" alt="'+(r.side==='fr'?'French side':'Dutch side')+'"></p>'+
+    '<p class="meta">'+r.cu+' · '+r.p+'</p></div>';
+ if(r.c===0)h+='<span class="pill">Skip it, mon</span>';
+ else if(r.c)h+='<span class="coco">'+Array.apply(null,Array(r.c)).map(function(_,i){
+   var rot=[-8,5,-4][i]||0;return '<img src="'+CO+'" style="transform:rotate('+rot+'deg)" alt="">';}).join('')+'</span>';
+ h+='</div>';
+ if(r.d)h+='<p class="desc">'+r.d+'</p>';
+ h+=actions(r)+'</article>';
+ return h;
+}
+function render(){
+ var out='',shown=0;
+ HOODS.forEach(function(hd){
+   var list=R.filter(function(r){return r.h===hd[0]&&matches(r);});
+   if(!list.length)return;
+   list.sort(function(a,b){return (b.c===null?-1:b.c)-(a.c===null?-1:a.c);});
+   shown+=list.length;
+   out+='<section class="sec" id="'+hd[0]+'"><h2>'+hd[1]+'</h2><p class="note">'+hd[3]+'</p>'+
+        '<div class="cards">'+list.map(card).join('')+'</div></section>';
+ });
+ if(!shown)out='<p class="empty">Nothing matches all of those at once. Try dropping one.</p>';
+ document.getElementById('out').innerHTML=out;
+ document.getElementById('count').textContent=shown+(shown===1?' place':' places');
+}
+function setChip(k,on){active[k]=on;var el=document.querySelector('.chip[data-k="'+k+'"]');if(el)el.classList.toggle('on',!!on);}
+renderRail();renderChips();render();
+document.addEventListener('click',function(e){
+ var c=e.target.closest?e.target.closest('.chip'):null;
+ if(c){setChip(c.dataset.k,!active[c.dataset.k]);render();return;}
+ var m=e.target.closest?e.target.closest('[data-meal]'):null;
+ if(m){e.preventDefault();active={};
+   [].forEach.call(document.querySelectorAll('.chip'),function(x){x.classList.remove('on');});
+   setChip('m:'+m.dataset.meal,true);render();
+   document.querySelector('.filters').scrollIntoView({behavior:'smooth'});return;}
+ if(e.target.id==='clear'){active={};
+   [].forEach.call(document.querySelectorAll('.chip'),function(x){x.classList.remove('on');});render();}
+});
+
+(function(){
+  var d=new Date();
+  document.getElementById('wx-date').textContent=d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+  var url='https://api.open-meteo.com/v1/forecast?latitude=18.03&longitude=-63.05&current=temperature_2m,wind_speed_10m,wind_direction_10m&daily=precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FPuerto_Rico&forecast_days=1';
+  function dir(g){var c=['N','NE','E','SE','S','SW','W','NW'];return c[Math.round(g/45)%8];}
+  function paint(w){
+    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'°';
+    document.getElementById('wx-wind').textContent=Math.round(w.wind)+' mph '+dir(w.deg);
+    document.getElementById('wx-rain').textContent=Math.round(w.rain)+'%';
+    document.getElementById('wx-date').textContent=w.label;
+  }
+  try{var c=localStorage.getItem('sxm-wx');if(c)paint(JSON.parse(c));}catch(e){}
+  fetch(url).then(function(r){return r.json();}).then(function(j){
+    var w={temp:j.current.temperature_2m,wind:j.current.wind_speed_10m,deg:j.current.wind_direction_10m,
+      rain:(j.daily.precipitation_probability_max||[0])[0],
+      label:d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})+' · updated '+
+        d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}).toLowerCase().replace(' ','')};
+    paint(w);try{localStorage.setItem('sxm-wx',JSON.stringify(w));}catch(e){}
+  }).catch(function(){});
+  function iso(x){return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');}
+  function nice(n){return n.toLocaleString('en-US');}
+  function lst(a){if(a.length===1)return a[0];if(a.length===2)return a[0]+' and '+a[1];
+    return a.slice(0,-1).join(', ')+' and '+a[a.length-1];}
+  function ships(data){
+    var today=iso(d),tom=iso(new Date(d.getTime()+86400000));
+    var inp=data.arrivals.filter(function(a){return a.date===today;});
+    var nxt=data.arrivals.filter(function(a){return a.date===tom;});
+    var chipEl=document.getElementById('wx-ships'),adv=document.getElementById('wx-advice');
+    var pax=inp.reduce(function(s,a){return s+(a.pax||0);},0);
+    var m=d.getMonth(),sun=d.getDay()===0,high=(m===11||m<=3),sarg=(m>=3&&m<=8),bits=[];
+    if(!inp.length){chipEl.textContent='No ships';
+      var t='No ships in port.';if(nxt.length)t+=' '+(nxt.length===1?'One arrives':nxt.length+' arrive')+' tomorrow.';
+      bits.push(t);
+    }else{chipEl.textContent=inp.length===1?'1 ship':inp.length+' ships';
+      var who=lst(inp.map(function(a){return a.ship;}));
+      bits.push(pax>=6000
+        ? who+' in port — about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Crossing to the French side will be slow too, so pick a beach on whichever side you’re staying rather than fighting the traffic.'
+        : who+' in port — about '+nice(pax)+' people. Philipsburg busy, Maho gets the overflow, roads otherwise fine.');
+    }
+    if(high)bits.push('It’s high season, so traffic is bad regardless of ships — the flights fill the island just as much.');
+    else if(!inp.length)bits.push('Low season, so everything is quieter than it looks.');
+    if(sun)bits.push(high?'Sunday: most of Philipsburg is shut. The boardwalk and a few bars stay open, but don’t plan a day around it.'
+      :'Sunday in low season: Philipsburg is mostly closed — a few chairs on Great Bay and not much else. There aren’t enough people on island to keep places open.');
+    if(sarg)bits.push('Sargassum season — the Atlantic-facing beaches (Orient, Le Galion, Dawn, Coconut Grove) are the ones to check before you drive out.');
+    adv.textContent=bits.join(' ');
+  }
+  try{var cs=localStorage.getItem('sxm-ships');if(cs)ships(JSON.parse(cs));}catch(e){}
+  fetch('ships.json').then(function(r){return r.json();}).then(function(s){
+    ships(s);try{localStorage.setItem('sxm-ships',JSON.stringify(s));}catch(e){}
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
