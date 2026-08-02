@@ -27,12 +27,13 @@ body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-we
 #gate .box{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:84%;max-width:330px;
  background:#FFFDF5;border-radius:10px;padding:22px 20px 20px;text-align:center;box-shadow:0 16px 44px rgba(3,40,48,.38)}
 #gate p{font-family:Caveat,cursive;font-style:italic;font-size:20px;color:#3C4A52;margin:0 0 16px;line-height:1.4}
+#gate p.hi{font-weight:600;font-size:27px;color:#0A5F86;margin:0 0 4px}
 #gate .nb{white-space:nowrap}
 #gate input{width:100%;padding:13px 15px;border:1px solid #CFE0E4;border-radius:6px;background:#F7FBFB;font-family:Inter,sans-serif;font-size:16px;color:#0A4A55;text-align:center;margin-bottom:9px}
 #gate input:focus{outline:none;border-color:#2C6B4E;background:#fff}
 #gate button{width:100%;padding:14px 15px;border:none;border-radius:6px;background:#2C6B4E;color:#FFFDF5;font-family:Montserrat,sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.16em;cursor:pointer}
 #gate button:hover{background:#245740}
-#gate .err{font-family:Inter,sans-serif;font-style:normal;font-size:13.5px;color:#8A3320;margin:13px 0 0;line-height:1.45;min-height:19px}
+#gate .err{font-family:Inter,sans-serif;font-style:normal;font-weight:600;font-size:13.5px;color:#8A3320;margin:13px 0 0;line-height:1.45;min-height:19px}
 body.locked{overflow:hidden}
 body.locked .wrap{display:none}
 .wrap{max-width:480px;margin:0 auto;background:var(--cream)}
@@ -156,7 +157,8 @@ footer{padding:34px 32px 22px}
 <rect x="6" y="6" width="328" height="458" fill="none" stroke="#FFFDF5" stroke-width="2.2" rx="2"/>
 </svg>
 <div class="box">
-<p>Hi. This is just for friends and family.<br>You'll need <span class="nb">the password.</span></p>
+<p class="hi">Bonjour!</p>
+<p>This guide is just for friends and family.<br>You'll need <span class="nb">the password.</span></p>
 <input id="gate-in" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="what's the word?" aria-label="Password">
 <button id="gate-go">SHOW ME</button>
 <p class="err" id="gate-err"></p>
