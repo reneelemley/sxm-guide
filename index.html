@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>R&amp;R's Guide To SXM</title>
+<meta name="description" content="Where to go and what to do on the island we call home.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@1,9..144,600&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--sky:#12A5AC; --hill:#2C6B4E; --hill2:#1F5138; --palm:#12402F; --trunk:#123528;
+--deep:#0A5F86; --mid:#1189AC; --turq:#22B2CB; --light:#5FD3DE; --pale:#A9E7EE;
+--cream:#FFFDF5; --paper:#FFF6E2; --sand:#E6CE92; --sand2:#F2DFAE;
+--coral:#E8542F; --coral2:#D94F2B; --gold:#E0A32B; --green:#2C6B4E; --magenta:#C7306B; --teal2:#0E7F8F;
+--ink:#3C4A52; --footer:#0A4A55; --footer-rule:#1B6570; --footer-head:#7FD4DC; --footer-link:#D6EEF2; --footer-mute:#9FCDD4;
+--banner:#FDF0DA; --banner-rule:#EBC98A; --banner-ink:#7A5410; --banner-head:#8A5F12; --banner-mute:#A6813C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:480px;margin:0 auto;background:var(--cream)}
+.poster{display:block;width:100%;height:auto}
+/* banner */
+.banner{background:var(--banner);border-bottom:1px solid var(--banner-rule);padding:9px 14px 10px}
+.banner-top{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.banner-label{margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:var(--banner-head)}
+.banner-date{margin-left:auto;font-size:9.5px;color:var(--banner-mute)}
+.wxrow{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:6px 0 8px}
+.wx{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--banner-ink)}
+.wx img{width:15px;height:15px}
+.wx b{font-weight:600}
+.wxdiv{width:1px;height:14px;background:#E4C68A;flex:none}
+.banner p.advice{margin:0;font-size:11.5px;color:var(--banner-ink);line-height:1.45}
+/* letter */
+.letter{padding:20px 18px 8px}
+.letter p{font-family:Caveat,cursive;font-style:italic;font-weight:500;font-size:19px;color:var(--ink);margin:0 0 10px;line-height:1.5}
+.letter p.salutation{margin-bottom:6px}
+.letter p.signoff{margin-bottom:2px}
+.letter p.names{font-size:21px;margin:10px 0 18px}
+/* tiles */
+.tiles{padding:0 14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{border-radius:4px;padding:12px 6px 10px;text-align:center;border:1.5px solid var(--cream);text-decoration:none;display:block}
+.tile .badge{width:44px;height:44px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #FFFDF7,0 2px 5px rgba(0,0,0,.2);margin:0 auto}
+.tile .badge img{width:26px;height:26px}
+.tile h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12.5px;margin:7px 0 0}
+.tile p{font-size:10px;margin:2px 0 0;line-height:1.3}
+/* footer */
+footer{background:var(--footer);padding:22px 16px 16px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.fcol{margin-bottom:16px}
+.fcol h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--footer-head);margin:0 0 6px}
+.fcol a{display:block;font-size:11.5px;color:var(--footer-link);margin:0 0 4px;line-height:1.45;text-decoration:none}
+.fcol a img{width:11px;height:11px;vertical-align:-1px;margin-left:4px}
+.fbottom{border-top:1px solid var(--footer-rule);padding-top:14px;margin-top:2px;text-align:center}
+.fbottom .eyebrow{font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:12px;color:var(--footer-head);margin:0}
+.fbottom .mark{font-family:Montserrat,sans-serif;font-weight:800;font-size:20px;letter-spacing:.12em;color:var(--cream);margin:1px 0 0}
+.fbottom .legal{font-size:11px;color:var(--footer-mute);margin:11px 0 0;line-height:1.6}
+.fbottom a{color:var(--footer-head)}
+@media(min-width:700px){
+.wrap{max-width:960px;padding:0 24px}
+.poster{max-width:460px;margin:24px auto 0;border-radius:2px}
+.banner{max-width:600px;margin:20px auto 0;border:1px solid var(--banner-rule);border-radius:6px}
+.letter{max-width:600px;margin:0 auto;padding-top:28px}
+.letter p{font-size:22px}
+.tiles{grid-template-columns:repeat(4,1fr);max-width:900px;margin:0 auto;padding-bottom:34px}
+.fgrid{grid-template-columns:repeat(4,1fr);max-width:900px;margin:0 auto}
+.fbottom{max-width:900px;margin:2px auto 0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<svg class="poster" viewBox="0 0 340 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="R and R's Guide to SXM, Saint-Martin and Sint Maarten">
+<defs>
+<g id="crown">
+<path d="M0 0C-36 0-64 18-86 52C-56 26-26 14 4 14Z"/><path d="M0 0C-34-20-60-30-90-30C-58-18-26-8 2 6Z"/>
+<path d="M0 0C-18-30-18-58-4-86C-10-54-6-26 4-2Z"/><path d="M0 0C8-32 26-56 54-72C30-48 14-24 8-2Z"/>
+<path d="M0 0C28-22 60-32 90-26C60-18 28-6 8 6Z"/><path d="M0 0C34 0 62 18 84 50C56 26 26 14 2 14Z"/>
+<path d="M0 0C-24 18-40 46-42 80C-34 48-18 24 0 14Z"/><path d="M0 0C22 20 36 48 36 82C28 48 14 24 0 14Z"/>
+</g>
+<g id="lounger"><path d="M0 6h27l-1.5 4.5H1z" fill="#C7306B"/><path d="M0 6l-11-9.5 3.4-4L5 2z" fill="#C7306B"/><path d="M4 10.5v4.5M22 10.5v4.5" stroke="#8C1E4A" stroke-width="1.4"/></g>
+</defs>
+<rect width="340" height="470" fill="#12A5AC"/>
+<g fill="#FFF6E2" opacity=".92">
+<path d="M14 62c2-5 10-7 18-6 5-4 15-5 21-2 7-2 17-1 20 3 8-1 15 1 17 5z"/>
+<path d="M10 96c1.8-4.4 8-6.2 15-5.2 4.4-3.6 13-4.4 18-1.8 6-1.8 14.6-.8 17 2.6 7-.8 13 1 15 4.4z"/>
+<path d="M248 52c2-4.6 9-6.4 16-5.4 4.6-3.8 13.4-4.6 19-2 6.2-2 15-1 17 3 7.4-1 13.6 1 15.6 4.4z"/>
+</g>
+<path d="M0 166c22-13 48-17 74-11 18 4 30-6 50-8 22-2 36 8 54 8 20 0 38-8 58-4 22 4 40 10 60 6h44v20H0z" fill="#2C6B4E"/>
+<path d="M0 178c26-11 50-13 74-7 20 5 34-4 54-6 20-2 34 8 52 8 20 0 38-6 58-2 22 4 42 8 62 4h40v16H0z" fill="#1F5138"/>
+<rect y="192" width="340" height="150" fill="#0A5F86"/>
+<path d="M0 216c56-11 112 3 168-6s114 1 172-8v34C282 248 226 258 168 251S56 242 0 249z" fill="#1189AC"/>
+<path d="M0 247c54-10 110 5 166-4s116 3 174-6v32C280 281 224 292 166 285S54 276 0 283z" fill="#22B2CB"/>
+<path d="M0 281c52-9 108 7 164-2s118 5 176-4v30C278 315 222 326 164 319S52 310 0 317z" fill="#5FD3DE"/>
+<path d="M0 315c52-8 108 8 164-2s120 6 176-3v26C278 348 222 359 164 352S52 344 0 351z" fill="#A9E7EE"/>
+<g transform="translate(196,204)"><path d="M26 0l14 40H26z" fill="#FFFDF5"/><path d="M22 7L8 40h14z" fill="#E9DCBC"/><path d="M4 41h40l-4 4H8z" fill="#0E3A4C"/></g>
+<g transform="translate(272,222) scale(.55)"><path d="M26 0l14 40H26z" fill="#FFFDF5" opacity=".9"/><path d="M22 7L8 40h14z" fill="#E9DCBC" opacity=".9"/><path d="M4 41h40l-4 4H8z" fill="#0E3A4C" opacity=".9"/></g>
+<g stroke="#FFFDF5" stroke-width="2.8" fill="none" stroke-linecap="round" opacity=".95"><path d="M0 266c52-9 108 6 164-3s114 4 176-6"/><path d="M0 302c50-8 106 7 162-2s118 5 178-5"/></g>
+<path d="M0 346c52-8 108 9 164-2s122 7 176-4v130H0z" fill="#FFFDF5"/>
+<path d="M0 357c52-8 108 9 164-2s122 7 176-4v119H0z" fill="#F2DFAE"/>
+<path d="M0 370c52-7 108 8 164-2s122 6 176-4v106H0z" fill="#E6CE92"/>
+<g fill="#D3B274" opacity=".5"><g transform="translate(124,436) scale(1.02,.4)"><use href="#crown"/></g><path d="M124 436c26 10 52 20 74 34-26-10-52-20-74-28z"/></g>
+<g transform="translate(184,392)"><use href="#lounger"/></g><g transform="translate(240,394)"><use href="#lounger"/></g>
+<path d="M218 388v28" stroke="#2A2A2A" stroke-width="2.4"/><ellipse cx="218" cy="417" rx="6" ry="2" fill="#2A2A2A"/>
+<path d="M190 388c4-17 10-25 28-27 18 2 24 10 28 27-9-5-18-7-28-7s-19 2-28 7z" fill="#E8542F"/>
+<path d="M218 361v-5" stroke="#E8542F" stroke-width="2.4"/>
+<path d="M190 388c9-4 18-6 28-6s19 2 28 6" fill="none" stroke="#B8371A" stroke-width="1.2"/>
+<path d="M44 470C34 404 30 300 50 184" stroke="#123528" stroke-width="9.5" fill="none" stroke-linecap="round"/>
+<g fill="#12402F"><use href="#crown" transform="translate(50,184)"/></g>
+<circle cx="45" cy="192" r="4.2" fill="#6E4118"/><circle cx="56" cy="194" r="3.6" fill="#6E4118"/>
+<path d="M302 470c12-66 16-176-4-306" stroke="#123528" stroke-width="8.5" fill="none" stroke-linecap="round"/>
+<g fill="#12402F"><use href="#crown" transform="translate(298,164) scale(-1,1)"/></g>
+<circle cx="303" cy="172" r="4" fill="#6E4118"/><circle cx="292" cy="174" r="3.4" fill="#6E4118"/>
+<text x="170" y="46" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="600" font-size="15" fill="#FFF6E2">R&amp;R's Guide To</text>
+<text x="175" y="104" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800" font-size="60" letter-spacing="7" fill="#FFFDF5">SXM</text>
+<text x="173" y="124" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="600" font-size="9.5" letter-spacing="3" fill="#FFFDF5">SAINT-MARTIN · SINT MAARTEN</text>
+<rect x="6" y="6" width="328" height="458" fill="none" stroke="#FFFDF5" stroke-width="2.2" rx="2"/>
+</svg>
+
+<section class="banner" id="today">
+<div class="banner-top">
+<p class="banner-label">TODAY IN SXM</p>
+<span class="banner-date" id="wx-date">—</span>
+</div>
+<div class="wxrow">
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/2600.svg" alt=""><b id="wx-temp">—</b></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f4a8.svg" alt=""><span id="wx-wind">—</span></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f327.svg" alt=""><span id="wx-rain">—</span></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6a2.svg" alt=""><span id="wx-ships">2 ships</span></span>
+</div>
+<p class="advice" id="wx-advice">Philipsburg and Maho will be packed and the roads slow until about four — good day for the French side.</p>
+</section>
+
+<section class="letter">
+<p class="salutation">Dear Friends &amp; Family,</p>
+<p>The first thing you need to know is to get your mind right the minute you step off the plane. You've arrived in paradise — but nothing here works quite right, and you won't see one moment of efficiency the whole time you're here.</p>
+<p>If you can get into that headspace, this island will be the gift that keeps on giving.</p>
+<p class="signoff">Have fun. Be safe. And for the love of God, don't tip like an American.</p>
+<p class="names">— Renée &amp; Ryan</p>
+</section>
+
+<nav class="tiles">
+<a class="tile" href="day-one/" style="background:#0A5F86"><span class="badge" style="transform:rotate(-5deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6c2.svg" alt=""></span><h2 style="color:#FFFDF5">Day One</h2><p style="color:#AFD3E2">Get your mind right</p></a>
+<a class="tile" href="beaches/" style="background:#1189AC"><span class="badge" style="transform:rotate(4deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f3d6.svg" alt=""></span><h2 style="color:#FFFDF5">Beaches</h2><p style="color:#BEE4EE">There are 37</p></a>
+<a class="tile" href="eat/" style="background:#D94F2B"><span class="badge" style="transform:rotate(-3deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f37d.svg" alt=""></span><h2 style="color:#FFF3DC">Eat</h2><p style="color:#F8CDBF">Why we moved here</p></a>
+<a class="tile" href="things-to-do/" style="background:#2C6B4E"><span class="badge" style="transform:rotate(5deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/26f5.svg" alt=""></span><h2 style="color:#FFFDF5">Things To Do</h2><p style="color:#BBD6C5">Ten top tings</p></a>
+<a class="tile" href="getting-around/" style="background:#E0A32B"><span class="badge" style="transform:rotate(-4deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f695.svg" alt=""></span><h2 style="color:#4A3105">Getting Around</h2><p style="color:#6B4B10">No Uber here</p></a>
+<a class="tile" href="groceries/" style="background:#C7306B"><span class="badge" style="transform:rotate(4deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6d2.svg" alt=""></span><h2 style="color:#FFFDF5">Groceries</h2><p style="color:#F5C6D9">Bring your own bags</p></a>
+<a class="tile" href="where-to-stay/" style="background:#0E7F8F"><span class="badge" style="transform:rotate(-5deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f3e8.svg" alt=""></span><h2 style="color:#FFFDF5">Where To Stay</h2><p style="color:#B6E0E6">Our top 3 hotels</p></a>
+<a class="tile" href="grumpys/" style="background:#E8542F"><span class="badge" style="transform:rotate(5deg)"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f379.svg" alt=""></span><h2 style="color:#FFF3DC">Grumpy's</h2><p style="color:#FAD0C2">You can find us here</p></a>
+</nav>
+
+<footer>
+<div class="fgrid">
+<div class="fcol"><h3>DAY ONE</h3>
+<a href="day-one/#comms">Comms &amp; Apps</a><a href="day-one/#cash">Cash &amp; Tipping</a><a href="day-one/#passport">Passport &amp; Borders</a><a href="day-one/#dogs">Coconut Retrievers</a><a href="day-one/#safety">Safety</a></div>
+<div class="fcol"><h3>BEACHES</h3>
+<a href="beaches/#french">French Beaches</a><a href="beaches/#dutch">Dutch Beaches</a><a href="beaches/#favorites">Local Favorites</a><a href="beaches/#upscale">Worth Getting Dressed For</a><a href="beaches/#busy">Busy &amp; Buzzing</a><a href="beaches/#skip">Skip These</a><a href="beaches/#planner">Beach Planner</a></div>
+<div class="fcol"><h3>EAT</h3>
+<a href="eat/#grand-case">Grand Case</a><a href="eat/#anse-marcel">Anse Marcel</a><a href="eat/#orient-bay">Orient Bay</a><a href="eat/#oyster-pond">Oyster Pond</a><a href="eat/#simpson-bay">Cole Bay &amp; Simpson Bay</a><a href="eat/#lunch">Lunch Spots</a><a href="eat/#dinner">Dinner Spots</a><a href="eat/#bakeries">French Bakeries</a><a href="eat/#skip">Skip It, Mon</a></div>
+<div class="fcol"><h3>THINGS TO DO</h3>
+<a href="things-to-do/#excursions">Excursions</a><a href="things-to-do/#day-trips">Island Day Trips</a><a href="things-to-do/#ziplines">Ziplines &amp; Adventure</a><a href="things-to-do/#boats">Boats &amp; Snorkeling</a><a href="things-to-do/#crawl">Beach Bar Crawl</a></div>
+<div class="fcol"><h3>GETTING AROUND</h3>
+<a href="getting-around/#taxis">Taxis</a><a href="getting-around/#buses">Buses</a><a href="getting-around/#cars">Rental Cars</a></div>
+<div class="fcol"><h3>GROCERIES</h3>
+<a href="groceries/#french">French Side</a><a href="groceries/#dutch">Dutch Side</a><a href="groceries/#bodegas">Bodegas</a></div>
+<div class="fcol"><h3>WHERE TO STAY</h3>
+<a href="where-to-stay/">Our Top 3 Hotels</a><a href="#">R&amp;R BnB <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f512.svg" alt="password protected"></a></div>
+</div>
+<div class="fbottom">
+<p class="eyebrow">R&amp;R's Guide To</p>
+<p class="mark">SXM</p>
+<p class="legal">Hosted By Renée &amp; Ryan<br>© 2026 All rights reserved.<br>Have feedback? <a href="feedback/">Let us know.</a></p>
+</div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var d=new Date();
+  document.getElementById('wx-date').textContent=d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+  var LAT=18.03, LON=-63.05;
+  var url='https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+
+    '&current=temperature_2m,precipitation,wind_speed_10m,wind_direction_10m&daily=precipitation_probability_max'+
+    '&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FPuerto_Rico&forecast_days=1';
+  function dir(deg){var c=['N','NE','E','SE','S','SW','W','NW'];return c[Math.round(deg/45)%8];}
+  function paint(w){
+    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'°';
+    document.getElementById('wx-wind').textContent=Math.round(w.wind)+' mph '+dir(w.deg);
+    document.getElementById('wx-rain').textContent=Math.round(w.rain)+'%';
+    document.getElementById('wx-date').textContent=w.label;
+  }
+  try{
+    var cached=localStorage.getItem('sxm-wx');
+    if(cached){paint(JSON.parse(cached));}
+  }catch(e){}
+  fetch(url).then(function(r){return r.json();}).then(function(j){
+    var w={temp:j.current.temperature_2m,wind:j.current.wind_speed_10m,deg:j.current.wind_direction_10m,
+      rain:(j.daily.precipitation_probability_max||[0])[0],
+      label:d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})+' · updated '+
+        d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}).toLowerCase().replace(' ','')};
+    paint(w);
+    try{localStorage.setItem('sxm-wx',JSON.stringify(w));}catch(e){}
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
