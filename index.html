@@ -108,9 +108,9 @@ footer{padding:34px 32px 22px}
 <div id="gate">
 <div class="box">
 <div class="stamp"><span><i>R&amp;R's Guide To</i><b>SXM</b></span></div>
-<p>Hi. This one's just for friends and family. If we gave you the word, put it in.</p>
-<input id="gate-in" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="the word" aria-label="Access word">
-<button id="gate-go">LET ME IN</button>
+<p>Hi. This is just for friends and family. You'll need the password.</p>
+<input id="gate-in" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="what's the word?" aria-label="Password">
+<button id="gate-go">SHOW ME THE ISLAND</button>
 <p class="err" id="gate-err"></p>
 </div>
 </div>
@@ -240,7 +240,7 @@ footer{padding:34px 32px 22px}
   function tryIt(){
     var v=(inp.value||'').trim().toLowerCase().replace(/\s+/g,'');
     if(v===KEY){try{localStorage.setItem('sxm-key',KEY);}catch(e){}unlock();}
-    else{err.textContent='That’s not it. Ask us again.';inp.select();}
+    else{err.textContent='Sorry, ce n’est pas ça. Ask us for it again if you can’t remember it.';inp.select();}
   }
   if(btn){btn.addEventListener('click',tryIt);
     inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryIt();});
