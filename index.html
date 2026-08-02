@@ -20,6 +20,19 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+/* access gate */
+#gate{position:absolute;inset:0;min-height:100vh;background:#0E8E96;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+#gate .box{text-align:center;max-width:340px;width:100%}
+#gate .stamp{display:inline-block;border:2px solid #F2A93B;border-radius:8px;padding:4px;margin-bottom:22px}
+#gate .stamp span{display:block;border:1px solid #F2A93B;border-radius:5px;padding:10px 22px}
+#gate .stamp i{display:block;font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:13px;color:#F2A93B;line-height:1}
+#gate .stamp b{display:block;font-family:Montserrat,sans-serif;font-weight:800;font-size:40px;letter-spacing:.1em;color:var(--cream);line-height:1.05}
+#gate p{font-family:Caveat,cursive;font-style:italic;font-size:19px;color:#FFF6E2;margin:0 0 18px;line-height:1.45}
+#gate input{width:100%;padding:13px 15px;border:1px solid #7FD4DC;border-radius:6px;background:#FFFDF5;font-family:Inter,sans-serif;font-size:16px;color:#0A4A55;text-align:center;margin-bottom:10px}
+#gate button{width:100%;padding:13px 15px;border:none;border-radius:6px;background:#E8542F;color:#FFF3DC;font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;cursor:pointer}
+#gate .err{font-family:Inter,sans-serif;font-style:normal;font-size:12px;color:#FFD9CE;margin:12px 0 0;min-height:16px}
+body.locked{overflow:hidden}
+body.locked .wrap{display:none}
 .wrap{max-width:480px;margin:0 auto;background:var(--cream)}
 .poster{display:block;width:100%;height:auto}
 /* banner */
@@ -90,7 +103,18 @@ footer{padding:34px 32px 22px}
 }
 </style>
 </head>
-<body>
+<body class="locked">
+
+<div id="gate">
+<div class="box">
+<div class="stamp"><span><i>R&amp;R's Guide To</i><b>SXM</b></span></div>
+<p>Hi. This one's just for friends and family. If we gave you the word, put it in.</p>
+<input id="gate-in" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="the word" aria-label="Access word">
+<button id="gate-go">LET ME IN</button>
+<p class="err" id="gate-err"></p>
+</div>
+</div>
+
 <div class="wrap">
 <section class="hero"><div class="hero-inner">
 
@@ -207,6 +231,21 @@ footer{padding:34px 32px 22px}
 </div>
 
 <script>
+(function(){
+  var KEY='friendlyisland';
+  function unlock(){document.body.classList.remove('locked');
+    var g=document.getElementById('gate');if(g)g.parentNode.removeChild(g);}
+  try{if(localStorage.getItem('sxm-key')===KEY){unlock();}}catch(e){}
+  var inp=document.getElementById('gate-in'),btn=document.getElementById('gate-go'),err=document.getElementById('gate-err');
+  function tryIt(){
+    var v=(inp.value||'').trim().toLowerCase().replace(/\s+/g,'');
+    if(v===KEY){try{localStorage.setItem('sxm-key',KEY);}catch(e){}unlock();}
+    else{err.textContent='That’s not it. Ask us again.';inp.select();}
+  }
+  if(btn){btn.addEventListener('click',tryIt);
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryIt();});
+    if(document.body.classList.contains('locked'))setTimeout(function(){inp.focus();},120);}
+})();
 (function(){
   var d=new Date();
   document.getElementById('wx-date').textContent=d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
