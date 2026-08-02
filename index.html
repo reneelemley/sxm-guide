@@ -21,16 +21,18 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 /* access gate */
-#gate{position:absolute;inset:0;min-height:100vh;background:#0E8E96;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
-#gate .box{text-align:center;max-width:340px;width:100%}
-#gate .stamp{display:inline-block;border:2px solid #F2A93B;border-radius:8px;padding:4px;margin-bottom:22px}
-#gate .stamp span{display:block;border:1px solid #F2A93B;border-radius:5px;padding:10px 22px}
-#gate .stamp i{display:block;font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:13px;color:#F2A93B;line-height:1}
-#gate .stamp b{display:block;font-family:Montserrat,sans-serif;font-weight:800;font-size:40px;letter-spacing:.1em;color:var(--cream);line-height:1.05}
-#gate p{font-family:Caveat,cursive;font-style:italic;font-size:19px;color:#FFF6E2;margin:0 0 18px;line-height:1.45}
-#gate input{width:100%;padding:13px 15px;border:1px solid #7FD4DC;border-radius:6px;background:#FFFDF5;font-family:Inter,sans-serif;font-size:16px;color:#0A4A55;text-align:center;margin-bottom:10px}
-#gate button{width:100%;padding:13px 15px;border:none;border-radius:6px;background:#E8542F;color:#FFF3DC;font-family:Montserrat,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;cursor:pointer}
-#gate .err{font-family:Inter,sans-serif;font-style:normal;font-size:12px;color:#FFD9CE;margin:12px 0 0;min-height:16px}
+#gate{position:absolute;inset:0;min-height:100vh;background:#12A5AC;z-index:100;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#gate .frame{position:relative;height:100vh;aspect-ratio:340/470;max-width:100vw}
+#gate .frame>svg{display:block;width:100%;height:100%}
+#gate .box{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:84%;max-width:330px;
+ background:#FFFDF5;border-radius:10px;padding:22px 20px 20px;text-align:center;box-shadow:0 16px 44px rgba(3,40,48,.38)}
+#gate p{font-family:Caveat,cursive;font-style:italic;font-size:20px;color:#3C4A52;margin:0 0 16px;line-height:1.4}
+#gate .nb{white-space:nowrap}
+#gate input{width:100%;padding:13px 15px;border:1px solid #CFE0E4;border-radius:6px;background:#F7FBFB;font-family:Inter,sans-serif;font-size:16px;color:#0A4A55;text-align:center;margin-bottom:9px}
+#gate input:focus{outline:none;border-color:#2C6B4E;background:#fff}
+#gate button{width:100%;padding:14px 15px;border:none;border-radius:6px;background:#2C6B4E;color:#FFFDF5;font-family:Montserrat,sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.16em;cursor:pointer}
+#gate button:hover{background:#245740}
+#gate .err{font-family:Inter,sans-serif;font-style:normal;font-size:13.5px;color:#8A3320;margin:13px 0 0;line-height:1.45;min-height:19px}
 body.locked{overflow:hidden}
 body.locked .wrap{display:none}
 .wrap{max-width:480px;margin:0 auto;background:var(--cream)}
@@ -106,12 +108,59 @@ footer{padding:34px 32px 22px}
 <body class="locked">
 
 <div id="gate">
+<div class="frame">
+<svg viewBox="0 0 340 470" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin slice" role="img" aria-label="R and R's Guide to SXM">
+<defs>
+<g id="gcrown">
+<path d="M0 0C-36 0-64 18-86 52C-56 26-26 14 4 14Z"/><path d="M0 0C-34-20-60-30-90-30C-58-18-26-8 2 6Z"/>
+<path d="M0 0C-18-30-18-58-4-86C-10-54-6-26 4-2Z"/><path d="M0 0C8-32 26-56 54-72C30-48 14-24 8-2Z"/>
+<path d="M0 0C28-22 60-32 90-26C60-18 28-6 8 6Z"/><path d="M0 0C34 0 62 18 84 50C56 26 26 14 2 14Z"/>
+<path d="M0 0C-24 18-40 46-42 80C-34 48-18 24 0 14Z"/><path d="M0 0C22 20 36 48 36 82C28 48 14 24 0 14Z"/>
+</g>
+<g id="glounger"><path d="M0 6h27l-1.5 4.5H1z" fill="#C7306B"/><path d="M0 6l-11-9.5 3.4-4L5 2z" fill="#C7306B"/><path d="M4 10.5v4.5M22 10.5v4.5" stroke="#8C1E4A" stroke-width="1.4"/></g>
+</defs>
+<rect width="340" height="470" fill="#12A5AC"/>
+<g fill="#FFF6E2" opacity=".92">
+<path d="M14 62c2-5 10-7 18-6 5-4 15-5 21-2 7-2 17-1 20 3 8-1 15 1 17 5z"/>
+<path d="M10 96c1.8-4.4 8-6.2 15-5.2 4.4-3.6 13-4.4 18-1.8 6-1.8 14.6-.8 17 2.6 7-.8 13 1 15 4.4z"/>
+<path d="M248 52c2-4.6 9-6.4 16-5.4 4.6-3.8 13.4-4.6 19-2 6.2-2 15-1 17 3 7.4-1 13.6 1 15.6 4.4z"/>
+</g>
+<path d="M0 166c22-13 48-17 74-11 18 4 30-6 50-8 22-2 36 8 54 8 20 0 38-8 58-4 22 4 40 10 60 6h44v20H0z" fill="#2C6B4E"/>
+<path d="M0 178c26-11 50-13 74-7 20 5 34-4 54-6 20-2 34 8 52 8 20 0 38-6 58-2 22 4 42 8 62 4h40v16H0z" fill="#1F5138"/>
+<rect y="192" width="340" height="150" fill="#0A5F86"/>
+<path d="M0 216c56-11 112 3 168-6s114 1 172-8v34C282 248 226 258 168 251S56 242 0 249z" fill="#1189AC"/>
+<path d="M0 247c54-10 110 5 166-4s116 3 174-6v32C280 281 224 292 166 285S54 276 0 283z" fill="#22B2CB"/>
+<path d="M0 281c52-9 108 7 164-2s118 5 176-4v30C278 315 222 326 164 319S52 310 0 317z" fill="#5FD3DE"/>
+<path d="M0 315c52-8 108 8 164-2s120 6 176-3v26C278 348 222 359 164 352S52 344 0 351z" fill="#A9E7EE"/>
+<g transform="translate(196,204)"><path d="M26 0l14 40H26z" fill="#FFFDF5"/><path d="M22 7L8 40h14z" fill="#E9DCBC"/><path d="M4 41h40l-4 4H8z" fill="#0E3A4C"/></g>
+<g transform="translate(272,222) scale(.55)"><path d="M26 0l14 40H26z" fill="#FFFDF5" opacity=".9"/><path d="M22 7L8 40h14z" fill="#E9DCBC" opacity=".9"/><path d="M4 41h40l-4 4H8z" fill="#0E3A4C" opacity=".9"/></g>
+<g stroke="#FFFDF5" stroke-width="2.8" fill="none" stroke-linecap="round" opacity=".95"><path d="M0 266c52-9 108 6 164-3s114 4 176-6"/><path d="M0 302c50-8 106 7 162-2s118 5 178-5"/></g>
+<path d="M0 346c52-8 108 9 164-2s122 7 176-4v130H0z" fill="#FFFDF5"/>
+<path d="M0 357c52-8 108 9 164-2s122 7 176-4v119H0z" fill="#F2DFAE"/>
+<path d="M0 370c52-7 108 8 164-2s122 6 176-4v106H0z" fill="#E6CE92"/>
+<g fill="#D3B274" opacity=".5"><g transform="translate(124,436) scale(1.02,.4)"><use href="#gcrown"/></g><path d="M124 436c26 10 52 20 74 34-26-10-52-20-74-28z"/></g>
+<g transform="translate(184,392)"><use href="#glounger"/></g><g transform="translate(240,394)"><use href="#glounger"/></g>
+<path d="M218 388v28" stroke="#2A2A2A" stroke-width="2.4"/><ellipse cx="218" cy="417" rx="6" ry="2" fill="#2A2A2A"/>
+<path d="M190 388c4-17 10-25 28-27 18 2 24 10 28 27-9-5-18-7-28-7s-19 2-28 7z" fill="#E8542F"/>
+<path d="M218 361v-5" stroke="#E8542F" stroke-width="2.4"/>
+<path d="M190 388c9-4 18-6 28-6s19 2 28 6" fill="none" stroke="#B8371A" stroke-width="1.2"/>
+<path d="M44 470C34 404 30 300 50 184" stroke="#123528" stroke-width="9.5" fill="none" stroke-linecap="round"/>
+<g fill="#12402F"><use href="#gcrown" transform="translate(50,184)"/></g>
+<circle cx="45" cy="192" r="4.2" fill="#6E4118"/><circle cx="56" cy="194" r="3.6" fill="#6E4118"/>
+<path d="M302 470c12-66 16-176-4-306" stroke="#123528" stroke-width="8.5" fill="none" stroke-linecap="round"/>
+<g fill="#12402F"><use href="#gcrown" transform="translate(298,164) scale(-1,1)"/></g>
+<circle cx="303" cy="172" r="4" fill="#6E4118"/><circle cx="292" cy="174" r="3.4" fill="#6E4118"/>
+<text x="170" y="46" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="600" font-size="15" fill="#FFF6E2">R&amp;R's Guide To</text>
+<text x="175" y="104" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800" font-size="60" letter-spacing="7" fill="#FFFDF5">SXM</text>
+<text x="173" y="124" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="600" font-size="9.5" letter-spacing="3" fill="#FFFDF5">SAINT-MARTIN · SINT MAARTEN</text>
+<rect x="6" y="6" width="328" height="458" fill="none" stroke="#FFFDF5" stroke-width="2.2" rx="2"/>
+</svg>
 <div class="box">
-<div class="stamp"><span><i>R&amp;R's Guide To</i><b>SXM</b></span></div>
-<p>Hi. This is just for friends and family. You'll need the password.</p>
+<p>Hi. This is just for friends and family.<br>You'll need <span class="nb">the password.</span></p>
 <input id="gate-in" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="what's the word?" aria-label="Password">
-<button id="gate-go">SHOW ME THE ISLAND</button>
+<button id="gate-go">SHOW ME</button>
 <p class="err" id="gate-err"></p>
+</div>
 </div>
 </div>
 
