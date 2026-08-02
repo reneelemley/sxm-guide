@@ -319,7 +319,7 @@ var POSTCARDS=[['Grand Case','Restaurant row'],['Le Pressoir','Top in the Caribb
 var active={};
 function score(r){
  if(r.c===null||r.c===undefined)return null;
- if(typeof r.c==='object')return Math.max.apply(null,Object.keys(r.c).map(function(k){return r.c[k];}));
+ if(r.c&&typeof r.c==='object')return Math.max.apply(null,Object.keys(r.c).map(function(k){return r.c[k];}));
  return r.c;
 }
 function nuts(n){
@@ -381,7 +381,7 @@ function card(r){
  h+='<div class="chead"><div><p class="nm">'+r.n+' <img class="flag" src="'+(r.side==='fr'?FR:SX)+'" alt="'+(r.side==='fr'?'French side':'Dutch side')+'"></p>'+
     '<p class="meta">'+r.cu+' · '+r.p+'</p></div>';
  if(sc===0)h+='<span class="pill">Skip it, mon</span>';
- else if(typeof r.c==='object'){
+ else if(r.c&&typeof r.c==='object'){
    h+='<span class="rates">'+Object.keys(r.c).map(function(k){
      return '<span class="rate"><span class="rlab">'+(RLAB[k]||k.toUpperCase())+'</span>'+nuts(r.c[k])+'</span>';}).join('')+'</span>';
  }
