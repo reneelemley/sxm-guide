@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Beaches · R&amp;R's Guide To SXM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@1,9..144,600&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--sky:#12A5AC;--cream:#FFFDF5;--paper:#FFF6E2;--ink:#3C4A52;--body:#57666F;--mute:#8A97A0;
+--deep:#0A5F86;--mid:#1189AC;--turq:#22B2CB;--coral:#E8542F;--gold:#E0A32B;--green:#2C6B4E;--magenta:#C7306B;
+--footer:#0A4A55;--footer-rule:#1B6570;--footer-head:#7FD4DC;--footer-link:#D6EEF2;--footer-mute:#9FCDD4;
+--banner:#FDF0DA;--banner-rule:#EBC98A;--banner-ink:#7A5410;--banner-head:#8A5F12;--banner-mute:#A6813C;
+--line:#E4D9CA;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+a{color:inherit}
+/* nav */
+.nav{background:#0E8E96;padding:10px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20}
+.nav .stamp{display:inline-block;border:1.5px solid #F2A93B;border-radius:5px;padding:2px;text-decoration:none;flex:none}
+.nav .stamp span{display:block;border:.5px solid #F2A93B;border-radius:3px;padding:2px 8px;text-align:center}
+.nav .stamp b{display:block;font-family:Montserrat,sans-serif;font-weight:800;font-size:14px;letter-spacing:.1em;color:var(--cream);line-height:1.05}
+.nav .stamp i{display:block;font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:7.5px;color:#F2A93B;line-height:1}
+.nav .crumb{font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:#BFEAEE;text-decoration:none}
+/* masthead */
+.mast{background:#0E8E96;padding:6px 16px 26px;text-align:center}
+.mast .badge{width:64px;height:64px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #FFFDF7,0 3px 8px rgba(3,40,48,.3);margin:0 auto 14px;transform:rotate(-6deg)}
+.mast .badge img{width:36px;height:36px}
+.mast h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:38px;letter-spacing:.1em;color:var(--cream);margin:0;line-height:1}
+.mast .sub{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.3em;color:#9CEFF7;margin:8px 0 0}
+.mast .blurb{font-family:Caveat,cursive;font-style:italic;font-size:19px;color:#FFF6E2;margin:14px auto 0;max-width:420px;line-height:1.45}
+/* banner */
+.banner{background:var(--banner);border-bottom:1px solid var(--banner-rule);padding:9px 14px 10px}
+.banner-top{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.banner-label{margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:var(--banner-head)}
+.banner-date{margin-left:auto;font-size:9.5px;color:var(--banner-mute)}
+.wxrow{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:6px 0 8px}
+.wx{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--banner-ink)}
+.wx img{width:15px;height:15px}
+.wxdiv{width:1px;height:14px;background:#E4C68A;flex:none}
+.banner p.advice{margin:0;font-size:11.5px;color:var(--banner-ink);line-height:1.45}
+.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px}
+.ext svg{width:10px;height:10px;flex:none}
+/* filters */
+.filters{padding:16px 14px 4px}
+.flabel{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--mute);margin:0 0 8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{font-size:12.5px;background:#fff;color:var(--deep);padding:6px 12px;border-radius:20px;border:1px solid var(--line);cursor:pointer;display:inline-flex;align-items:center;gap:5px;user-select:none}
+.chip img{width:16px;height:16px}
+.chip.on{background:var(--deep);color:var(--cream);border-color:var(--deep)}
+.chip.pl{background:#FDF0DA;border-color:#EBC98A;color:#7A5410}
+.chip.pl.on{background:var(--gold);border-color:var(--gold);color:#3E2A05}
+.fmeta{display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--mute);margin:0 0 6px}
+.clear{cursor:pointer;text-decoration:underline}
+/* sections + cards */
+.sec{padding:10px 14px 0}
+.sec h2{font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;letter-spacing:.09em;color:var(--deep);margin:14px 0 2px}
+.sec .note{font-size:12px;color:var(--mute);margin:0 0 10px;line-height:1.4}
+.cards{display:grid;grid-template-columns:1fr;gap:9px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.card.fave{border-left:4px solid var(--green);border-radius:0 12px 12px 0}
+.card.skip{background:#F4F1EA;border:1px dashed #C7BBA6}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.cname{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;color:var(--deep);margin:0;display:flex;align-items:center;gap:7px}
+.cname img.flag{width:18px;height:18px;border-radius:2px;flex:none}
+.rank{font-size:10px;background:#DCEBE1;color:#1E4A35;padding:3px 9px;border-radius:20px;white-space:nowrap;flex:none}
+.icons{display:flex;gap:3px;margin:7px 0 0}
+.icons img{width:17px;height:17px}
+.desc{margin:7px 0 9px;font-size:13.5px;color:var(--body);line-height:1.6}
+.card.skip .cname{color:#6B6153}
+.card.skip .desc{color:#6B6153;margin-bottom:0}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-size:11px;background:#EAF4F6;color:#0C3340;padding:3px 9px;border-radius:20px}
+.tag.warm{background:#F4EADB;color:#57472F}
+.tag.warn{background:#FDF0DA;color:#7A5410}
+.cam{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--coral);font-weight:500;text-decoration:none;margin-top:9px;border-bottom:1px solid #F3B9A6}
+.cam svg{width:11px;height:11px}
+.empty{padding:28px 14px;text-align:center;color:var(--mute);font-size:13px}
+/* footer */
+footer{background:var(--footer);padding:26px 16px 16px;margin-top:26px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.fcol{margin-bottom:16px}
+.fcol h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--footer-head);margin:0 0 6px}
+.fcol a{display:block;font-size:11.5px;color:var(--footer-link);margin:0 0 4px;line-height:1.45;text-decoration:none}
+.fcol a svg{width:10px;height:10px}
+.fbottom{border-top:1px solid var(--footer-rule);padding-top:14px;margin-top:2px;text-align:center}
+.fbottom .eyebrow{font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:12px;color:var(--footer-head);margin:0}
+.fbottom .mark{font-family:Montserrat,sans-serif;font-weight:800;font-size:20px;letter-spacing:.12em;color:var(--cream);margin:1px 0 0}
+.fbottom .legal{font-size:11px;color:var(--footer-mute);margin:11px 0 0;line-height:1.6}
+.fbottom a{color:var(--footer-head)}
+@media(min-width:820px){
+.nav,.mast,.banner,.filters,.sec,footer{padding-left:32px;padding-right:32px}
+.mast h1{font-size:54px}
+.mast .blurb{font-size:22px;max-width:520px}
+.banner{display:grid;grid-template-columns:auto 1fr;column-gap:30px;row-gap:5px;align-items:center}
+.banner-top{margin:0}.wxrow{margin:0;justify-content:flex-start;gap:22px}
+.wxdiv{display:none}.wx{font-size:13px}.wx img{width:17px;height:17px}
+.banner p.advice{font-size:13px;grid-column:1/-1}
+.ext{grid-column:1/-1;margin-top:0}
+.filters,.sec{max-width:1080px;margin:0 auto}
+.cards{grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fgrid{grid-template-columns:repeat(4,1fr);max-width:1080px;margin:0 auto}
+.fbottom{max-width:1080px;margin:6px auto 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<a class="stamp" href="./"><span><i>R&amp;R's Guide To</i><b>SXM</b></span></a>
+<a class="crumb" href="./">← ALL SECTIONS</a>
+</nav>
+
+<header class="mast">
+<div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f3d6.svg" alt=""></div>
+<h1>BEACHES</h1>
+<p class="sub">THIRTY-SEVEN OF THEM · THESE ARE THE ONES THAT COUNT</p>
+<p class="blurb">Want to snorkel, sip, or strip? Here's da keys to every type o' beach on de Friendly Island.</p>
+</header>
+
+<section class="banner" id="today">
+<div class="banner-top">
+<p class="banner-label">TODAY IN SXM</p>
+<span class="banner-date" id="wx-date">—</span>
+</div>
+<div class="wxrow">
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/2600.svg" alt=""><b id="wx-temp">—</b></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f4a8.svg" alt=""><span id="wx-wind">—</span></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f327.svg" alt=""><span id="wx-rain">—</span></span>
+<span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6a2.svg" alt=""><span id="wx-ships">—</span></span>
+</div>
+<p class="advice" id="wx-advice">Checking today's conditions…</p>
+<a class="ext" href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Check sargassum reports<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>
+</section>
+
+<section class="filters">
+<p class="flabel">WHAT ARE YOU AFTER</p>
+<div class="chips" id="chips-what"></div>
+<p class="flabel">PLANNING AROUND SOMETHING</p>
+<div class="chips" id="chips-plan"></div>
+<div class="fmeta"><span id="count">—</span><span class="clear" id="clear">clear all</span></div>
+</section>
+
+<main id="out"></main>
+
+<footer>
+<div class="fgrid">
+<div class="fcol"><h3>DAY ONE</h3><a href="day-one/#comms">Comms &amp; Apps</a><a href="day-one/#cash">Cash &amp; Tipping</a><a href="day-one/#passport">Passport &amp; Borders</a><a href="day-one/#dogs">Coconut Retrievers</a><a href="day-one/#safety">Safety</a></div>
+<div class="fcol"><h3>BEACHES</h3><a href="#french">French Beaches</a><a href="#dutch">Dutch Beaches</a><a href="#favorites">Local Favorites</a><a href="#upscale">Worth Getting Dressed For</a><a href="#busy">Busy &amp; Buzzing</a><a href="#skip">Skip These</a><a href="#planner">Beach Planner</a><a href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Sargassum Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
+<div class="fcol"><h3>EAT</h3><a href="eat/#grand-case">Grand Case</a><a href="eat/#anse-marcel">Anse Marcel</a><a href="eat/#orient-bay">Orient Bay</a><a href="eat/#oyster-pond">Oyster Pond</a><a href="eat/#simpson-bay">Cole Bay &amp; Simpson Bay</a><a href="eat/#lunch">Lunch Spots</a><a href="eat/#dinner">Dinner Spots</a><a href="eat/#bakeries">French Bakeries</a><a href="eat/#skip">Skip It, Mon</a></div>
+<div class="fcol"><h3>THINGS TO DO</h3><a href="things-to-do/#excursions">Excursions</a><a href="things-to-do/#day-trips">Island Day Trips</a><a href="things-to-do/#ziplines">Ziplines &amp; Adventure</a><a href="things-to-do/#boats">Boats &amp; Snorkeling</a><a href="things-to-do/#crawl">Beach Bar Crawl</a></div>
+<div class="fcol"><h3>GETTING AROUND</h3><a href="getting-around/#taxis">Taxis</a><a href="getting-around/#buses">Buses</a><a href="getting-around/#cars">Rental Cars</a></div>
+<div class="fcol"><h3>GROCERIES</h3><a href="groceries/#french">French Side</a><a href="groceries/#dutch">Dutch Side</a><a href="groceries/#bodegas">Bodegas</a></div>
+<div class="fcol"><h3>WHERE TO STAY</h3><a href="where-to-stay/">Our Top 3 Hotels</a><a href="#">R&amp;R BnB <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f512.svg" alt="password protected" style="width:11px;height:11px;vertical-align:-1px"></a></div>
+</div>
+<div class="fbottom">
+<p class="eyebrow">R&amp;R's Guide To</p>
+<p class="mark">SXM</p>
+<p class="legal">Hosted By Renée &amp; Ryan<br>© 2026 All rights reserved.<br>Have feedback? <a href="feedback/">Let us know.</a></p>
+</div>
+</footer>
+
+<script>
+var T='https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/';
+var FR=T+'1f1eb-1f1f7.svg', SX=T+'1f1f8-1f1fd.svg';
+var ICONS={
+ swim:{f:'1f3ca-200d-2640',t:'Swimmable'},
+ snorkel:{f:'1f93f',t:'Snorkel'},
+ cooler:{f:'1f3d6',t:'Cooler-friendly'},
+ eat:{f:'1f37d',t:'Food on the sand'},
+ water:{f:'1f3c4',t:'Watersports'},
+ sunset:{f:'1f305',t:'Sunset'},
+ nat:{f:'1f351',t:'Naturist'},
+ caution:{f:'1f6a7',t:'Use caution'}
+};
+var PLAN=[
+ ['calm','Always calm'],
+ ['quiet','Quiet on ship days'],
+ ['nosarg','Dodges sargassum'],
+ ['services','Has services'],
+ ['walk','Worth the walk']
+];
+var CAM={maho:'https://bookstmartin.com/maho-live-webcam/',great:'https://bookstmartin.com/great-bay-philipsburg-live-webcam/',simpson:'https://bookstmartin.com/simpson-bay-webcam/'};
+
+var BEACHES=[
+{s:'favorites',n:'Anse Marcel',side:'fr',rank:'#1 favorite',fave:1,i:['swim','snorkel','water','eat'],p:['calm','quiet','services'],
+ d:"French Riviera vibe, IYKYK. Go to Parking Lot #2, follow signs for Beach House du Domaine and spend the $40 on chairs. St John-style landscape, undeveloped, peaceful. The snorkeling is GREAT — swim out along the rocks and you'll see so many different reef fish. Just don't touch anything. The very definition of paradise.",
+ t:['$40 chairs','Boutik in high season']},
+{s:'favorites',n:'Mullet Bay',side:'sx',rank:'#2 favorite',fave:1,i:['swim','snorkel','cooler','water','sunset'],p:['nosarg','services'],
+ d:"Local favorite and one of ours. Swimmable, a few snorkel spots, great for coolers, and there are services if you don't feel like lugging anything. Ignore the “parking” guys — you don't have to talk to them, listen to them, or pay them. They're just taking advantage of tourists. That's what Caribbean ingenuity looks like.",
+ t:['Best swimming water','Rosie’s for a bucket of beer']},
+{s:'favorites',n:"Friar's Bay",side:'fr',i:['swim','cooler','eat','sunset'],p:['services'],
+ d:"Music, BBQ, sunset, family-friendly. Renée likes it. Ryan doesn't. Le sigh. The Beach Café here is an IYKYK spot — chairs are $10 a person and the food is fantastic.",
+ t:['$10 chairs','Beach café']},
+{s:'favorites',n:'Indigo Bay',side:'sx',i:['swim','snorkel','sunset'],p:['quiet','nosarg'],
+ d:"Peaceful, quiet, scenic, soft sand and clean. They just closed the French restaurant so there are no services now, which will probably make it quieter still. Decent snorkel wreck about thirty feet off the shore. Good for shell collecting if you're into that sort of thing.",
+ t:['Snorkel wreck','No services']},
+{s:'favorites',n:'Simpson Bay Beach',side:'sx',i:['swim','cooler','sunset'],p:['services'],cam:'simpson',
+ d:"Long and peaceful, not too crowded. Work your way down to Mary's Boon — chairs are free and the bar is friendly. Food's decent for being Dutch, but we wouldn't eat there on purpose, only in a pinch. The real star of Simpson is right next door: Babacool.",
+ t:['Free chairs at Mary’s Boon','Babacool next door']},
+{s:'favorites',n:'Cupecoy Beach',side:'sx',i:['cooler','sunset','nat'],p:['nosarg'],
+ d:"Cliffy, dramatic, and the sunset views are the whole point. Naturist in the western coves — and not just naturist, so consider yourself warned about what goes on down in 'dem 'dere caves. We haven't been down there. We all gotta draw lines in the sand somewhere.",
+ t:['Sunset','Clothing optional']},
+{s:'favorites',n:'Happy Bay',side:'fr',i:['swim','nat'],p:['quiet','walk'],
+ d:"Hidden gem. You walk a ten-minute trail to get there, but it's 100% worth the excursion. Simply beautiful, remote, and Caribbean AF.",
+ t:['Ten-minute trail','Bring water','No services']},
+{s:'favorites',n:'Le Galion',side:'fr',i:['swim','cooler','water'],p:['calm'],
+ d:"Calm and shallow, supposedly great for paddleboarding and kids. So we've been told — we've never actually been.",
+ t:['Good for kids','Sargassum-prone']},
+{s:'favorites',n:'Little Bay',side:'sx',i:['swim','snorkel','eat'],p:['calm'],
+ d:"Snorkeling with a sunken wreck and calm water. The entrance is gated for the Little Divi hotel, but you can just say you're going to the restaurant or up to the Fort and they'll let you through.",
+ t:['Sunken wreck','Gated entrance']},
+
+{s:'upscale',n:'Grand Case Beach',side:'fr',rank:'Do not miss',fave:1,i:['swim','eat','sunset'],p:['calm','nosarg','services'],
+ d:"Calm, beautiful, fine dining right on the sea. This is not a cooler spot — not on this island or any island in the Caribbean. Do NOT miss this. Do NOT skip this. Carve out a Grand Case beach day, shower up, and do a Grand Case dinner night. That's how you do it right.",
+ t:['Walk to dinner','Restaurant row']},
+{s:'upscale',n:'Baie Rouge',side:'fr',i:['swim','snorkel','sunset'],p:['quiet'],
+ d:"Gorgeous, pristine Caribbean beach, but only enjoyable when the sea is calm. Famously Instagrammable archway for the photo op. When the water's calm it's gin-clear, and there's decent fish-spotting near the rocks on the north side. Not a ton, but enough to entertain.",
+ t:['The archway','No services','Check conditions']},
+{s:'upscale',n:'Plum Bay',side:'fr',i:['sunset','caution'],p:['quiet'],
+ d:"Villa-lined and picturesque, but it gets rough and closes out with surf. Fine for a look and a sunset. We do not recommend swimming here.",
+ t:['Sunset only']},
+
+{s:'busy',n:'Orient Bay',side:'fr',i:['swim','water','eat','nat'],p:['services'],
+ d:"Watersports galore, lively beach clubs, some topless zones. Club O at the south end is full nudist — and not hot young people. Old people, fifty plus. Hear me now and believe me later: it ain't pretty. Stroll down if you're curious, they don't mind, but remember we warned you that you can't unsee what you'll see.",
+ t:['Beach clubs','Sargassum-prone']},
+{s:'busy',n:'Pinel Island',side:'fr',i:['swim','snorkel','eat'],p:['calm','services'],
+ d:"Calm water, a short ferry from Cul-de-Sac, and good snorkeling. Perfect for tourists and genuinely nice. Fills up fast by midday, so go early.",
+ t:['Ferry from Cul-de-Sac','Go early']},
+{s:'busy',n:'Maho Beach',side:'sx',i:['eat','caution'],cam:'maho',
+ d:"Plane-spotting thrill, not much of a swim. Lots of Americans, lots of alcohol, you get the gist. It's the Cancun of SXM. Must-see once. Check the box and move on.",
+ t:['Planes overhead','Once is enough']},
+{s:'busy',n:'Kim Sha Beach',side:'sx',i:['swim','water','eat'],p:['services'],
+ d:"Nightlife, beach bars and jet ski central. Buccaneer's Beach Bar is pretty rad.",
+ t:['Jet skis','Buccaneer’s']},
+{s:'busy',n:'Great Bay Beach',side:'sx',i:['swim','eat'],cam:'great',
+ d:"Closest beach to where we live and we never go, except to walk the promenade in the mornings for our steps. Really, really touristy. The only decent food is Holland House and Soho Beach. Green House does passable pub food and a pretty good Reuben when you just gotta have one. Famous for the old Courthouse, but everything shuts at five or six — you don't want to be there in the evening.",
+ t:['Cruise port','Boardwalk','Shuts at 5pm']},
+{s:'busy',n:'Dawn Beach',side:'sx',i:['caution'],
+ d:"Beautiful but often rough. Check conditions. This is the beach by the JW Marriott if you're after overpriced cocktails and vittles with an amazing view.",
+ t:['Rough water','Sargassum-prone']},
+
+{s:'skip',n:'Guana Bay',side:'sx',skip:1,
+ d:"Big waves, dangerous undertow, don't swim here. No reason to go at all, honestly. There are a ton of mansions in that bay so it's a nice view, but Irma destroyed the beachfront services that would have made it worth the trip."},
+{s:'skip',n:'Cole Bay Beach',side:'sx',skip:1,d:"Marina area, murky lagoon water. Ew."},
+{s:'skip',n:'Galisbay',side:'fr',skip:1,d:"Near the port, not for swimming."},
+{s:'skip',n:'Oyster Pond Beach',side:'sx',skip:1,d:"Marina-facing. Not a beach hangout."},
+{s:'skip',n:"Baie de L'Embouchure",side:'fr',skip:1,d:"Also called Coconut Grove. Breezy, sea grass, not swimmable. Takes sargassum badly."},
+{s:'skip',n:'Petit Case',side:'fr',skip:1,d:"Not a real beach destination."}
+];
+
+var SECTIONS=[
+ ['favorites','LOCAL FAVORITES','Cooler vibes. Where we actually go.'],
+ ['upscale','WORTH GETTING DRESSED FOR','Upscale, unique, and unmissable.'],
+ ['busy','BUSY &amp; BUZZING','Touristy, but you’ll probably want to see them once.'],
+ ['skip','SKIP THESE','We’re saving you the drive.']
+];
+
+var active={};
+function esc(s){return s;}
+function chip(k,label,img,cls){
+ return '<span class="chip '+(cls||'')+'" data-k="'+k+'">'+(img?'<img src="'+T+img+'.svg" alt="">':'')+label+'</span>';
+}
+function renderChips(){
+ document.getElementById('chips-what').innerHTML=Object.keys(ICONS).map(function(k){
+   return chip(k,ICONS[k].t,ICONS[k].f);}).join('');
+ document.getElementById('chips-plan').innerHTML=PLAN.map(function(p){
+   return chip(p[0],p[1],null,'pl');}).join('');
+}
+function matches(b){
+ var keys=Object.keys(active).filter(function(k){return active[k];});
+ if(!keys.length)return true;
+ if(b.skip)return false;
+ var have=(b.i||[]).concat(b.p||[]);
+ return keys.every(function(k){return have.indexOf(k)>-1;});
+}
+function card(b){
+ var cls='card'+(b.fave?' fave':'')+(b.skip?' skip':'');
+ var h='<article class="'+cls+'">';
+ h+='<div class="chead"><p class="cname">'+b.n+' <img class="flag" src="'+(b.side==='fr'?FR:SX)+'" alt="'+(b.side==='fr'?'French side':'Dutch side')+'"></p>';
+ if(b.rank)h+='<span class="rank">'+b.rank+'</span>';
+ h+='</div>';
+ if(b.i&&b.i.length){h+='<div class="icons">'+b.i.map(function(k){
+   return '<img src="'+T+ICONS[k].f+'.svg" title="'+ICONS[k].t+'" alt="'+ICONS[k].t+'">';}).join('')+'</div>';}
+ h+='<p class="desc">'+b.d+'</p>';
+ if(b.t&&b.t.length){h+='<div class="tags">'+b.t.map(function(t){
+   var c=/sargassum|rough|shuts|enough|conditions|No services/i.test(t)?'tag warn':'tag';
+   return '<span class="'+c+'">'+t+'</span>';}).join('')+'</div>';}
+ if(b.cam){h+='<a class="cam" href="'+CAM[b.cam]+'" target="_blank" rel="noopener">Live webcam<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>';}
+ h+='</article>';
+ return h;
+}
+function render(){
+ var out='',shown=0;
+ SECTIONS.forEach(function(s){
+   var list=BEACHES.filter(function(b){return b.s===s[0]&&matches(b);});
+   if(!list.length)return;
+   shown+=list.length;
+   out+='<section class="sec" id="'+s[0]+'"><h2>'+s[1]+'</h2><p class="note">'+s[2]+'</p><div class="cards">'+
+        list.map(card).join('')+'</div></section>';
+ });
+ if(!shown)out='<p class="empty">Nothing matches all of those at once. Try dropping one.</p>';
+ document.getElementById('out').innerHTML=out;
+ document.getElementById('count').textContent=shown+(shown===1?' beach':' beaches');
+}
+renderChips();render();
+document.addEventListener('click',function(e){
+ var c=e.target.closest?e.target.closest('.chip'):null;
+ if(c){var k=c.dataset.k;active[k]=!active[k];c.classList.toggle('on');render();}
+ if(e.target.id==='clear'){active={};
+   [].forEach.call(document.querySelectorAll('.chip'),function(x){x.classList.remove('on');});render();}
+});
+
+/* today in sxm */
+(function(){
+  var d=new Date();
+  document.getElementById('wx-date').textContent=d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+  var url='https://api.open-meteo.com/v1/forecast?latitude=18.03&longitude=-63.05&current=temperature_2m,wind_speed_10m,wind_direction_10m&daily=precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FPuerto_Rico&forecast_days=1';
+  function dir(g){var c=['N','NE','E','SE','S','SW','W','NW'];return c[Math.round(g/45)%8];}
+  function paint(w){
+    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'°';
+    document.getElementById('wx-wind').textContent=Math.round(w.wind)+' mph '+dir(w.deg);
+    document.getElementById('wx-rain').textContent=Math.round(w.rain)+'%';
+    document.getElementById('wx-date').textContent=w.label;
+  }
+  try{var c=localStorage.getItem('sxm-wx');if(c)paint(JSON.parse(c));}catch(e){}
+  fetch(url).then(function(r){return r.json();}).then(function(j){
+    var w={temp:j.current.temperature_2m,wind:j.current.wind_speed_10m,deg:j.current.wind_direction_10m,
+      rain:(j.daily.precipitation_probability_max||[0])[0],
+      label:d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})+' · updated '+
+        d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}).toLowerCase().replace(' ','')};
+    paint(w);try{localStorage.setItem('sxm-wx',JSON.stringify(w));}catch(e){}
+  }).catch(function(){});
+
+  function iso(x){return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');}
+  function nice(n){return n.toLocaleString('en-US');}
+  function lst(a){if(a.length===1)return a[0];if(a.length===2)return a[0]+' and '+a[1];
+    return a.slice(0,-1).join(', ')+' and '+a[a.length-1];}
+  function ships(data){
+    var today=iso(d),tom=iso(new Date(d.getTime()+86400000));
+    var inp=data.arrivals.filter(function(a){return a.date===today;});
+    var nxt=data.arrivals.filter(function(a){return a.date===tom;});
+    var chipEl=document.getElementById('wx-ships'),adv=document.getElementById('wx-advice');
+    var pax=inp.reduce(function(s,a){return s+(a.pax||0);},0);
+    var m=d.getMonth(),sun=d.getDay()===0,high=(m===11||m<=3),sarg=(m>=3&&m<=8),bits=[];
+    if(!inp.length){chipEl.textContent='No ships';
+      var t='No ships in port.';if(nxt.length)t+=' '+(nxt.length===1?'One arrives':nxt.length+' arrive')+' tomorrow.';
+      bits.push(t);
+    }else{chipEl.textContent=inp.length===1?'1 ship':inp.length+' ships';
+      var who=lst(inp.map(function(a){return a.ship;}));
+      bits.push(pax>=6000
+        ? who+' in port — about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Crossing to the French side will be slow too, so pick a beach on whichever side you’re staying rather than fighting the traffic.'
+        : who+' in port — about '+nice(pax)+' people. Philipsburg busy, Maho gets the overflow, roads otherwise fine.');
+    }
+    if(high)bits.push('It’s high season, so traffic is bad regardless of ships — the flights fill the island just as much.');
+    else if(!inp.length)bits.push('Low season, so everything is quieter than it looks.');
+    if(sun)bits.push(high?'Sunday: most of Philipsburg is shut. The boardwalk and a few bars stay open, but don’t plan a day around it.'
+      :'Sunday in low season: Philipsburg is mostly closed — a few chairs on Great Bay and not much else. There aren’t enough people on island to keep places open.');
+    if(sarg)bits.push('Sargassum season — the Atlantic-facing beaches (Orient, Le Galion, Dawn, Coconut Grove) are the ones to check before you drive out.');
+    adv.textContent=bits.join(' ');
+  }
+  try{var cs=localStorage.getItem('sxm-ships');if(cs)ships(JSON.parse(cs));}catch(e){}
+  fetch('ships.json').then(function(r){return r.json();}).then(function(s){
+    ships(s);try{localStorage.setItem('sxm-ships',JSON.stringify(s));}catch(e){}
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
