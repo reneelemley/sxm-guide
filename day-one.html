@@ -83,6 +83,25 @@ footer{background:var(--footer);padding:26px 16px 16px}
 .fgrid{grid-template-columns:repeat(4,1fr);max-width:1080px;margin:0 auto}
 .fbottom{max-width:1080px;margin:6px auto 0}
 }
+
+.shead{display:flex;align-items:center;gap:13px;margin:30px 0 10px}
+.shead .bdg{width:54px;height:54px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3.5px #FFFDF7,0 3px 7px rgba(0,0,0,.2);flex:none}
+.shead .bdg img{width:31px;height:31px}
+.shead h2{margin:0}
+.pq{font-family:Caveat,cursive;font-style:italic;font-weight:600;font-size:25px;color:var(--accent);line-height:1.35;margin:16px 0;padding-left:15px;border-left:3px solid #A9E7EE}
+.tagrow{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.tg{font-size:12.5px;background:#EAF4F6;color:#0C3340;padding:6px 12px;border-radius:20px}
+.tg b{font-weight:600}
+.cashlead{font-size:15px;color:var(--accent);font-weight:500;margin:0 0 8px}
+.dogcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;display:flex;gap:13px;align-items:flex-start;margin:4px 0 14px}
+.dogcard .bdg{width:44px;height:44px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #FFFDF7,0 2px 5px rgba(0,0,0,.18);flex:none;transform:rotate(-6deg)}
+.dogcard .bdg img{width:25px;height:25px}
+.dogcard b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;color:var(--accent);display:block;margin-bottom:3px}
+.dogcard p{margin:0 0 9px;font-size:14px}
+.safeblock{background:#FDF0DA;border:1px solid #EBC98A;border-radius:12px;padding:16px 18px;margin:6px 0 18px}
+.safeblock .pqs{font-family:Caveat,cursive;font-style:italic;font-weight:600;font-size:23px;color:#8A5F12;line-height:1.35;margin:0 0 10px}
+.safeblock p{color:#7A5410;font-size:14px;margin:0}
+.subhead{font-family:Montserrat,sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.09em;color:var(--accent);margin:24px 0 8px}
 </style>
 </head>
 <body>
@@ -91,47 +110,54 @@ footer{background:var(--footer);padding:26px 16px 16px}
 <a class="crumb" href="./">&larr; ALL SECTIONS</a>
 </nav>
 <header class="mast">
-<div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6c2.svg" alt=""></div>
+<div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/2708.svg" alt=""></div>
 <h1>DAY ONE</h1>
 <p class="sub">COMMS, CASH, DOGS &amp; DANGERS</p>
 <p class="blurb">Get your mind right the minute you step off the plane.</p>
 </header>
-<section class="sec" id="comms">
-<h2>COMMS &amp; APPS</h2>
+<section class="sec">
+<div class="shead" id="comms"><span class="bdg"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f4f1.svg" alt=""></span><h2>COMMS &amp; APPS</h2></div>
 <p>Download WhatsApp and set it up before you get here. It&rsquo;s what everyone here uses to communicate because cellular data is expensive down in these parts of the world. If you need to keep in touch with family at home, have them install it, as well, so you can call/text without a $10+/day international phone plan.</p>
 <p>While you&rsquo;re at it, download the We Are SXM app. It&rsquo;s a good reference. Not as good as this guide, but handy to have for things this guide doesn&rsquo;t care to cover.</p>
 <div class="acts"><a class="act" href="https://whatsapp.com" target="_blank" rel="noopener">Get WhatsApp</a><a class="act o" href="https://wearesxm.com/st-martin-st-maarten-app-we-are-sxm" target="_blank" rel="noopener">Get We Are SXM<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
-</section>
 
-<section class="sec" id="cash">
-<h2>CASH OR CARD</h2>
+<div class="shead" id="cash"><span class="bdg"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f4b5.svg" alt=""></span><h2>CASH OR CARD</h2></div>
 <p>They take the US dollar all over this island&mdash;god bless &lsquo;merica. There&rsquo;s no need to change money to Euros or Gilders. (We&rsquo;ve never actually seen a Gilder.) When the Euro is outpacing the dollar, they&rsquo;ll do the conversion, so it all stays easy.</p>
-<p>Generally, we pay with credit cards for all restaurants and bigger activities. You&rsquo;ll need cash for things like taxis, buses, low-ticket beach services, tipping grocery bagger boys as is expected here (we do $1/bag-ish), conservatively tipping beach boys if you get chairs/umbrellas, and conservatively tipping waiters/bartenders if and when you feel inclined (bartenders only make $8/hr).</p>
-</section>
+<p>Generally, we pay with credit cards for all restaurants and bigger activities.</p>
+<p class="cashlead">You&rsquo;ll need cash for:</p>
+<div class="tagrow">
+<span class="tg">Taxis</span><span class="tg">Buses</span><span class="tg">Low-ticket beach services</span>
+<span class="tg">Grocery bagger boys <b>$1/bag-ish</b></span>
+<span class="tg">Beach boys, if you get chairs</span>
+<span class="tg">Bartenders <b>they only make $8/hr</b></span>
+</div>
+<p>Tip the bagger boys as is expected here, tip beach boys conservatively if you get chairs or umbrellas, and tip waiters and bartenders conservatively if and when you feel inclined.</p>
 
-<section class="sec" id="passport">
-<h2>PASSPORT &amp; BORDERS</h2>
-<p>Do NOT carry your passport around with you. Once you clear customs, you won&rsquo;t need it again until you depart. It&rsquo;s an open border island. Vive La France! [And a hat tip to the Dutch for making it possible for us to live here thanks to the Dutch-American Friendship Treaty (DAFT).]</p>
-</section>
+<div class="shead" id="passport"><span class="bdg"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6c2.svg" alt=""></span><h2>PASSPORT &amp; BORDERS</h2></div>
+<p>Do NOT carry your passport around with you. Once you clear customs, you won&rsquo;t need it again until you depart.</p>
+<p class="pq">It&rsquo;s an open border island. Vive La France!</p>
+<p>[And a hat tip to the Dutch for making it possible for us to live here thanks to the Dutch-American Friendship Treaty (DAFT).]</p>
 
-<section class="sec" id="dogs">
-<h2>COCONUT RETRIEVERS</h2>
+<div class="shead" id="dogs"><span class="bdg"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f415.svg" alt=""></span><h2>COCONUT RETRIEVERS</h2></div>
 <p>Do NOT worry about all the stray dogs. They are better cared for here than any other island we&rsquo;ve been on in the Caribbean. They&rsquo;re called &ldquo;Coconut Retrievers&rdquo; because they&rsquo;re all mixed-breeds with the same Caribbean genes, typically a combination of retriever, dachshund, and bully breeds. Almost all of them have figured out how to find food or get someone to feed them. Almost all of them are friendly&hellip;especially the beach dogs.</p>
-<p>If seeing them wandering all over the place upsets you, make a donation to SXM Paws, or even better&hellip;adopt one.</p>
-<div class="acts"><a class="act" href="https://sxmpaws.com" target="_blank" rel="noopener">SXM Paws<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
-</section>
+<div class="dogcard">
+<span class="bdg"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f43e.svg" alt=""></span>
+<div><b>SXM Paws</b><p>If seeing them wandering all over the place upsets you, make a donation to SXM Paws, or even better&hellip;adopt one.</p>
+<div class="acts"><a class="act" href="https://sxmpaws.com" target="_blank" rel="noopener">Donate or adopt<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div></div>
+</div>
 
-<section class="sec" id="safety">
-<h2>SAFETY</h2>
-<div class="callout"><p>You&rsquo;re safer here than you are in Baltimore. That said, don&rsquo;t do dumb shit. #SafetyFirst</p></div>
-<p>Real talk, mon. SXM is a beautiful island full of warm people and unforgettable vibes&mdash;but like anywhere, you gotta stay street smart, especially after dark. Here&rsquo;s how to stay out of trouble.</p>
-<h2 style="font-size:13px;margin-top:20px">AREAS TO AVOID AT NIGHT</h2>
+<div class="shead" id="safety"><span class="bdg"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/26a0.svg" alt=""></span><h2>SAFETY</h2></div>
+<div class="safeblock">
+<p class="pqs">You&rsquo;re safer here than you are in Baltimore. That said, don&rsquo;t do dumb shit. #SafetyFirst</p>
+<p>Real talk, mon. SXM is a beautiful island full of warm people and unforgettable vibes&mdash;but like anywhere, you gotta stay street smart, especially after dark.</p>
+</div>
+<p class="subhead">AREAS TO AVOID AT NIGHT</p>
 <p>We do not recommend walking around Philipsburg or Marigot after dark. While both are vibrant by day, they can get sketchy at night&mdash;especially if you&rsquo;re unfamiliar with the area. These aren&rsquo;t spots for late-night strolls.</p>
 <p>Avoid the interior of the island at night too. That includes areas without well-lit roads or a strong tourist presence. You&rsquo;ll stand out as a visitor, and that can make you a target&mdash;like walkin&rsquo; through West Baltimore at 1am in flip-flops. Just don&rsquo;t do it.</p>
-<h2 style="font-size:13px;margin-top:20px">MOTORCYCLE RIDERS</h2>
+<p class="subhead">MOTORCYCLE RIDERS</p>
 <p>You&rsquo;ll notice a lot of local bikers on SXM&mdash;especially at night. Most are harmless, but some ride aggressively and try to intimidate drivers. Don&rsquo;t engage. Just give them space and don&rsquo;t escalate.</p>
 <p>If a motorcyclist ever pulls up aggressively or threatens you in any way, you have every right to protect yourself. Be alert, stay calm, and prioritize your safety. If you&rsquo;re in a vehicle and feel directly threatened&mdash;run that mo&rsquo; fo&rsquo; off the road&hellip;at least that&rsquo;s our game plan.</p>
-<h2 style="font-size:13px;margin-top:20px">RENTAL CARS = TOURIST TAGS</h2>
+<p class="subhead">RENTAL CARS = TOURIST TAGS</p>
 <p>Rental cars have identifiable license plates, and everyone on the island can spot them. In Sint Maarten (Dutch SXM), rental cars have a specific license plate prefix: &ldquo;R&rdquo;. This indicates that the vehicle is part of a rental fleet. That means people know you&rsquo;re not from around here&mdash;and at night, that can make you a mark.</p>
 <p>Be extra cautious where you park, don&rsquo;t leave valuables in plain sight, and stick to the main, well-traveled roads on the perimeter of the island.</p>
 </section>
