@@ -39,11 +39,10 @@ a{color:inherit}
 .rail-scroll{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 14px 10px;-webkit-overflow-scrolling:touch}
 .rail-scroll::-webkit-scrollbar{height:5px}
 .rail-scroll::-webkit-scrollbar-thumb{background:#DCD1BE;border-radius:3px}
-.pc{flex:0 0 84%;max-width:420px;scroll-snap-align:center;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.pc{flex:0 0 42%;max-width:210px;scroll-snap-align:center;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
 .pc .ph{display:block;width:100%;height:auto}
-.pc .cap{padding:8px 12px 10px;font-size:11.5px;color:var(--mute);display:flex;align-items:center;gap:6px}
-.pc .cap b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;color:var(--deep)}
-.railnote{padding:0 14px;font-size:11px;color:var(--mute);margin:0 0 4px}
+.pc .cap{padding:6px 9px 8px;font-size:10px;color:var(--mute);line-height:1.35}
+.pc .cap b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:11.5px;color:var(--deep)}
 /* filters */
 .filters{padding:12px 14px 4px}
 .flabel{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--mute);margin:0 0 8px}
@@ -103,11 +102,11 @@ footer{background:var(--footer);padding:26px 16px 16px}
 .fbottom .legal{font-size:11px;color:var(--footer-mute);margin:11px 0 0;line-height:1.6}
 .fbottom a{color:var(--footer-head)}
 @media(min-width:820px){
-.nav,.mast,.filters,.sec,footer,.railnote{padding-left:32px;padding-right:32px}
+.nav,.mast,.filters,.sec,footer{padding-left:32px;padding-right:32px}
 .mast h1{font-size:54px}
 .mast .blurb{font-size:22px;max-width:520px}
 .rail-scroll{padding-left:32px;padding-right:32px;max-width:1144px;margin:0 auto}
-.pc{flex:0 0 340px}
+.pc{flex:0 0 172px}
 .filters,.sec{max-width:1080px;margin:0 auto}
 .cards{grid-template-columns:1fr 1fr;gap:12px}
 .banner{max-width:1080px;margin:34px auto 0;border:1px solid var(--banner-rule);border-radius:8px;padding:14px 22px 15px;display:grid;grid-template-columns:auto 1fr;column-gap:30px;row-gap:5px;align-items:center}
@@ -137,7 +136,6 @@ footer{margin-top:34px}
 
 <section class="rail">
 <div class="rail-scroll" id="rail"></div>
-<p class="railnote">Placeholders — drop real photos in whenever you like.</p>
 </section>
 
 <section class="filters">
@@ -280,6 +278,8 @@ function renderRail(){
    '<circle cx="330" cy="70" r="30" fill="#F2D9A8"/>'+
    '<path d="M0 150c60-12 120 8 180-2s180 8 240-6v12H0z" fill="#B9D6DA"/>'+
    '<g stroke="#C3B79C" stroke-width="2" stroke-dasharray="6 6" fill="none"><rect x="10" y="10" width="400" height="240" rx="4"/></g>'+
+   '<rect x="86" y="112" width="248" height="36" rx="4" fill="#FFFDF5" opacity=".88"/>'+
+   '<text x="210" y="136" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="17" letter-spacing="3" fill="#8A97A0">PHOTOS TO COME</text>'+
    '</svg>'+
    '<figcaption class="cap"><b>'+p[0]+'</b> · '+p[1]+'</figcaption></figure>';
  }).join('');
