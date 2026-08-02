@@ -33,6 +33,8 @@ body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-we
 .wx b{font-weight:600}
 .wxdiv{width:1px;height:14px;background:#E4C68A;flex:none}
 .banner p.advice{margin:0;font-size:11.5px;color:var(--banner-ink);line-height:1.45}
+.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px}
+.ext svg{width:10px;height:10px;flex:none}
 /* letter */
 .letter{padding:20px 18px 8px}
 .letter p{font-family:Caveat,cursive;font-style:italic;font-weight:500;font-size:19px;color:var(--ink);margin:0 0 10px;line-height:1.5}
@@ -154,6 +156,7 @@ footer{padding:34px 32px 22px}
 <span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6a2.svg" alt=""><span id="wx-ships">2 ships</span></span>
 </div>
 <p class="advice" id="wx-advice">Checking today's conditions…</p>
+<a class="ext" href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Check sargassum reports<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>
 </section></div>
 
 <section class="letter">
@@ -182,7 +185,7 @@ footer{padding:34px 32px 22px}
 <div class="fcol"><h3>DAY ONE</h3>
 <a href="day-one/#comms">Comms &amp; Apps</a><a href="day-one/#cash">Cash &amp; Tipping</a><a href="day-one/#passport">Passport &amp; Borders</a><a href="day-one/#dogs">Coconut Retrievers</a><a href="day-one/#safety">Safety</a></div>
 <div class="fcol"><h3>BEACHES</h3>
-<a href="beaches/#french">French Beaches</a><a href="beaches/#dutch">Dutch Beaches</a><a href="beaches/#favorites">Local Favorites</a><a href="beaches/#upscale">Worth Getting Dressed For</a><a href="beaches/#busy">Busy &amp; Buzzing</a><a href="beaches/#skip">Skip These</a><a href="beaches/#planner">Beach Planner</a></div>
+<a href="beaches/#french">French Beaches</a><a href="beaches/#dutch">Dutch Beaches</a><a href="beaches/#favorites">Local Favorites</a><a href="beaches/#upscale">Worth Getting Dressed For</a><a href="beaches/#busy">Busy &amp; Buzzing</a><a href="beaches/#skip">Skip These</a><a href="beaches/#planner">Beach Planner</a><a href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Sargassum Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px;vertical-align:0" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
 <div class="fcol"><h3>EAT</h3>
 <a href="eat/#grand-case">Grand Case</a><a href="eat/#anse-marcel">Anse Marcel</a><a href="eat/#orient-bay">Orient Bay</a><a href="eat/#oyster-pond">Oyster Pond</a><a href="eat/#simpson-bay">Cole Bay &amp; Simpson Bay</a><a href="eat/#lunch">Lunch Spots</a><a href="eat/#dinner">Dinner Spots</a><a href="eat/#bakeries">French Bakeries</a><a href="eat/#skip">Skip It, Mon</a></div>
 <div class="fcol"><h3>THINGS TO DO</h3>
@@ -245,19 +248,48 @@ footer{padding:34px 32px 22px}
     var next=data.arrivals.filter(function(a){return a.date===tom;});
     var chip=document.getElementById('wx-ships'), advice=document.getElementById('wx-advice');
     var pax=inPort.reduce(function(s,a){return s+(a.pax||0);},0);
+    var m=d.getMonth();            // 0 = Jan
+    var sunday=d.getDay()===0;
+    var highSeason=(m===11||m<=3); // Dec through Apr
+    var sargSeason=(m>=3&&m<=8);   // Apr through Sep
+    var bits=[];
+
+    // ships
     if(inPort.length===0){
       chip.textContent='No ships';
-      var t='No ships in port today. Philipsburg and Maho will be as quiet as they get — good day for the boardwalk or Great Bay.';
+      var t='No ships in port.';
       if(next.length){t+=' '+(next.length===1?'One arrives':next.length+' arrive')+' tomorrow.';}
-      advice.textContent=t;
+      bits.push(t);
     }else{
       chip.textContent=inPort.length===1?'1 ship':inPort.length+' ships';
       var who=list(inPort.map(function(a){return a.ship;}));
-      var busy=pax>=6000;
-      advice.textContent=who+' in port, about '+nice(pax)+' people. '+
-        (busy?'Philipsburg and Maho will be packed and the roads slow until about four — good day for the French side.'
-             :'Philipsburg will be busy but manageable. Maho gets the overflow.');
+      if(pax>=6000){
+        bits.push(who+' in port — about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Crossing to the French side will be slow too, so pick a beach on whichever side you\'re staying rather than fighting the traffic.');
+      }else{
+        bits.push(who+' in port — about '+nice(pax)+' people. Philipsburg busy, Maho gets the overflow, roads otherwise fine.');
+      }
     }
+
+    // season — flights fill the island as much as ships do
+    if(highSeason){
+      bits.push('It\'s high season, so traffic is bad regardless of ships — the flights fill the island just as much.');
+    }else if(inPort.length===0){
+      bits.push('Low season, so everything is quieter than it looks.');
+    }
+
+    // Sunday in Philipsburg
+    if(sunday){
+      bits.push(highSeason
+        ? 'Sunday: most of Philipsburg is shut. The boardwalk and a few bars stay open, but don\'t plan a day around it.'
+        : 'Sunday in low season: Philipsburg is mostly closed — a few chairs on Great Bay and not much else. There aren\'t enough people on island to keep places open.');
+    }
+
+    // sargassum season
+    if(sargSeason){
+      bits.push('Sargassum season — the Atlantic-facing beaches (Orient, Le Galion, Dawn, Coconut Grove) are the ones to check before you drive out.');
+    }
+
+    advice.textContent=bits.join(' ');
   }
   try{
     var cs=localStorage.getItem('sxm-ships');
