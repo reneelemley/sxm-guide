@@ -171,7 +171,7 @@ footer{background:var(--footer);padding:26px 16px 16px;margin-top:26px}
 var T='https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/';
 var FR=T+'1f1eb-1f1f7.svg', SX=T+'1f1f8-1f1fd.svg';
 var ICONS={
- swim:{f:'1f3ca-200d-2640',t:'Swimmable'},
+ swim:{f:'1f3ca-200d-2640-fe0f',fb:'1f3ca',t:'Swimmable'},
  snorkel:{f:'1f93f',t:'Snorkel'},
  cooler:{f:'1f3d6',t:'Cooler-friendly'},
  eat:{f:'1f37d',t:'Food on the sand'},
@@ -265,12 +265,18 @@ var SECTIONS=[
 
 var active={};
 function esc(s){return s;}
-function chip(k,label,img,cls){
- return '<span class="chip '+(cls||'')+'" data-k="'+k+'">'+(img?'<img src="'+T+img+'.svg" alt="">':'')+label+'</span>';
+function img(k,cls,title){
+ var o=ICONS[k];
+ var fb=o.fb?' onerror="this.onerror=null;this.src=\''+T+o.fb+'.svg\'"':'';
+ return '<img'+(cls?' class="'+cls+'"':'')+' src="'+T+o.f+'.svg"'+fb+
+   (title?' title="'+o.t+'"':'')+' alt="'+o.t+'">';
+}
+function chip(k,label,useIcon,cls){
+ return '<span class="chip '+(cls||'')+'" data-k="'+k+'">'+(useIcon?img(k):'')+label+'</span>';
 }
 function renderChips(){
  document.getElementById('chips-what').innerHTML=Object.keys(ICONS).map(function(k){
-   return chip(k,ICONS[k].t,ICONS[k].f);}).join('');
+   return chip(k,ICONS[k].t,true);}).join('');
  document.getElementById('chips-plan').innerHTML=PLAN.map(function(p){
    return chip(p[0],p[1],null,'pl');}).join('');
 }
@@ -288,7 +294,7 @@ function card(b){
  if(b.rank)h+='<span class="rank">'+b.rank+'</span>';
  h+='</div>';
  if(b.i&&b.i.length){h+='<div class="icons">'+b.i.map(function(k){
-   return '<img src="'+T+ICONS[k].f+'.svg" title="'+ICONS[k].t+'" alt="'+ICONS[k].t+'">';}).join('')+'</div>';}
+   return img(k,null,true);}).join('')+'</div>';}
  h+='<p class="desc">'+b.d+'</p>';
  if(b.t&&b.t.length){h+='<div class="tags">'+b.t.map(function(t){
    var c=/sargassum|rough|shuts|enough|conditions|No services/i.test(t)?'tag warn':'tag';
