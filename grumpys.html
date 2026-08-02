@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Grumpy's &middot; R&amp;R's Guide To SXM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@1,9..144,600&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function(){try{if(localStorage.getItem('sxm-key')!=='friendlyisland'){location.replace('./');}}catch(e){}})();
+</script>
+<style>
+:root{--cream:#FFFDF5;--ink:#3C4A52;--body:#57666F;--mute:#8A97A0;--line:#E4D9CA;--deep:#0A5F86;--green:#2C6B4E;
+--footer:#0A4A55;--footer-rule:#1B6570;--footer-head:#7FD4DC;--footer-link:#D6EEF2;--footer-mute:#9FCDD4;
+--banner:#FDF0DA;--banner-rule:#EBC98A;--banner-ink:#7A5410;--banner-head:#8A5F12;--banner-mute:#A6813C;--accent:#B5643F}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+a{color:inherit}
+.nav{background:#96502F;padding:10px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20}
+.nav .stamp{display:inline-block;border:1.5px solid #F2A93B;border-radius:5px;padding:2px;text-decoration:none;flex:none}
+.nav .stamp span{display:block;border:.5px solid #F2A93B;border-radius:3px;padding:2px 8px;text-align:center}
+.nav .stamp b{display:block;font-family:Montserrat,sans-serif;font-weight:800;font-size:14px;letter-spacing:.1em;color:var(--cream);line-height:1.05}
+.nav .stamp i{display:block;font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:7.5px;color:#F2A93B;line-height:1}
+.nav .crumb{font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:#F2D5C6;text-decoration:none}
+.mast{background:#B5643F;padding:6px 16px 26px;text-align:center}
+.mast .badge{width:64px;height:64px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #FFFDF7,0 3px 8px rgba(0,0,0,.24);margin:0 auto 14px;transform:rotate(-6deg)}
+.mast .badge img{width:36px;height:36px}
+.mast h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:38px;letter-spacing:.1em;color:#FFF6EC;margin:0;line-height:1}
+.mast .sub{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.3em;color:#F2D5C6;margin:8px 0 0}
+.mast .blurb{font-family:Caveat,cursive;font-style:italic;font-size:19px;color:#FFF6EC;margin:14px auto 0;max-width:460px;line-height:1.45}
+.sec{padding:6px 16px 0;max-width:760px;margin:0 auto}
+.sec h2{font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;letter-spacing:.09em;color:var(--accent);margin:26px 0 10px}
+.sec p{font-size:15px;color:var(--body);line-height:1.7;margin:0 0 14px}
+.sec p.lead{font-family:Caveat,cursive;font-style:italic;font-size:21px;color:var(--ink);line-height:1.45}
+.sec ul{margin:0 0 14px;padding-left:20px}
+.sec li{font-size:15px;color:var(--body);line-height:1.7;margin-bottom:7px}
+.sec a.inline{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.card.top{border-left:4px solid var(--green);border-radius:0 12px 12px 0}
+.card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;color:var(--deep);margin:0;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.card h3 img.flag{width:17px;height:17px;border-radius:2px;flex:none}
+.card .meta{font-size:11px;color:var(--mute);margin:4px 0 0}
+.card p{font-size:14px;color:var(--body);line-height:1.65;margin:9px 0 10px}
+.acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.act{font-size:11.5px;padding:6px 12px;border-radius:20px;background:var(--deep);color:var(--cream);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.act.o{background:#fff;color:var(--deep);border:1px solid #C9D3D8}
+.act svg{width:11px;height:11px}
+.warn{font-size:11px;background:#FDF0DA;color:#7A5410;padding:5px 11px;border-radius:20px;border:1px solid #EBC98A}
+.callout{background:#FDF0DA;border:1px solid #EBC98A;border-radius:10px;padding:13px 15px;margin:0 0 14px}
+.callout p{margin:0;font-size:14px;color:#7A5410;line-height:1.6}
+.banner{background:var(--banner);border-top:1px solid var(--banner-rule);border-bottom:1px solid var(--banner-rule);padding:12px 16px 13px;margin-top:34px}
+.banner-top{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.banner-label{margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:var(--banner-head)}
+.banner-date{margin-left:auto;font-size:9.5px;color:var(--banner-mute)}
+.wxrow{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:6px 0 8px}
+.wx{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--banner-ink)}
+.wx img{width:15px;height:15px}
+.wxdiv{width:1px;height:14px;background:#E4C68A;flex:none}
+.banner p.advice{margin:0;font-size:11.5px;color:var(--banner-ink);line-height:1.45}
+.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px}
+.ext svg{width:10px;height:10px;flex:none}
+footer{background:var(--footer);padding:26px 16px 16px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.fcol{margin-bottom:16px}
+.fcol h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--footer-head);margin:0 0 6px}
+.fcol a{display:block;font-size:11.5px;color:var(--footer-link);margin:0 0 4px;line-height:1.45;text-decoration:none}
+.fcol a svg{width:10px;height:10px}
+.fbottom{border-top:1px solid var(--footer-rule);padding-top:14px;margin-top:2px;text-align:center}
+.fbottom .eyebrow{font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:12px;color:var(--footer-head);margin:0}
+.fbottom .mark{font-family:Montserrat,sans-serif;font-weight:800;font-size:20px;letter-spacing:.12em;color:var(--cream);margin:1px 0 0}
+.fbottom .legal{font-size:11px;color:var(--footer-mute);margin:11px 0 0;line-height:1.6}
+.fbottom a{color:var(--footer-head)}
+@media(min-width:820px){
+.nav,.mast,footer{padding-left:32px;padding-right:32px}
+.mast h1{font-size:54px}.mast .blurb{font-size:22px;max-width:560px}
+.sec{padding-left:32px;padding-right:32px}
+.banner{max-width:1080px;margin:40px auto 0;border:1px solid var(--banner-rule);border-radius:8px;padding:14px 22px 15px;display:grid;grid-template-columns:auto 1fr;column-gap:30px;row-gap:5px;align-items:center}
+.banner-top{margin:0}.wxrow{margin:0;justify-content:flex-start;gap:22px}
+.wxdiv{display:none}.wx{font-size:13px}.wx img{width:17px;height:17px}
+.banner p.advice{font-size:13px;grid-column:1/-1}.ext{grid-column:1/-1;margin-top:0}
+.fgrid{grid-template-columns:repeat(4,1fr);max-width:1080px;margin:0 auto}
+.fbottom{max-width:1080px;margin:6px auto 0}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+<a class="stamp" href="./"><span><i>R&amp;R's Guide To</i><b>SXM</b></span></a>
+<a class="crumb" href="./">&larr; ALL SECTIONS</a>
+</nav>
+<header class="mast">
+<div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f379.svg" alt=""></div>
+<h1>GRUMPY&rsquo;S</h1>
+<p class="sub">ALL ROADS LEAD HERE</p>
+<p class="blurb">It&rsquo;s our corner bar. We pass it on the way home from anywhere and the car automatically turns into the lot.</p>
+</header>
+<section class="sec" id="grumpys">
+<p class="lead">Why? It&rsquo;s our corner bar. We pass it on the way home from anywhere and the car automatically turns into the lot.</p>
+<p>British owners, Tony &amp; Mary, have made the perfect &ldquo;beach bar&rdquo; in between the Cruise Port and Bobby&rsquo;s Marina. The &ldquo;yachties&rdquo; from the mega yachts (yeah, like in Below Deck) that dock at Dock Maarten&rsquo;s right next door keep them busy in the high season. We do our best to keep them busy in every season.</p>
+<p>This is where we&rsquo;ve met and made friends. The bartenders feel like extended family AND our darling neighbor, Jess, runs her business, Southern Charm BBQ, in the food hut on the beach. TRULY the best burgers on the island. She has turned bar food into an art. And we&rsquo;re lucky enough to be her &ldquo;taste testers&rdquo; for new menu items&mdash;tough job, but someone has to do it.</p>
+<p>If you come here by Cruise ship, you must stop in. If you flew here, this is off the beaten path unless you&rsquo;re coming to visit us. But it&rsquo;s our quiet little local sports bar. Thursday night karaoke with Kenroy. Everyone knows everyone. And it&rsquo;s always a good time. Especially when Tanya Michelle is singing.</p>
+<div class="acts" style="margin-bottom:18px">
+<a class="act o" href="https://facebook.com/Grumpyssxm" target="_blank" rel="noopener">Facebook<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>
+<a class="act o" href="https://instagram.com/grumpyssxm" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>
+<span class="warn">Pointe Blanche, between the Cruise Port and Bobby&rsquo;s Marina</span>
+</div>
+<h2>SOUTHERN CHARM BBQ</h2>
+<p>Jess&rsquo;s place, in the food hut on the beach. Truly the best burgers on the island.</p>
+<div class="acts"><a class="act o" href="https://facebook.com/p/Southern-Charm-BBQ-61566739408128" target="_blank" rel="noopener">Facebook<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
+</section>
+<section class="banner" id="today">
+<div class="banner-top"><p class="banner-label">TODAY IN SXM</p><span class="banner-date" id="wx-date">&mdash;</span></div>
+<div class="wxrow">
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/2600.svg" alt=""><b id="wx-temp">&mdash;</b></span><span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f4a8.svg" alt=""><span id="wx-wind">&mdash;</span></span><span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f327.svg" alt=""><span id="wx-rain">&mdash;</span></span><span class="wxdiv"></span>
+<span class="wx"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f6a2.svg" alt=""><span id="wx-ships">&mdash;</span></span>
+</div>
+<p class="advice" id="wx-advice">Checking today&rsquo;s conditions&hellip;</p>
+<a class="ext" href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Check sargassum reports<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a>
+</section>
+<footer>
+<div class="fgrid">
+<div class="fcol"><h3>DAY ONE</h3><a href="day-one.html#comms">Comms &amp; Apps</a><a href="day-one.html#cash">Cash &amp; Tipping</a><a href="day-one.html#passport">Passport &amp; Borders</a><a href="day-one.html#dogs">Coconut Retrievers</a><a href="day-one.html#safety">Safety</a></div>
+<div class="fcol"><h3>BEACHES</h3><a href="beaches.html">French Beaches</a><a href="beaches.html">Dutch Beaches</a><a href="beaches.html#favorites">Local Favorites</a><a href="beaches.html#upscale">Upscale &amp; Unique</a><a href="beaches.html#busy">Tourist Hotspots</a><a href="beaches.html#skip">Beaches With Blockers</a><a href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Sargassum Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
+<div class="fcol"><h3>EAT</h3><a href="eat.html#grand-case">Grand Case</a><a href="eat.html#anse-marcel">Anse Marcel</a><a href="eat.html#orient-bay">Orient Bay</a><a href="eat.html#oyster-pond">Oyster Pond</a><a href="eat.html#simpson-bay">Cole Bay &amp; Simpson Bay</a><a href="eat.html">Lunch Spots</a><a href="eat.html">Dinner Spots</a><a href="eat.html#bakeries">French Bakeries</a><a href="eat.html#skip">Skip It, Mon</a></div>
+<div class="fcol"><h3>THINGS TO DO</h3><a href="things-to-do.html#excursions">Excursions</a><a href="things-to-do.html#day-trips">Island Day Trips</a><a href="things-to-do.html#ziplines">Ziplines &amp; Adventure</a><a href="things-to-do.html#boats">Boats &amp; Snorkeling</a><a href="things-to-do.html#crawl">Beach Bar Crawl</a></div>
+<div class="fcol"><h3>GETTING AROUND</h3><a href="getting-around.html#taxis">Taxis</a><a href="getting-around.html#buses">Buses</a><a href="getting-around.html#cars">Rental Cars</a></div>
+<div class="fcol"><h3>GROCERIES</h3><a href="groceries.html#french">French Side</a><a href="groceries.html#dutch">Dutch Side</a><a href="groceries.html#bodegas">Bodegas</a></div>
+<div class="fcol"><h3>WHERE TO STAY</h3><a href="where-to-stay.html">Our Top 3 Hotels</a><a href="#">R&amp;R BnB <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f512.svg" alt="password protected" style="width:11px;height:11px;vertical-align:-1px"></a></div>
+</div>
+<div class="fbottom">
+<p class="eyebrow">R&amp;R's Guide To</p><p class="mark">SXM</p>
+<p class="legal">Hosted By Ren&eacute;e &amp; Ryan<br>&copy; 2026 All rights reserved.<br>Have feedback? <a href="feedback.html">Let us know.</a></p>
+</div>
+</footer>
+<script>
+(function(){
+  var d=new Date();
+  document.getElementById('wx-date').textContent=d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+  var url='https://api.open-meteo.com/v1/forecast?latitude=18.03&longitude=-63.05&current=temperature_2m,wind_speed_10m,wind_direction_10m&daily=precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FPuerto_Rico&forecast_days=1';
+  function dir(g){var c=['N','NE','E','SE','S','SW','W','NW'];return c[Math.round(g/45)%8];}
+  function paint(w){
+    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'\u00b0';
+    document.getElementById('wx-wind').textContent=Math.round(w.wind)+' mph '+dir(w.deg);
+    document.getElementById('wx-rain').textContent=Math.round(w.rain)+'%';
+    document.getElementById('wx-date').textContent=w.label;
+  }
+  try{var c=localStorage.getItem('sxm-wx');if(c)paint(JSON.parse(c));}catch(e){}
+  fetch(url).then(function(r){return r.json();}).then(function(j){
+    var w={temp:j.current.temperature_2m,wind:j.current.wind_speed_10m,deg:j.current.wind_direction_10m,
+      rain:(j.daily.precipitation_probability_max||[0])[0],
+      label:d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})+' \u00b7 updated '+
+        d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}).toLowerCase().replace(' ','')};
+    paint(w);try{localStorage.setItem('sxm-wx',JSON.stringify(w));}catch(e){}
+  }).catch(function(){});
+  function iso(x){return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');}
+  function nice(n){return n.toLocaleString('en-US');}
+  function lst(a){if(a.length===1)return a[0];if(a.length===2)return a[0]+' and '+a[1];
+    return a.slice(0,-1).join(', ')+' and '+a[a.length-1];}
+  function ships(data){
+    var today=iso(d),tom=iso(new Date(d.getTime()+86400000));
+    var inp=data.arrivals.filter(function(a){return a.date===today;});
+    var nxt=data.arrivals.filter(function(a){return a.date===tom;});
+    var chipEl=document.getElementById('wx-ships'),adv=document.getElementById('wx-advice');
+    var pax=inp.reduce(function(s,a){return s+(a.pax||0);},0);
+    var m=d.getMonth(),sun=d.getDay()===0,high=(m===11||m<=3),sarg=(m>=3&&m<=8),bits=[];
+    if(!inp.length){chipEl.textContent='No ships';
+      var t='No ships in port.';if(nxt.length)t+=' '+(nxt.length===1?'One arrives':nxt.length+' arrive')+' tomorrow.';
+      bits.push(t);
+    }else{chipEl.textContent=inp.length===1?'1 ship':inp.length+' ships';
+      var who=lst(inp.map(function(a){return a.ship;}));
+      bits.push(pax>=6000
+        ? who+' in port \u2014 about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Crossing to the French side will be slow too, so pick a beach on whichever side you\u2019re staying rather than fighting the traffic.'
+        : who+' in port \u2014 about '+nice(pax)+' people. Philipsburg busy, Maho gets the overflow, roads otherwise fine.');
+    }
+    if(high)bits.push('It\u2019s high season, so traffic is bad regardless of ships \u2014 the flights fill the island just as much.');
+    else if(!inp.length)bits.push('Low season, so everything is quieter than it looks.');
+    if(sun)bits.push(high?'Sunday: most of Philipsburg is shut. The boardwalk and a few bars stay open, but don\u2019t plan a day around it.'
+      :'Sunday in low season: Philipsburg is mostly closed \u2014 a few chairs on Great Bay and not much else. There aren\u2019t enough people on island to keep places open.');
+    if(sarg)bits.push('Sargassum season \u2014 the Atlantic-facing beaches (Orient, Le Galion, Dawn, Coconut Grove) are the ones to check before you drive out.');
+    adv.textContent=bits.join(' ');
+  }
+  try{var cs=localStorage.getItem('sxm-ships');if(cs)ships(JSON.parse(cs));}catch(e){}
+  fetch('ships.json').then(function(r){return r.json();}).then(function(s){
+    ships(s);try{localStorage.setItem('sxm-ships',JSON.stringify(s));}catch(e){}
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
