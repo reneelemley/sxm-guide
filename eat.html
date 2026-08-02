@@ -64,6 +64,11 @@ a{color:inherit}
 .meta{font-size:11px;color:var(--mute);margin:4px 0 0}
 .coco{display:inline-flex;gap:2px;flex:none}
 .coco img{width:22px;height:22px;filter:sepia(.5) saturate(1.6) hue-rotate(-8deg) contrast(1.12) brightness(1.04) drop-shadow(0 0 1.2px #FFFDF5) drop-shadow(0 0 1.2px #FFFDF5) drop-shadow(1px 1.5px 1.5px rgba(15,51,80,.25))}
+.rates{display:flex;flex-direction:column;gap:3px;align-items:flex-end;flex:none}
+.rate{display:flex;align-items:center;gap:6px}
+.rlab{font-family:Montserrat,sans-serif;font-weight:700;font-size:8px;letter-spacing:.13em;color:var(--mute)}
+.rates .coco img{width:18px;height:18px}
+.desc a{color:var(--coral);text-decoration:underline;text-underline-offset:2px}
 .pill{font-size:10px;background:#DDD4C2;color:#4F4739;padding:3px 9px;border-radius:20px;white-space:nowrap;flex:none}
 .desc{margin:9px 0 10px;font-size:13.5px;color:var(--body);line-height:1.6}
 .card.skip .nm{color:#6B6153}
@@ -234,16 +239,16 @@ var R=[
  d:"Get chairs (or don’t), get your cocktails, get in the water, get out, eat lunch, cry a little from the overwhelming joy of it all. Get back in the water. Laugh out loud at the absurdity of what you’re experiencing. Repeat as often as possible.",
  web:'https://instagram.com/anse_marcel_beach_house'},
 
-{h:'orient-bay',n:'Orange Fever',c:null,cu:'Beach Grill / French',p:'$$',meals:['lunch'],side:'fr',
+{h:'orient-bay',n:'Orange Fever',c:3,cu:'Beach Grill / French',p:'$$',meals:['lunch'],side:'fr',
  d:"Our fave. Consistently great french food, cheap comfy loungers, toes in the sand. The tuna tartare is always a hit.",
  web:'https://orangefeversxm.com',warn:'WhatsApp, walk-in or call ahead'},
-{h:'orient-bay',n:'La Plage',c:null,cu:'French / Beach Fusion · at La Playa Hotel',p:'$$',meals:['lunch'],side:'fr',
+{h:'orient-bay',n:'La Plage',c:3,cu:'French / Beach Fusion · at La Playa Hotel',p:'$$',meals:['lunch'],side:'fr',
  d:"Stylish, breezy, and perfect for sipping rosé over grilled fish or salad Niçoise. Renée likes this one. REALLY cranky bartender (if you just sit at the bar)…it’s his schtick…roll with it.",
  web:'https://hotel-laplaya.com'},
 {h:'orient-bay',n:'Coco Beach',c:null,cu:'French / Beach Bistro',p:'$$$',meals:['lunch'],side:'fr',
  d:"Upscale beach club energy with fresh ingredients and artisan cocktails. Incredible food. Nice, private beachfront. A bougie day for sure. Surf can get a little rough at that end of the beach, though.",
  web:'https://cocobeachsxm.com',warn:'Book chairs and lunch'},
-{h:'orient-bay',n:'Good Morning Café',c:null,cu:'Breakfast / Brunch / Lunch',p:'$$',meals:['breakfast','lunch'],side:'fr',
+{h:'orient-bay',n:'Good Morning Café',c:2,cu:'Breakfast / Brunch / Lunch',p:'$$',meals:['breakfast','lunch'],side:'fr',
  d:"Bright and casual café with great coffee, pastries, and light bites. A local fave to start the day but would save your tummy space for Lunch on the beach.",
  web:'https://facebook.com/goodmorningsxm/',warn:'Walk-ins welcome'},
 {h:'orient-bay',n:'L’Atelier Bar à Viande',c:3,cu:'French / Steakhouse',p:'$$$$',meals:['dinner'],side:'fr',
@@ -253,7 +258,7 @@ var R=[
  d:"Warm &amp; convivial with refined menu &amp; classy cocktails. Tablecloths. Colonial Caribbean vibe.",
  tel:'+590690381139',web:'https://maisonmeresxm.com'},
 {h:'orient-bay',n:'Le Bouchon',c:3,cu:'French Bistro',p:'$$$',meals:['dinner'],side:'fr',
- d:"Quintessential bistro with rotating chalkboard menu. Local favorite for foodies. Ryan loves this place because he eats organs and weird animal parts. This is rustic French country cooking. Renée accommodates because there is a dessert here that is TO DIE FOR: raspberry clafoutis. It’s insanely good. Crème brulee meets raspberry tart.",
+ d:"Quintessential bistro with rotating chalkboard menu. Local favorite for foodies. Ryan loves this place because he eats organs and weird animal parts. This is rustic French country cooking. Renée accommodates because there is a dessert here that is TO DIE FOR: <a href=\"https://www.foodandwine.com/recipes/raspberry-clafoutis\" target=\"_blank\" rel=\"noopener\">raspberry clafoutis</a>. It’s insanely good. Crème brulee meets raspberry tart.",
  tel:'+590690563990',web:'https://facebook.com/lebouchonsxm'},
 {h:'orient-bay',n:'SAO Asian Factory',c:2,cu:'Thai / Japanese / Fusion',p:'$$$',meals:['dinner'],side:'fr',
  d:"Stylish, modern decor with great sushi and Thai classics.",
@@ -269,10 +274,6 @@ var R=[
  tel:'+590690563456',web:'https://lesud-sxm.com'},
 {h:'orient-bay',n:'Yellow Sub / Pirate Hideout',c:1,cu:'Pub / Caribbean Bites',p:'$$',meals:['lunch','dinner'],side:'fr',
  d:"Casual, good for drinks &amp; game-watching.",warn:'Walk-ins welcome'},
-{h:'orient-bay',n:'Hibiscus',c:null,cu:'French Gastronomic',p:'$$$$$$$$',meals:['dinner'],side:'fr',
- d:"Elegant and artistic plating, ideal for a refined dinner. Hidden away in Hope Estate. Let us be clear. This is an “experience.” We went for Valentine’s Day. 7 courses of highly unique and memorable fusions. It was rather expensive but kind of a once-in-a-lifetime gastronomic experience. We would go there again if we were with folks who want to do something you could only do in a few major cities in the world…NY, Tokyo, Paris…except the prices would be higher and the service would be better in those cities.",
- tel:'+590690748366',web:'https://facebook.com/restaurantlehibiscus',warn:'Refined dining'},
-
 {h:'oyster-pond',n:'BZH Crêperie',c:3,cu:'Breton crêpes &amp; galettes',p:'$$',meals:['breakfast','lunch','dinner'],side:'fr',
  d:"Charming, homey, and just all-around easy roadside gem, on the corner, just before you drop into Oyster Pond from the north. Perfect for a brunchy bite or a sweet treat. Real-deal crêpes and cider that’ll transport you to Brittany—SXM-style. Great, friendly service too. We like it for dinner and you 100% need a reservation.",
  tel:'+590690101601',web:'https://bzh-oysterpond.com',warn:'Reservation essential for dinner'},
@@ -295,10 +296,10 @@ var R=[
 {h:'simpson-bay',n:'Emilio’s Restaurant',c:1,cu:'Caribbean/International Fusion · Emilio Wilson Estate',p:'$$$',meals:['breakfast','lunch'],side:'sx',
  d:"Historic estate vibes (and a little museum) with breezy open-air seating and live jazz that sets the tone. Think bottomless mimosas, decadent dishes like truffle eggs Benedict, fried plantain, and Caribbean-style breakfast platters. Family-friendly, but elegant enough for a special treat. The setting is unique…but…it’s not French.",
  tel:'+17215221848',web:'https://facebook.com/emiliossxm',warn:'Sunday brunch — reservations essential'},
-{h:'simpson-bay',n:'Sint Maarten Yacht Club',c:2,cu:'Bar food · next to the drawbridge',p:'$–$$',meals:['lunch','dinner'],side:'sx',
+{h:'simpson-bay',n:'Sint Maarten Yacht Club',c:{food:1,spot:3},cu:'Not a Dutch menu per se, but do you REALLY need a bitterballen? · next to the drawbridge',p:'$–$$',meals:['lunch','dinner'],side:'sx',
  d:"Definitely gotta stop in during the high season when the mega yachts are here to watch them squeeeeeeeeze through the drawbridge opening. Many have scraped their sides and more than a handful have literally taken the controller’s booth out. It’s a spectator sport, to be sure.",
  web:'https://smyc.com'},
-{h:'simpson-bay',n:'Huppel the Pub',c:1,cu:'All the weird Dutch fried mystery meats you can handle',p:'$',meals:['lunch','dinner'],side:'sx',
+{h:'simpson-bay',n:'Huppel the Pub',c:{food:1},cu:'All the weird Dutch fried mystery meats you can handle',p:'$',meals:['lunch','dinner'],side:'sx',
  d:"Legit Dutch pub. No frills. Just frikandels and such. Smakelijk eten.",
  web:'https://huppelthepub.com'},
 
@@ -316,7 +317,15 @@ var R=[
 var POSTCARDS=[['Grand Case','Restaurant row'],['Le Pressoir','Top in the Caribbean'],['Temps des Cerises','Our #1 lunch'],['Babacool','Bar swings'],['Bamboo House','The goodbye spot'],['Sébastien Quillere','Worth the crawl']];
 
 var active={};
-function esc(s){return s;}
+function score(r){
+ if(r.c===null||r.c===undefined)return null;
+ if(typeof r.c==='object')return Math.max.apply(null,Object.keys(r.c).map(function(k){return r.c[k];}));
+ return r.c;
+}
+function nuts(n){
+ return '<span class="coco">'+Array.apply(null,Array(n)).map(function(_,i){
+   var rot=[-8,5,-4][i]||0;return '<img src="'+CO+'" style="transform:rotate('+rot+'deg)" alt="">';}).join('')+'</span>';
+}
 function renderRail(){
  document.getElementById('rail').innerHTML=POSTCARDS.map(function(p){
   return '<figure class="pc" style="margin:0">'+
@@ -346,10 +355,11 @@ function keys(pre){return Object.keys(active).filter(function(k){return active[k
 function matches(r){
  var hs=keys('h:'),cs=keys('c:'),ms=keys('m:'),ps=keys('p:');
  var showSkips=cs.indexOf('skip')>-1;
- if(r.c===0&&!showSkips)return false;
+ var sc=score(r);
+ if(sc===0&&!showSkips)return false;
  if(hs.length&&hs.indexOf(r.h)===-1)return false;
- if(cs.indexOf('3')>-1&&r.c!==3)return false;
- if(cs.indexOf('2')>-1&&!(r.c>=2))return false;
+ if(cs.indexOf('3')>-1&&sc!==3)return false;
+ if(cs.indexOf('2')>-1&&!(sc>=2))return false;
  if(ms.length&&!ms.some(function(m){return (r.meals||[]).indexOf(m)>-1;}))return false;
  if(ps.indexOf('cheap')>-1&&!/^\$\$?(–|$)/.test(r.p||''))return false;
  return true;
@@ -363,14 +373,19 @@ function actions(r){
  if(r.warn)a.push('<span class="warn">'+r.warn+'</span>');
  return a.length?'<div class="acts">'+a.join('')+'</div>':'';
 }
+var RLAB={food:'FOOD',spot:'LOCATION',view:'THE VIEW'};
 function card(r){
- var cls='card'+(r.c===3?' top':'')+(r.c===0?' skip':'');
+ var sc=score(r);
+ var cls='card'+(sc===3?' top':'')+(sc===0?' skip':'');
  var h='<article class="'+cls+'">';
  h+='<div class="chead"><div><p class="nm">'+r.n+' <img class="flag" src="'+(r.side==='fr'?FR:SX)+'" alt="'+(r.side==='fr'?'French side':'Dutch side')+'"></p>'+
     '<p class="meta">'+r.cu+' · '+r.p+'</p></div>';
- if(r.c===0)h+='<span class="pill">Skip it, mon</span>';
- else if(r.c)h+='<span class="coco">'+Array.apply(null,Array(r.c)).map(function(_,i){
-   var rot=[-8,5,-4][i]||0;return '<img src="'+CO+'" style="transform:rotate('+rot+'deg)" alt="">';}).join('')+'</span>';
+ if(sc===0)h+='<span class="pill">Skip it, mon</span>';
+ else if(typeof r.c==='object'){
+   h+='<span class="rates">'+Object.keys(r.c).map(function(k){
+     return '<span class="rate"><span class="rlab">'+(RLAB[k]||k.toUpperCase())+'</span>'+nuts(r.c[k])+'</span>';}).join('')+'</span>';
+ }
+ else if(r.c)h+=nuts(r.c);
  h+='</div>';
  if(r.d)h+='<p class="desc">'+r.d+'</p>';
  h+=actions(r)+'</article>';
@@ -381,7 +396,7 @@ function render(){
  HOODS.forEach(function(hd){
    var list=R.filter(function(r){return r.h===hd[0]&&matches(r);});
    if(!list.length)return;
-   list.sort(function(a,b){return (b.c===null?-1:b.c)-(a.c===null?-1:a.c);});
+   list.sort(function(a,b){var x=score(a),y=score(b);return (y===null?-1:y)-(x===null?-1:x);});
    shown+=list.length;
    out+='<section class="sec" id="'+hd[0]+'"><h2>'+hd[1]+'</h2><p class="note">'+hd[3]+'</p>'+
         '<div class="cards">'+list.map(card).join('')+'</div></section>';
