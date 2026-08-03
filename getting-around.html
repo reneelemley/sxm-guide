@@ -59,7 +59,7 @@ a{color:inherit}
 .wx img{width:15px;height:15px}
 .wxdiv{width:1px;height:14px;background:#E4C68A;flex:none}
 .banner p.advice{margin:0;font-size:11.5px;color:var(--banner-ink);line-height:1.45}
-.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px}
+.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px;align-self:flex-start;width:fit-content}
 .ext svg{width:10px;height:10px;flex:none}
 footer{background:var(--footer);padding:26px 16px 16px}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
@@ -180,7 +180,7 @@ footer{background:var(--footer);padding:26px 16px 16px}
   var url='https://api.open-meteo.com/v1/forecast?latitude=18.03&longitude=-63.05&current=temperature_2m,wind_speed_10m,wind_direction_10m&daily=precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FPuerto_Rico&forecast_days=1';
   function dir(g){var c=['N','NE','E','SE','S','SW','W','NW'];return c[Math.round(g/45)%8];}
   function paint(w){
-    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'\u00b0';
+    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'\u00b0F/'+Math.round((w.temp-32)*5/9)+'\u00b0C';
     document.getElementById('wx-wind').textContent=Math.round(w.wind)+' mph '+dir(w.deg);
     document.getElementById('wx-rain').textContent=Math.round(w.rain)+'%';
     document.getElementById('wx-date').textContent=w.label;
@@ -210,7 +210,7 @@ footer{background:var(--footer);padding:26px 16px 16px}
     }else{chipEl.textContent=inp.length===1?'1 ship':inp.length+' ships';
       var who=lst(inp.map(function(a){return a.ship;}));
       bits.push(pax>=6000
-        ? who+' in port \u2014 about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Crossing to the French side will be slow too, so pick a beach on whichever side you\u2019re staying rather than fighting the traffic.'
+        ? who+' in port \u2014 about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Expect heavy traffic across the island.'
         : who+' in port \u2014 about '+nice(pax)+' people. Philipsburg busy, Maho gets the overflow, roads otherwise fine.');
     }
     if(high)bits.push('It\u2019s high season, so traffic is bad regardless of ships \u2014 the flights fill the island just as much.');

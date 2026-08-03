@@ -49,7 +49,7 @@ body.locked .wrap{display:none}
 .wx b{font-weight:600}
 .wxdiv{width:1px;height:14px;background:#E4C68A;flex:none}
 .banner p.advice{margin:0;font-size:11.5px;color:var(--banner-ink);line-height:1.45}
-.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px}
+.ext{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#9A5A12;font-weight:500;text-decoration:none;border-bottom:1px solid #D9B473;margin-top:7px;align-self:flex-start;width:fit-content}
 .ext svg{width:10px;height:10px;flex:none}
 /* letter */
 .letter{padding:20px 18px 8px}
@@ -306,7 +306,7 @@ footer{padding:34px 32px 22px}
     '&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FPuerto_Rico&forecast_days=1';
   function dir(deg){var c=['N','NE','E','SE','S','SW','W','NW'];return c[Math.round(deg/45)%8];}
   function paint(w){
-    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'°';
+    document.getElementById('wx-temp').textContent=Math.round(w.temp)+'°F/'+Math.round((w.temp-32)*5/9)+'°C';
     document.getElementById('wx-wind').textContent=Math.round(w.wind)+' mph '+dir(w.deg);
     document.getElementById('wx-rain').textContent=Math.round(w.rain)+'%';
     document.getElementById('wx-date').textContent=w.label;
@@ -354,7 +354,7 @@ footer{padding:34px 32px 22px}
       chip.textContent=inPort.length===1?'1 ship':inPort.length+' ships';
       var who=list(inPort.map(function(a){return a.ship;}));
       if(pax>=6000){
-        bits.push(who+' in port — about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Crossing to the French side will be slow too, so pick a beach on whichever side you\'re staying rather than fighting the traffic.');
+        bits.push(who+' in port — about '+nice(pax)+' people. Philipsburg and Maho will be packed and the roads slow until about four. Expect heavy traffic across the island.');
       }else{
         bits.push(who+' in port — about '+nice(pax)+' people. Philipsburg busy, Maho gets the overflow, roads otherwise fine.');
       }
