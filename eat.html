@@ -229,8 +229,8 @@ var R=[
  warn:'Just go. No booking.'},
 {h:'skip',n:'Java',c:0,cu:'Mediterranean / Bar',p:'$$',meals:[],side:'fr',
  d:"Ok for a cocktail and a view but not much else. We tried it twice. Just disappointing."},
-{h:'skip',n:'Lolos',c:0,cu:'Creole',p:'$',meals:[],side:'fr',
- d:"Don’t do it. Do NOT do it. A “lolo” is a small, traditional, open-air restaurant, typically centered around a barbecue, offering local Caribbean cuisine. They’re on every island we’ve visited. They’re known for their “authentic flavors,” lively atmosphere, and community spirit. But that does not mean you should eat at one. The ribs are dry. The lobster is overcooked. I cook better…and that’s sayin’ somethin’. We strongly advise you to politely pass by."},
+{h:'grand-case',n:'Lolos',c:{food:0,vibe:3},cu:'Creole \u00b7 open-air barbecue',p:'$',meals:['lunch','dinner'],side:'fr',
+ d:"A \u201clolo\u201d is a small open-air spot built around a barbecue, serving local Caribbean food. People love them for the atmosphere and the community spirit, and fair enough. But we go out to eat for the food, and we think the ribs are dry and the lobster is overcooked. Go for the experience if you\u2019d like to\u2026just don\u2019t invite us to join you. You\u2019re on your own on this one."},
 
 {h:'anse-marcel',n:'Le Gourmet',c:3,cu:'French-Caribbean fusion',p:'$$$',meals:['dinner'],side:'fr',
  d:"There aren’t words qualified enough to describe the French vibe and the stunning exclusivity.",
@@ -319,10 +319,15 @@ var POSTCARDS=[['Grand Case','Restaurant row'],['Le Pressoir','Top in the Caribb
 var active={};
 function score(r){
  if(r.c===null||r.c===undefined)return null;
- if(r.c&&typeof r.c==='object')return Math.max.apply(null,Object.keys(r.c).map(function(k){return r.c[k];}));
+ if(r.c&&typeof r.c==='object'){
+   if('food' in r.c)return r.c.food;
+   return Math.max.apply(null,Object.keys(r.c).map(function(k){return r.c[k];}));
+ }
  return r.c;
 }
+function isSkip(r){return r.c===0;}
 function nuts(n){
+ if(!n)return '<span class="coco"><img src="'+CO+'" style="transform:rotate(-5deg);filter:grayscale(1);opacity:.35" alt="none"></span>';
  return '<span class="coco">'+Array.apply(null,Array(n)).map(function(_,i){
    var rot=[-8,5,-4][i]||0;return '<img src="'+CO+'" style="transform:rotate('+rot+'deg)" alt="">';}).join('')+'</span>';
 }
@@ -356,7 +361,7 @@ function matches(r){
  var hs=keys('h:'),cs=keys('c:'),ms=keys('m:'),ps=keys('p:');
  var showSkips=cs.indexOf('skip')>-1;
  var sc=score(r);
- if(sc===0&&!showSkips)return false;
+ if(isSkip(r)&&!showSkips)return false;
  if(hs.length&&hs.indexOf(r.h)===-1)return false;
  if(cs.indexOf('3')>-1&&sc!==3)return false;
  if(cs.indexOf('2')>-1&&!(sc>=2))return false;
@@ -373,14 +378,14 @@ function actions(r){
  if(r.warn)a.push('<span class="warn">'+r.warn+'</span>');
  return a.length?'<div class="acts">'+a.join('')+'</div>':'';
 }
-var RLAB={food:'FOOD',spot:'LOCATION',view:'THE VIEW'};
+var RLAB={food:'FOOD',spot:'LOCATION',vibe:'ATMOSPHERE',view:'THE VIEW'};
 function card(r){
  var sc=score(r);
- var cls='card'+(sc===3?' top':'')+(sc===0?' skip':'');
+ var cls='card'+(typeof r.c==='number'&&r.c===3?' top':'')+(isSkip(r)?' skip':'');
  var h='<article class="'+cls+'">';
  h+='<div class="chead"><div><p class="nm">'+r.n+' <img class="flag" src="'+(r.side==='fr'?FR:SX)+'" alt="'+(r.side==='fr'?'French side':'Dutch side')+'"></p>'+
     '<p class="meta">'+r.cu+' · '+r.p+'</p></div>';
- if(sc===0)h+='<span class="pill">Skip it, mon</span>';
+ if(isSkip(r))h+='<span class="pill">Skip it, mon</span>';
  else if(r.c&&typeof r.c==='object'){
    h+='<span class="rates">'+Object.keys(r.c).map(function(k){
      return '<span class="rate"><span class="rlab">'+(RLAB[k]||k.toUpperCase())+'</span>'+nuts(r.c[k])+'</span>';}).join('')+'</span>';
