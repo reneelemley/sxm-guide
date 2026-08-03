@@ -160,7 +160,11 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzpKxEnN_lUIPbl3i8i_c7iK
 
   function render(list){
     if(!list||!list.length){
-      wall.innerHTML='<div class="empty"><p>Why hasn\'t anyone signed yet? Someone\'s gotta go first. Don\'t be shy.</p></div>';
+      wall.innerHTML='<div class="tag" style="transform:rotate(-1deg)">'+
+        '<span class="hole"></span>'+
+        '<p class="nm">Ren&eacute;e &amp; Ryan</p>'+
+        '<p class="mt">YOUR SXM GUIDES &bull; POINT BLANCHE</p>'+
+        '<p class="cm">Why hasn\'t anyone signed yet? Someone\'s gotta go first. Don\'t be shy.</p></div>';
       return;
     }
     var rot=[-1.2,0.9,-0.6,1.1,-0.9,0.7];
