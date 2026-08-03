@@ -409,7 +409,10 @@ function setChip(k,on){active[k]=on;var el=document.querySelector('.chip[data-k=
 renderRail();renderChips();render();
 document.addEventListener('click',function(e){
  var c=e.target.closest?e.target.closest('.chip'):null;
- if(c){setChip(c.dataset.k,!active[c.dataset.k]);render();return;}
+ if(c){setChip(c.dataset.k,!active[c.dataset.k]);render();
+   if(c.dataset.k==='c:skip'&&active['c:skip']){var s=document.getElementById('skip');
+     if(s)setTimeout(function(){s.scrollIntoView({behavior:'smooth',block:'start'});},60);}
+   return;}
  var m=e.target.closest?e.target.closest('[data-meal]'):null;
  if(m){e.preventDefault();active={};
    [].forEach.call(document.querySelectorAll('.chip'),function(x){x.classList.remove('on');});
