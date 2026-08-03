@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Guest Book · R&amp;R's Guide To SXM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function(){try{if(localStorage.getItem('sxm-key')!=='friendlyisland'){location.replace('./');}}catch(e){}})();
+</script>
+<style>
+:root{--cream:#FFFDF5;--ink:#3C4A52;--body:#57666F;--mute:#8A97A0;--line:#E4D9CA;
+--deep:#0A5F86;--deep2:#084A68;--green:#2C6B4E;--kraft:#F2DFAE;--kraft-ink:#8A5F12;--kraft-mute:#A6813C;
+--footer:#0A4A55;--footer-rule:#1B6570;--footer-head:#7FD4DC;--footer-link:#D6EEF2;--footer-mute:#9FCDD4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+a{color:inherit}
+.nav{background:var(--deep2);padding:10px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20}
+.nav .stamp{display:inline-block;border:1.5px solid #E0A32B;border-radius:5px;padding:2px;text-decoration:none;flex:none}
+.nav .stamp span{display:block;border:.5px solid #E0A32B;border-radius:3px;padding:2px 8px;text-align:center}
+.nav .stamp b{display:block;font-family:Montserrat,sans-serif;font-weight:800;font-size:14px;letter-spacing:.1em;color:var(--cream);line-height:1.05}
+.nav .stamp i{display:block;font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:7.5px;color:#E0A32B;line-height:1}
+.nav .crumb{font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:#AFD3E2;text-decoration:none}
+.mast{padding:8px 16px 24px;text-align:center}
+.mast .badge{width:64px;height:64px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #FFFDF7,0 3px 8px rgba(3,40,48,.3);margin:0 auto 14px;transform:rotate(-6deg)}
+.mast .badge img{width:34px;height:34px}
+.mast h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:34px;letter-spacing:.1em;color:var(--cream);margin:0;line-height:1}
+.mast .sub{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.3em;color:#AFD3E2;margin:8px 0 0}
+.mast .blurb{font-family:Caveat,cursive;font-style:italic;font-weight:600;font-size:20px;color:#FFF6E2;margin:13px auto 0;max-width:440px;line-height:1.45}
+.wrap{max-width:600px;margin:0 auto;padding:0 16px}
+.card{background:var(--cream);border-radius:10px;padding:18px 17px 19px}
+label{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:9px;letter-spacing:.15em;color:var(--mute);margin:0 0 6px}
+input,textarea{width:100%;font-family:Inter,sans-serif;font-size:16px;color:var(--ink);background:#fff;
+ border:1px solid var(--line);border-radius:7px;padding:11px 13px;-webkit-appearance:none;appearance:none}
+textarea{min-height:110px;resize:vertical;line-height:1.6}
+input:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(44,107,78,.14)}
+.field{margin-bottom:14px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+button{width:100%;padding:14px;border:none;border-radius:7px;background:var(--green);color:var(--cream);
+ font-family:Montserrat,sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.16em;cursor:pointer}
+button:hover{background:#245740}
+button:disabled{opacity:.55;cursor:default}
+.err{font-size:13px;font-weight:600;color:#8A3320;margin:11px 0 0;min-height:18px}
+.thanks{text-align:center;padding:6px 4px 4px}
+.thanks .badge{width:58px;height:58px;border-radius:50%;background:#FFFDF7;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #FFFDF7,0 3px 8px rgba(3,40,48,.18);margin:0 auto 14px;transform:rotate(-6deg)}
+.thanks .badge img{width:32px;height:32px}
+.thanks p{font-family:Caveat,cursive;font-style:italic;font-weight:600;font-size:24px;color:var(--green);margin:0 0 8px;line-height:1.35}
+.thanks small{display:block;font-size:13px;color:var(--body);line-height:1.6}
+.thanks a.again{display:inline-block;margin-top:15px;font-size:12px;color:var(--green);border-bottom:1px solid #A9C6B5;text-decoration:none}
+.rule{display:flex;align-items:center;gap:10px;max-width:600px;margin:0 auto;padding:26px 16px 2px}
+.rule span{height:1px;background:#2B7BA0;flex:1}
+.rule b{font-family:Montserrat,sans-serif;font-weight:700;font-size:9px;letter-spacing:.18em;color:#8FC4DC}
+.wall{max-width:600px;margin:0 auto;padding:14px 16px 30px}
+.tag{position:relative;background:var(--kraft);border-radius:3px;padding:26px 16px 15px;margin-bottom:16px;box-shadow:0 5px 15px rgba(3,40,48,.3)}
+.tag .hole{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:13px;height:13px;border-radius:50%;background:var(--deep);box-shadow:inset 0 0 0 2px #D9C48C}
+.tag .nm{font-family:Caveat,cursive;font-style:italic;font-weight:700;font-size:23px;color:var(--kraft-ink);margin:0;line-height:1.1}
+.tag .mt{font-family:Montserrat,sans-serif;font-weight:700;font-size:8px;letter-spacing:.13em;color:var(--kraft-mute);margin:3px 0 8px}
+.tag .cm{font-size:12.5px;color:#5F5E5A;line-height:1.55;margin:0;white-space:pre-wrap}
+.empty{text-align:center;padding:10px 10px 6px}
+.empty p{font-family:Caveat,cursive;font-style:italic;font-weight:600;font-size:21px;color:#AFD3E2;margin:0;line-height:1.4}
+.loading{text-align:center;font-size:12px;color:#7FB4CE;padding:8px 0 4px}
+footer{background:var(--footer);padding:26px 16px 16px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.fcol{margin-bottom:16px}
+.fcol h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.15em;color:var(--footer-head);margin:0 0 6px}
+.fcol a{display:block;font-size:11.5px;color:var(--footer-link);margin:0 0 4px;line-height:1.45;text-decoration:none}
+.fcol a svg{width:10px;height:10px}
+.fbottom{border-top:1px solid var(--footer-rule);padding-top:14px;margin-top:2px;text-align:center}
+.fbottom .eyebrow{font-family:Fraunces,serif;font-style:italic;font-weight:600;font-size:12px;color:var(--footer-head);margin:0}
+.fbottom .mark{font-family:Montserrat,sans-serif;font-weight:800;font-size:20px;letter-spacing:.12em;color:var(--cream);margin:1px 0 0}
+.fbottom .legal{font-size:11px;color:var(--footer-mute);margin:11px 0 0;line-height:1.6}
+@media(min-width:820px){
+.nav,.mast,footer{padding-left:32px;padding-right:32px}
+.mast h1{font-size:48px}.mast .blurb{font-size:23px;max-width:520px}
+.wrap,.rule{max-width:640px}
+.wall{max-width:900px;padding-bottom:44px;column-count:2;column-gap:18px}
+.tag{break-inside:avoid;-webkit-column-break-inside:avoid}
+.fgrid{grid-template-columns:repeat(4,1fr);max-width:1080px;margin:0 auto}
+.fbottom{max-width:1080px;margin:6px auto 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<a class="stamp" href="./"><span><i>R&amp;R's Guide To</i><b>SXM</b></span></a>
+<a class="crumb" href="./">← ALL SECTIONS</a>
+</nav>
+
+<header class="mast">
+<div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/270d.svg" alt=""></div>
+<h1>GUEST BOOK</h1>
+<p class="sub">NAMES &amp; NOTES</p>
+<p class="blurb">Sign our book before you go.</p>
+</header>
+
+<main class="wrap">
+<div class="card" id="card">
+<form id="gb" novalidate>
+<div class="field">
+<label for="g-name">FIRST NAME</label>
+<input id="g-name" name="name" type="text" autocomplete="given-name" maxlength="80" required>
+</div>
+<div class="field">
+<label for="g-from">VISITING FROM</label>
+<input id="g-from" name="from" type="text" autocomplete="address-level2" maxlength="120">
+</div>
+<div class="field">
+<label for="g-note">YOUR NOTE</label>
+<textarea id="g-note" name="note" maxlength="1200" required></textarea>
+</div>
+<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" id="g-send">SHARE YOUR THOUGHTS</button>
+<p class="err" id="g-err"></p>
+</form>
+
+<div class="thanks" id="thanks" hidden>
+<div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f379.svg" alt=""></div>
+<p>Merci! Your note is on island time.</p>
+<small>It'll go up right after our next rum punch.</small>
+<a class="again" href="#" id="again">Write another</a>
+</div>
+</div>
+</main>
+
+<div class="rule"><span></span><b>WHO'S BEEN HERE</b><span></span></div>
+<div class="wall" id="wall"><p class="loading">Fetching the book…</p></div>
+
+<footer>
+<div class="fgrid">
+<div class="fcol"><h3>DAY ONE</h3><a href="day-one.html#comms">Comms &amp; Apps</a><a href="day-one.html#cash">Cash &amp; Tipping</a><a href="day-one.html#passport">Passport &amp; Borders</a><a href="day-one.html#dogs">Coconut Retrievers</a><a href="day-one.html#safety">Safety</a></div>
+<div class="fcol"><h3>BEACHES</h3><a href="beaches.html">French Beaches</a><a href="beaches.html">Dutch Beaches</a><a href="beaches.html#favorites">Local Favorites</a><a href="beaches.html#upscale">Upscale &amp; Unique</a><a href="beaches.html#busy">Tourist Hotspots</a><a href="beaches.html#skip">Beaches With Blockers</a><a href="https://bookstmartin.com/sargassum-st-martin/" target="_blank" rel="noopener">Sargassum Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8v8"/><path d="M14 2L6.5 9.5"/><path d="M12 10v4H2V4h4"/></svg></a></div>
+<div class="fcol"><h3>EAT</h3><a href="eat.html#grand-case">Grand Case</a><a href="eat.html#anse-marcel">Anse Marcel</a><a href="eat.html#orient-bay">Orient Bay</a><a href="eat.html#oyster-pond">Oyster Pond</a><a href="eat.html#simpson-bay">Cole Bay &amp; Simpson Bay</a><a href="eat.html">Lunch Spots</a><a href="eat.html">Dinner Spots</a><a href="eat.html#bakeries">French Bakeries</a><a href="eat.html#skip">Skip It, Mon</a></div>
+<div class="fcol"><h3>THINGS TO DO</h3><a href="things-to-do.html#excursions">Excursions</a><a href="things-to-do.html#day-trips">Island Day Trips</a><a href="things-to-do.html#ziplines">Ziplines &amp; Adventure</a><a href="things-to-do.html#boats">Boats &amp; Snorkeling</a><a href="things-to-do.html#crawl">Beach Bar Crawl</a></div>
+<div class="fcol"><h3>GETTING AROUND</h3><a href="getting-around.html#taxis">Taxis</a><a href="getting-around.html#buses">Buses</a><a href="getting-around.html#cars">Rental Cars</a></div>
+<div class="fcol"><h3>GROCERIES</h3><a href="groceries.html#french">French Side</a><a href="groceries.html#dutch">Dutch Side</a><a href="groceries.html#bodegas">Bodegas</a></div>
+<div class="fcol"><h3>WHERE TO STAY</h3><a href="where-to-stay.html">Our Top 3 Hotels</a><a href="#">R&amp;R BnB <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f512.svg" alt="password protected" style="width:11px;height:11px;vertical-align:-1px"></a></div>
+<div class="fcol"><h3>HAVE FEEDBACK?</h3><a href="feedback.html">Let Us Know <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/2709.svg" alt="" style="width:11px;height:11px;vertical-align:-1px"></a></div>
+<div class="fcol"><h3>GUEST BOOK</h3><a href="guest-book.html">Read &amp; Sign <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/270d.svg" alt="" style="width:11px;height:11px;vertical-align:-1px"></a></div>
+</div>
+<div class="fbottom">
+<p class="eyebrow">R&amp;R's Guide To</p><p class="mark">SXM</p>
+<p class="legal">Hosted By Renée &amp; Ryan<br>© 2026 All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzpKxEnN_lUIPbl3i8i_c7iKm-fCHxpggtH6KW8YeXJT_DRNaOj1euhC8zeaCQCan2W/exec';
+
+(function(){
+  var form=document.getElementById('gb'), err=document.getElementById('g-err'),
+      btn=document.getElementById('g-send'), thanks=document.getElementById('thanks'),
+      wall=document.getElementById('wall');
+
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+  function render(list){
+    if(!list||!list.length){
+      wall.innerHTML='<div class="empty"><p>Why hasn\'t anyone signed yet? Someone\'s gotta go first. Don\'t be shy.</p></div>';
+      return;
+    }
+    var rot=[-1.2,0.9,-0.6,1.1,-0.9,0.7];
+    wall.innerHTML=list.map(function(e,i){
+      var meta=[e.from,e.when].filter(Boolean).join(' · ');
+      return '<div class="tag" style="transform:rotate('+rot[i%rot.length]+'deg)">'+
+             '<span class="hole"></span>'+
+             '<p class="nm">'+esc(e.name)+'</p>'+
+             (meta?'<p class="mt">'+esc(meta).toUpperCase()+'</p>':'')+
+             '<p class="cm">'+esc(e.note)+'</p></div>';
+    }).join('');
+  }
+
+  try{
+    var cached=JSON.parse(localStorage.getItem('sxm-gb')||'null');
+    if(cached&&cached.entries){render(cached.entries);}
+  }catch(e){}
+
+  window.__gbLoad=function(data){
+    var list=(data&&data.entries)||[];
+    render(list);
+    try{localStorage.setItem('sxm-gb',JSON.stringify({entries:list}));}catch(e){}
+  };
+
+  var s=document.createElement('script');
+  s.src=ENDPOINT+'?callback=__gbLoad&t='+Date.now();
+  s.onerror=function(){
+    if(!wall.querySelector('.tag')){
+      wall.innerHTML='<div class="empty"><p>Can\'t reach the book right now. Try again in a bit.</p></div>';
+    }
+  };
+  document.body.appendChild(s);
+
+  document.getElementById('again').addEventListener('click',function(e){
+    e.preventDefault(); thanks.hidden=true; form.hidden=false; form.reset();
+    btn.disabled=false; btn.textContent='SHARE YOUR THOUGHTS'; err.textContent='';
+  });
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    err.textContent='';
+    var name=form.name.value.trim(), note=form.note.value.trim();
+    if(!name){ err.textContent='We’d like to know who you are.'; form.name.focus(); return; }
+    if(!note){ err.textContent='Say something. Anything.'; form.note.focus(); return; }
+
+    btn.disabled=true; btn.textContent='SENDING…';
+    var body=new URLSearchParams();
+    body.append('kind','guestbook');
+    ['name','from','note','website'].forEach(function(k){ body.append(k, form[k].value); });
+
+    fetch(ENDPOINT,{method:'POST',mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body:body.toString()})
+    .then(function(){ form.hidden=true; thanks.hidden=false;
+      document.getElementById('card').scrollIntoView({behavior:'smooth',block:'center'}); })
+    .catch(function(){
+      btn.disabled=false; btn.textContent='SHARE YOUR THOUGHTS';
+      err.textContent='That didn’t go through. Try again in a minute.';
+    });
+  });
+})();
+</script>
+</body>
+</html>
