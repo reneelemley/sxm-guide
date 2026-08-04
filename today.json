@@ -1,0 +1,345 @@
+{
+ "generated": "2026-08-04T07:55:37-04:00",
+ "date": "2026-08-04",
+ "season": "LOW",
+ "traffic": {
+  "severity": "BUSY",
+  "ships_known": true,
+  "cruise_pax": 7600,
+  "ship_count": 1,
+  "ships": [
+   {
+    "ship": "Icon Of The Seas",
+    "line": "Royal Caribbean",
+    "pax": 7600,
+    "time": "08:00"
+   }
+  ],
+  "expected_pax_for_month": 1285,
+  "anomaly": "EXCEPTIONAL_FOR_SEASON",
+  "anomaly_ratio": 5.91
+ },
+ "sargassum": "SARGASSUM_LIKELY",
+ "events": [],
+ "closures": [],
+ "slots": [
+  "TRAFFIC_BUSY",
+  "ANOMALY_EXCEPTIONAL",
+  "SARGASSUM_LIKELY"
+ ],
+ "beaches": {
+  "crowd": {
+   "avoid": [
+    "Mullet Bay",
+    "Maho",
+    "Great Bay",
+    "Little Bay",
+    "Orient Bay"
+   ],
+   "escape": [
+    "Indigo Bay",
+    "Cole Bay",
+    "Guana Bay",
+    "Coconut Grove",
+    "Le Galion",
+    "Anse Marcel",
+    "Happy Bay",
+    "Friar's Bay",
+    "Petites Cayes",
+    "Galisbay",
+    "Baie Rouge",
+    "Plum Bay"
+   ]
+  },
+  "aspect": [
+   {
+    "n": "Cupecoy",
+    "faces": "W/SW",
+    "basin": "leeward",
+    "nw_swell": "high",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "neutral"
+   },
+   {
+    "n": "Mullet Bay",
+    "faces": "SW/S",
+    "basin": "leeward",
+    "nw_swell": "high",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "exposed"
+   },
+   {
+    "n": "Maho",
+    "faces": "S/SW",
+    "basin": "leeward",
+    "nw_swell": "moderate",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "exposed"
+   },
+   {
+    "n": "Simpson Bay",
+    "faces": "S",
+    "basin": "leeward",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "neutral"
+   },
+   {
+    "n": "Kim Sha",
+    "faces": "S/SW",
+    "basin": "leeward",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "neutral"
+   },
+   {
+    "n": "Indigo Bay",
+    "faces": "S/SW",
+    "basin": "leeward",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Cole Bay",
+    "faces": "S",
+    "basin": "leeward",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Great Bay",
+    "faces": "S/SSE",
+    "basin": "leeward",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "exposed"
+   },
+   {
+    "n": "Little Bay",
+    "faces": "S/SW",
+    "basin": "leeward",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "exposed"
+   },
+   {
+    "n": "Guana Bay",
+    "faces": "E/ESE",
+    "basin": "windward",
+    "nw_swell": "low",
+    "chop": "high",
+    "sargassum": "high",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Dawn Beach",
+    "faces": "E",
+    "basin": "windward",
+    "nw_swell": "low",
+    "chop": "high",
+    "sargassum": "high",
+    "crowd": "neutral"
+   },
+   {
+    "n": "Oyster Pond",
+    "faces": "E",
+    "basin": "windward",
+    "nw_swell": "low",
+    "chop": "moderate",
+    "sargassum": "high",
+    "crowd": "neutral"
+   },
+   {
+    "n": "Coconut Grove",
+    "faces": "E/SE",
+    "basin": "reef",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "high",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Le Galion",
+    "faces": "E/SE",
+    "basin": "reef",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "high",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Orient Bay",
+    "faces": "E/NE",
+    "basin": "windward",
+    "nw_swell": "moderate",
+    "chop": "moderate",
+    "sargassum": "high",
+    "crowd": "exposed"
+   },
+   {
+    "n": "Pinel Island",
+    "faces": "SW",
+    "basin": "lee",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "moderate",
+    "crowd": "neutral"
+   },
+   {
+    "n": "Anse Marcel",
+    "faces": "N/NNE",
+    "basin": "enclosed",
+    "nw_swell": "moderate",
+    "chop": "low",
+    "sargassum": "moderate",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Grand Case",
+    "faces": "W/NW",
+    "basin": "leeward",
+    "nw_swell": "moderate",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "neutral"
+   },
+   {
+    "n": "Happy Bay",
+    "faces": "W/NW",
+    "basin": "leeward",
+    "nw_swell": "high",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Friar's Bay",
+    "faces": "W/NW",
+    "basin": "leeward",
+    "nw_swell": "high",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Petites Cayes",
+    "faces": "N/NNW",
+    "basin": "windward",
+    "nw_swell": "high",
+    "chop": "moderate",
+    "sargassum": "moderate",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Galisbay",
+    "faces": "W",
+    "basin": "leeward",
+    "nw_swell": "low",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Baie Rouge",
+    "faces": "W/SW",
+    "basin": "leeward",
+    "nw_swell": "high",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "absorbs"
+   },
+   {
+    "n": "Plum Bay",
+    "faces": "W",
+    "basin": "leeward",
+    "nw_swell": "high",
+    "chop": "low",
+    "sargassum": "low",
+    "crowd": "absorbs"
+   }
+  ]
+ },
+ "bridges": {
+  "schedule": {
+   "simpson_bay": {
+    "label": "Simpson Bay",
+    "side": "dutch",
+    "times": [
+     "08:30",
+     "09:30",
+     "10:30",
+     "11:30",
+     "14:00",
+     "16:00",
+     "17:00"
+    ]
+   },
+   "causeway": {
+    "label": "Causeway",
+    "side": "dutch",
+    "times": [
+     "08:00",
+     "10:00",
+     "16:30"
+    ]
+   },
+   "sandy_ground": {
+    "label": "Sandy Ground",
+    "side": "french",
+    "times": [
+     "08:30",
+     "17:00"
+    ]
+   }
+  },
+  "closure_minutes": 20,
+  "compound_windows": [
+   {
+    "key": "BRIDGE_COMPOUND_AM",
+    "start": "08:00",
+    "end": "08:50"
+   },
+   {
+    "key": "BRIDGE_COMPOUND_AM",
+    "start": "10:00",
+    "end": "10:50"
+   },
+   {
+    "key": "BRIDGE_COMPOUND_PM",
+    "start": "16:00",
+    "end": "17:20"
+   }
+  ]
+ },
+ "crowd_window": {
+  "start": "09:30",
+  "end": "16:00"
+ },
+ "swell_config": {
+  "groundswell_min_period": 9,
+  "min_height": 1.5,
+  "nw_arc": [
+   300,
+   30
+  ],
+  "e_arc": [
+   45,
+   135
+  ],
+  "probe": {
+   "latitude": 18.3,
+   "longitude": -62.8
+  }
+ }
+}

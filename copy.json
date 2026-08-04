@@ -1,0 +1,51 @@
+{
+  "_note": "Renee owns every sentence here. A state left empty renders nothing at all - the banner simply omits it. Placeholders {ships} and {pax} are filled in automatically. Nothing in this file is generated; if it is blank it is because it has not been written yet.",
+
+  "ships": {
+    "none": "No ships in port.",
+    "some": "{ships} in port — about {pax} people."
+  },
+
+  "slots": {
+    "TRAFFIC_EMPTY": "",
+    "TRAFFIC_QUIET": "",
+    "TRAFFIC_NORMAL": "",
+    "TRAFFIC_BUSY": "Philipsburg busy, Maho gets the overflow, roads otherwise fine.",
+    "TRAFFIC_CONGESTED": "Philipsburg and Maho will be packed and the roads slow until about four. Expect heavy traffic across the island.",
+    "TRAFFIC_GRIDLOCK": "",
+    "TRAFFIC_ZERO_SHIPS_STILL_BUSY": "",
+    "TRAFFIC_DATA_STALE": "",
+
+    "ANOMALY_BELOW_NORMAL": "",
+    "ANOMALY_HEAVIER": "",
+    "ANOMALY_EXCEPTIONAL": "",
+
+    "BRIDGE_SINGLE": "",
+    "BRIDGE_COMPOUND_AM": "",
+    "BRIDGE_COMPOUND_PM": "",
+    "BRIDGE_UPCOMING": "",
+
+    "SWELL_NORTH_WEST_ROUGH": "",
+    "SWELL_EAST_CHOPPY": "",
+    "SWELL_CALM": "",
+    "SWELL_DATA_STALE": "",
+
+    "SARGASSUM_LIKELY": "Sargassum season — the Atlantic-facing beaches (Orient, Le Galion, Dawn, Coconut Grove) are the ones to check before you drive out.",
+    "SARGASSUM_POSSIBLE": "",
+    "SARGASSUM_UNLIKELY": "",
+
+    "CROWD_AVOID_LIST": "",
+    "CROWD_ESCAPE_LIST": "",
+
+    "EVENT_FRENCH_CARNIVAL": "",
+    "EVENT_DUTCH_CARNIVAL": "",
+    "EVENT_REGATTA": "",
+    "EVENT_PUBLIC_HOLIDAY_DUTCH": "",
+    "EVENT_PUBLIC_HOLIDAY_FRENCH": "",
+
+    "CLOSURE_SEPTEMBER": "",
+
+    "SPECIALS_WEEKLY": "",
+    "SPECIALS_LOW_SEASON_CAVEAT": ""
+  }
+}
