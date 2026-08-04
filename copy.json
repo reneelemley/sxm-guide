@@ -1,51 +1,41 @@
 {
-  "_note": "Renee owns every sentence here. A state left empty renders nothing at all - the banner simply omits it. Placeholders {ships} and {pax} are filled in automatically. Nothing in this file is generated; if it is blank it is because it has not been written yet.",
-
+  "_note": "Renee owns every sentence here. Claude drafted the first pass in August 2026; edit freely. A slot left empty renders nothing at all - the banner simply omits it. Placeholders {ships}, {pax} and {month} are filled in automatically.",
   "ships": {
     "none": "No ships in port.",
     "some": "{ships} in port — about {pax} people."
   },
-
   "slots": {
-    "TRAFFIC_EMPTY": "",
-    "TRAFFIC_QUIET": "",
-    "TRAFFIC_NORMAL": "",
+    "TRAFFIC_EMPTY": "About as quiet as this island gets. Empty roads, empty beaches.",
+    "TRAFFIC_QUIET": "Quiet day. Roads are clear and you can get anywhere without thinking about it.",
+    "TRAFFIC_NORMAL": "Ordinary day on the roads.",
     "TRAFFIC_BUSY": "Philipsburg busy, Maho gets the overflow, roads otherwise fine.",
     "TRAFFIC_CONGESTED": "Philipsburg and Maho will be packed and the roads slow until about four. Expect heavy traffic across the island.",
-    "TRAFFIC_GRIDLOCK": "",
-    "TRAFFIC_ZERO_SHIPS_STILL_BUSY": "",
-    "TRAFFIC_DATA_STALE": "",
-
-    "ANOMALY_BELOW_NORMAL": "",
-    "ANOMALY_HEAVIER": "",
-    "ANOMALY_EXCEPTIONAL": "",
-
-    "BRIDGE_SINGLE": "",
-    "BRIDGE_COMPOUND_AM": "",
-    "BRIDGE_COMPOUND_PM": "",
-    "BRIDGE_UPCOMING": "",
-
-    "SWELL_NORTH_WEST_ROUGH": "",
-    "SWELL_EAST_CHOPPY": "",
-    "SWELL_CALM": "",
-    "SWELL_DATA_STALE": "",
-
+    "TRAFFIC_GRIDLOCK": "The port is at capacity. Crossing the island between ten and four is going to hurt.",
+    "TRAFFIC_ZERO_SHIPS_STILL_BUSY": "No ships today, but the island is full anyway. The flights fill it just as much.",
+    "TRAFFIC_DATA_STALE": "We do not have today's port schedule, so assume the usual.",
+    "ANOMALY_BELOW_NORMAL": "Even quieter than {month} usually is.",
+    "ANOMALY_HEAVIER": "Busier than a typical {month} day.",
+    "ANOMALY_EXCEPTIONAL": "This is not what {month} normally looks like.",
+    "BRIDGE_SINGLE": "A bridge is open right about now. Ten or twenty minutes and it clears.",
+    "BRIDGE_COMPOUND_AM": "Both Dutch bridges open within the same half hour this morning, so there is no way around Simpson Bay for a bit.",
+    "BRIDGE_COMPOUND_PM": "Worst window of the day. Both bridges open between four and five, right as the ships leave and everyone drives home.",
+    "BRIDGE_UPCOMING": "A bridge opens within the half hour.",
+    "SWELL_NORTH_WEST_ROUGH": "North swell is running, so the west side — Baie Rouge, Plum, Happy, Mullet — has shore break today. The south and east stay flat.",
+    "SWELL_EAST_CHOPPY": "Trades are up and the Atlantic-facing beaches are choppy. Le Galion and Coconut Grove stay calm behind the reef.",
+    "SWELL_CALM": "Water is flat islandwide.",
+    "SWELL_DATA_STALE": "No water reading today.",
     "SARGASSUM_LIKELY": "Sargassum season — the Atlantic-facing beaches (Orient, Le Galion, Dawn, Coconut Grove) are the ones to check before you drive out.",
-    "SARGASSUM_POSSIBLE": "",
-    "SARGASSUM_UNLIKELY": "",
-
-    "CROWD_AVOID_LIST": "",
-    "CROWD_ESCAPE_LIST": "",
-
-    "EVENT_FRENCH_CARNIVAL": "",
-    "EVENT_DUTCH_CARNIVAL": "",
-    "EVENT_REGATTA": "",
-    "EVENT_PUBLIC_HOLIDAY_DUTCH": "",
-    "EVENT_PUBLIC_HOLIDAY_FRENCH": "",
-
-    "CLOSURE_SEPTEMBER": "",
-
+    "SARGASSUM_POSSIBLE": "Edge of sargassum season — the Atlantic-facing beaches are the ones worth checking before you drive out.",
+    "SARGASSUM_UNLIKELY": "Sargassum season is over. The east side is clear.",
+    "CROWD_AVOID_LIST": "Maho, Mullet, Orient and the Boardwalk will be shoulder to shoulder until about four.",
+    "CROWD_ESCAPE_LIST": "Happy Bay, Baie Rouge, Plum and Friar's stay quiet on ship days.",
+    "EVENT_FRENCH_CARNIVAL": "Carnival in Marigot. Road closures, parades, and no parking anywhere near town.",
+    "EVENT_DUTCH_CARNIVAL": "Carnival season on the Dutch side. Philipsburg has parades and the roads around them shut down.",
+    "EVENT_REGATTA": "Heineken Regatta week. Simpson Bay is full of boats and the bars are three deep.",
+    "EVENT_PUBLIC_HOLIDAY_DUTCH": "Dutch-side holiday. Philipsburg and Simpson Bay will be mostly shut.",
+    "EVENT_PUBLIC_HOLIDAY_FRENCH": "French-side holiday. Grand Case and Marigot will be mostly shut.",
+    "CLOSURE_SEPTEMBER": "Low season, so a good part of the French side is closed for the year. Call before you drive to Grand Case.",
     "SPECIALS_WEEKLY": "",
-    "SPECIALS_LOW_SEASON_CAVEAT": ""
+    "SPECIALS_LOW_SEASON_CAVEAT": "Plenty of the weekly specials go on hiatus in low season. Call first."
   }
 }

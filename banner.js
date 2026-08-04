@@ -124,9 +124,12 @@
           .replace('{pax}', tr.cruise_pax.toLocaleString()));
       }
     }
+    var MONTHS = ['January','February','March','April','May','June','July',
+                  'August','September','October','November','December'];
+    var monthName = MONTHS[new Date(t.date + 'T12:00:00').getMonth()];
     chosen.forEach(function (s) {
       var line = copy.slots[s];
-      if (line) parts.push(line);          // unwritten copy renders nothing
+      if (line) parts.push(line.replace('{month}', monthName));   // unwritten copy renders nothing
     });
 
     if ($('wx-advice')) {
