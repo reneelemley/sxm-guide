@@ -29,31 +29,45 @@
     var lo = arc[0], hi = arc[1]; deg = ((deg % 360) + 360) % 360;
     return lo > hi ? (deg >= lo || deg <= hi) : (deg >= lo && deg <= hi);
   }
-  function swellState(h, dir, per, cfg) {
+  function swellState(h, dir, per, cfg, windKt) {
     if (h == null || dir == null) return 'SWELL_DATA_STALE';
-    if (per != null && per >= cfg.groundswell_min_period &&
-        inArc(dir, cfg.nw_arc) && h >= cfg.min_height) return 'SWELL_NORTH_WEST_ROUGH';
-    if (inArc(dir, cfg.e_arc) && h >= cfg.min_height) return 'SWELL_EAST_CHOPPY';
+    per = per || 0;
+    if (inArc(dir, cfg.nw_arc)) {
+      if (h >= cfg.severe.height || per >= cfg.severe.period) return 'SWELL_NORTH_WEST_DANGEROUS';
+      if (h >= cfg.alert.height  && per >= cfg.alert.period)  return 'SWELL_NORTH_WEST_ROUGH';
+      if (h >= cfg.watch.height  && per >= cfg.watch.period)  return 'SWELL_NORTH_WEST_ROUGH';
+    }
+    if (windKt != null && windKt >= cfg.wind_kt_unpleasant) return 'SWELL_EAST_WINDY';
+    if (inArc(dir, cfg.e_arc) && h >= cfg.east_choppy_wave) return 'SWELL_EAST_CHOPPY';
     return 'SWELL_CALM';
   }
+  var bridgeTime = null;
   function bridgeSlots(t) {
     var out = [], n = nowMins();
+    bridgeTime = null;
     (t.bridges.compound_windows || []).forEach(function (w) {
       if (n >= mins(w.start) && n <= mins(w.end)) out.push(w.key);
     });
-    if (!out.length) {
-      var all = [];
-      Object.keys(t.bridges.schedule).forEach(function (k) {
-        t.bridges.schedule[k].times.forEach(function (x) { all.push(mins(x)); });
+    if (out.length) return out;
+    // Causeway opens on demand only, so it is not worth warning about.
+    var best = null;
+    Object.keys(t.bridges.schedule).forEach(function (k) {
+      var b = t.bridges.schedule[k];
+      if (!b.primary) return;
+      b.times.forEach(function (x) {
+        var d = mins(x) - n;
+        if (d >= 0 && d <= 45 && (!best || d < best.d)) best = { d: d, t: x, key: k };
       });
-      all.sort(function (a, b) { return a - b; });
-      for (var i = 0; i < all.length; i++) {
-        var delta = all[i] - n;
-        if (delta > -t.bridges.closure_minutes && delta <= 0) { out.push('BRIDGE_SINGLE'); break; }
-        if (delta > 0 && delta <= 45) { out.push('BRIDGE_UPCOMING'); break; }
-      }
+    });
+    if (best) {
+      bridgeTime = best.t;
+      out.push(best.key === 'sandy_ground' ? 'BRIDGE_SANDY_GROUND' : 'BRIDGE_SIMPSON_BAY');
     }
     return out;
+  }
+  function fmtTime(hhmm) {
+    var p = hhmm.split(':'), h = +p[0], ap = h >= 12 ? 'pm' : 'am';
+    return ((h % 12) || 12) + ':' + p[1] + ' ' + ap;
   }
 
   /* ---- grouping: cap per category, never drop a whole subject ---- */
@@ -66,7 +80,8 @@
   var EXCLUSIVE = [
     ['TRAFFIC_EMPTY','TRAFFIC_QUIET','TRAFFIC_NORMAL','TRAFFIC_BUSY','TRAFFIC_CONGESTED',
      'TRAFFIC_GRIDLOCK','TRAFFIC_ZERO_SHIPS_STILL_BUSY','TRAFFIC_DATA_STALE'],
-    ['SWELL_NORTH_WEST_ROUGH','SWELL_EAST_CHOPPY','SWELL_CALM','SWELL_DATA_STALE'],
+    ['SWELL_NORTH_WEST_DANGEROUS','SWELL_NORTH_WEST_ROUGH','SWELL_EAST_CHOPPY',
+     'SWELL_EAST_WINDY','SWELL_CALM','SWELL_DATA_STALE'],
     ['SARGASSUM_LIKELY','SARGASSUM_POSSIBLE','SARGASSUM_UNLIKELY']
   ];
   function group(slots) {
@@ -100,6 +115,7 @@
   document.head.appendChild(st);
 
   /* ---------------------------- render ---------------------------- */
+  var windKt = null;
   function render(t, copy, marine) {
     if ($('wx-date')) {
       $('wx-date').textContent = new Date().toLocaleDateString('en-GB',
@@ -113,7 +129,7 @@
     }
 
     var slots = bridgeSlots(t).concat(t.slots || []);
-    if (marine) slots.push(swellState(marine.h, marine.dir, marine.per, t.swell_config));
+    if (marine) slots.push(swellState(marine.h, marine.dir, marine.per, t.swell_config, windKt));
 
     var n = nowMins(), cw = t.crowd_window;
     if (['BUSY','CONGESTED','GRIDLOCK'].indexOf(tr.severity) > -1 &&
@@ -122,7 +138,9 @@
     var monthName = MONTHS[new Date(t.date + 'T12:00:00').getMonth()];
     var line = function (k) {
       var l = copy.slots[k];
-      return l ? l.replace('{month}', monthName) : '';
+      if (!l) return '';
+      return l.replace('{month}', monthName)
+              .replace('{time}', bridgeTime ? fmtTime(bridgeTime) : '');
     };
 
     var shipsLine = '';
@@ -188,7 +206,7 @@
       .then(function (j) {
         var d = j.daily;
         return { h: d.swell_wave_height_max[0], dir: d.swell_wave_direction_dominant[0],
-                 per: d.swell_wave_period_max[0] };
+                 per: d.swell_wave_period_max[0] };   // swell, not total wave height
       });
   }
 
@@ -202,6 +220,7 @@
         Math.round(c.temperature_2m) + '°F/' + Math.round((c.temperature_2m - 32) * 5 / 9) + '°C';
       if ($('wx-wind')) $('wx-wind').textContent =
         Math.round(c.wind_speed_10m) + ' mph ' + compass(c.wind_direction_10m);
+      windKt = c.wind_speed_10m * 0.868;   // mph -> kt
       if ($('wx-rain')) $('wx-rain').textContent = Math.round(c.precipitation * 100) + '%';
     }).catch(function () {});
 

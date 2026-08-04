@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-04T09:16:16-04:00",
+ "generated": "2026-08-04T18:03:07-04:00",
  "date": "2026-08-04",
  "season": "LOW",
  "traffic": {
@@ -22,11 +22,36 @@
  "sargassum": "SARGASSUM_LIKELY",
  "events": [],
  "closures": [],
- "specials": {},
+ "specials": {
+  "Grand Case": [
+   "Acoustic guitar at Rainbow Caf\u00e9, 7\u201310"
+  ],
+  "Anse Marcel": [
+   "Live music at the Beach House, 7 till midnight"
+  ],
+  "Marigot": [
+   "Marigot market on Boulevard de France, 8 till 1, every day but Sunday."
+  ],
+  "Simpson Bay": [
+   "Latin night at Soggy Dollar \u2014 salsa class at 7, band at 9",
+   "Taco Tuesday at D's",
+   "Happy hour at D's 4\u20136, Buccaneer 5\u20137, Replay 3\u20136."
+  ],
+  "Maho": [
+   "Pop-up local market at Tortuga, 9 till noon",
+   "Live music at Hole in the Wall, 7\u201311",
+   "Happy hour at Tortuga 3\u20135, live music from 6."
+  ],
+  "Philipsburg": [
+   "Happy hour at sunset at Seaview, on the Boardwalk."
+  ]
+ },
  "slots": [
   "TRAFFIC_BUSY",
   "ANOMALY_EXCEPTIONAL",
-  "SARGASSUM_LIKELY"
+  "SARGASSUM_LIKELY",
+  "SPECIALS_WEEKLY",
+  "SPECIALS_LOW_SEASON_CAVEAT"
  ],
  "beaches": {
   "crowd": {
@@ -60,7 +85,9 @@
     "nw_swell": "high",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "neutral"
+    "crowd": "neutral",
+    "rip": "high",
+    "wind": "sheltered"
    },
    {
     "n": "Mullet Bay",
@@ -69,7 +96,9 @@
     "nw_swell": "high",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "exposed"
+    "crowd": "exposed",
+    "rip": "severe",
+    "wind": "sheltered"
    },
    {
     "n": "Maho",
@@ -78,7 +107,9 @@
     "nw_swell": "moderate",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "exposed"
+    "crowd": "exposed",
+    "rip": "moderate",
+    "wind": "sheltered"
    },
    {
     "n": "Simpson Bay",
@@ -87,7 +118,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "neutral"
+    "crowd": "neutral",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Kim Sha",
@@ -96,7 +129,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "neutral"
+    "crowd": "neutral",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Indigo Bay",
@@ -105,7 +140,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Cole Bay",
@@ -114,7 +151,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Great Bay",
@@ -123,7 +162,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "exposed"
+    "crowd": "exposed",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Little Bay",
@@ -132,7 +173,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "exposed"
+    "crowd": "exposed",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Guana Bay",
@@ -141,7 +184,9 @@
     "nw_swell": "low",
     "chop": "high",
     "sargassum": "high",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "severe",
+    "wind": "exposed"
    },
    {
     "n": "Dawn Beach",
@@ -150,7 +195,9 @@
     "nw_swell": "low",
     "chop": "high",
     "sargassum": "high",
-    "crowd": "neutral"
+    "crowd": "neutral",
+    "rip": "high",
+    "wind": "exposed"
    },
    {
     "n": "Oyster Pond",
@@ -159,7 +206,9 @@
     "nw_swell": "low",
     "chop": "moderate",
     "sargassum": "high",
-    "crowd": "neutral"
+    "crowd": "neutral",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Coconut Grove",
@@ -168,7 +217,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "high",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "low",
+    "wind": "better"
    },
    {
     "n": "Le Galion",
@@ -177,7 +228,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "high",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "low",
+    "wind": "better"
    },
    {
     "n": "Orient Bay",
@@ -186,7 +239,9 @@
     "nw_swell": "moderate",
     "chop": "moderate",
     "sargassum": "high",
-    "crowd": "exposed"
+    "crowd": "exposed",
+    "rip": "moderate",
+    "wind": "exposed"
    },
    {
     "n": "Pinel Island",
@@ -195,7 +250,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "moderate",
-    "crowd": "neutral"
+    "crowd": "neutral",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Anse Marcel",
@@ -204,7 +261,9 @@
     "nw_swell": "moderate",
     "chop": "low",
     "sargassum": "moderate",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Grand Case",
@@ -213,7 +272,9 @@
     "nw_swell": "moderate",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "neutral"
+    "crowd": "neutral",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Happy Bay",
@@ -222,7 +283,9 @@
     "nw_swell": "high",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "moderate",
+    "wind": "sheltered"
    },
    {
     "n": "Friar's Bay",
@@ -231,7 +294,9 @@
     "nw_swell": "high",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Petites Cayes",
@@ -240,7 +305,9 @@
     "nw_swell": "high",
     "chop": "moderate",
     "sargassum": "moderate",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "moderate",
+    "wind": "exposed"
    },
    {
     "n": "Galisbay",
@@ -249,7 +316,9 @@
     "nw_swell": "low",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "low",
+    "wind": "sheltered"
    },
    {
     "n": "Baie Rouge",
@@ -258,7 +327,9 @@
     "nw_swell": "high",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "high",
+    "wind": "sheltered"
    },
    {
     "n": "Plum Bay",
@@ -267,15 +338,21 @@
     "nw_swell": "high",
     "chop": "low",
     "sargassum": "low",
-    "crowd": "absorbs"
+    "crowd": "absorbs",
+    "rip": "high",
+    "wind": "sheltered"
    }
   ]
  },
  "bridges": {
   "schedule": {
+   "_note": "Published times are when a bridge is PREPARED to open, not when it will. No boats, no opening. Causeway is on-demand only - locals report never seeing it open. Simpson Bay causes the bulk of island traffic. All three are free to cars; the fee is charged to boats.",
    "simpson_bay": {
-    "label": "Simpson Bay",
+    "label": "Simpson Bay Bridge",
     "side": "dutch",
+    "road": "Welfare Road, Simpson Bay village",
+    "connects": "Simpson Bay and the airport to Cole Bay and Philipsburg",
+    "detour": "west past the airport and over the Causeway - roughly double the distance",
     "times": [
      "08:30",
      "09:30",
@@ -284,42 +361,47 @@
      "14:00",
      "16:00",
      "17:00"
-    ]
+    ],
+    "primary": true
+   },
+   "sandy_ground": {
+    "label": "Sandy Ground Bridge",
+    "side": "french",
+    "road": "the Marigot sandbar road",
+    "connects": "Marigot to Baie Nettle and Terres Basses",
+    "detour": "none - the long way round via Cupecoy on the Dutch side",
+    "times": [
+     "08:30",
+     "17:00"
+    ],
+    "primary": true
    },
    "causeway": {
-    "label": "Causeway",
+    "label": "Causeway Bridge",
     "side": "dutch",
+    "road": "the lagoon crossing",
+    "connects": "Airport Road to Union Road, Cole Bay",
+    "detour": "Welfare Road through Simpson Bay village",
     "times": [
      "08:00",
      "10:00",
      "16:30"
-    ]
-   },
-   "sandy_ground": {
-    "label": "Sandy Ground",
-    "side": "french",
-    "times": [
-     "08:30",
-     "17:00"
-    ]
+    ],
+    "on_demand": true,
+    "primary": false
    }
   },
   "closure_minutes": 20,
   "compound_windows": [
    {
-    "key": "BRIDGE_COMPOUND_AM",
-    "start": "08:00",
-    "end": "08:50"
+    "key": "BRIDGE_BOTH_0830",
+    "start": "08:25",
+    "end": "08:55"
    },
    {
-    "key": "BRIDGE_COMPOUND_AM",
-    "start": "10:00",
-    "end": "10:50"
-   },
-   {
-    "key": "BRIDGE_COMPOUND_PM",
-    "start": "16:00",
-    "end": "17:20"
+    "key": "BRIDGE_BOTH_1700",
+    "start": "16:55",
+    "end": "17:25"
    }
   ]
  },
@@ -328,19 +410,38 @@
   "end": "16:00"
  },
  "swell_config": {
-  "groundswell_min_period": 9,
-  "min_height": 1.5,
+  "_note": "Calibrated against a 40-year eastern Caribbean swell study (JMSE 2022). The ordinary east trade state is 1.5-1.7m at 8.1-8.2s, so the old 1.5m/9s trigger fired on about half of all days. North swell - the dangerous regime - is 2.0-2.5m at 10.2-10.6s and occurs on 16% of Nov-Apr days.",
   "nw_arc": [
-   300,
-   30
+   290,
+   50
   ],
   "e_arc": [
-   45,
-   135
+   50,
+   160
   ],
+  "watch": {
+   "height": 1.2,
+   "period": 10
+  },
+  "alert": {
+   "height": 1.8,
+   "period": 11
+  },
+  "severe": {
+   "height": 2.5,
+   "period": 13
+  },
+  "east_choppy_wave": 1.2,
+  "wind_kt_choppy": 18,
+  "wind_kt_unpleasant": 22,
+  "calm": {
+   "wave": 1.2,
+   "period": 9,
+   "wind_kt": 12
+  },
   "probe": {
-   "latitude": 18.3,
-   "longitude": -62.8
+   "latitude": 18.2,
+   "longitude": -63.2
   }
  }
 }

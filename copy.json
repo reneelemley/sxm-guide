@@ -1,5 +1,5 @@
 {
-  "_note": "Renee owns every sentence here. Claude drafted the first pass in August 2026; edit freely. A slot left empty renders nothing at all - the banner simply omits it. Placeholders {ships}, {pax} and {month} are filled in automatically.",
+  "_note": "Renée owns every sentence here. Claude drafted the first pass August 2026 — edit freely. A slot left empty renders nothing at all. Placeholders {ships}, {pax}, {month} and {time} are filled in automatically.",
   "ships": {
     "none": "No ships in port.",
     "some": "{ships} in port — about {pax} people."
@@ -16,13 +16,13 @@
     "ANOMALY_BELOW_NORMAL": "Even quieter than {month} usually is.",
     "ANOMALY_HEAVIER": "Busier than a typical {month} day.",
     "ANOMALY_EXCEPTIONAL": "This is not what {month} normally looks like.",
-    "BRIDGE_SINGLE": "A bridge is open right about now. Ten or twenty minutes and it clears.",
-    "BRIDGE_COMPOUND_AM": "Both Dutch bridges open within the same half hour this morning, so there is no way around Simpson Bay for a bit.",
-    "BRIDGE_COMPOUND_PM": "Worst window of the day. Both bridges open between four and five, right as the ships leave and everyone drives home.",
-    "BRIDGE_UPCOMING": "A bridge opens within the half hour.",
-    "SWELL_NORTH_WEST_ROUGH": "North swell is running, so the west side — Baie Rouge, Plum, Happy, Mullet — has shore break today. The south and east stay flat.",
-    "SWELL_EAST_CHOPPY": "Trades are up and the Atlantic-facing beaches are choppy. Le Galion and Coconut Grove stay calm behind the reef.",
-    "SWELL_CALM": "Water is flat islandwide.",
+    "BRIDGE_SINGLE": "",
+    "BRIDGE_COMPOUND_AM": "",
+    "BRIDGE_COMPOUND_PM": "",
+    "BRIDGE_UPCOMING": "Simpson Bay Bridge is due to open at {time}. Nothing happens if no boat turns up, but Welfare Road may stop for fifteen minutes.",
+    "SWELL_NORTH_WEST_ROUGH": "North swell is running. Baie Rouge, Plum Bay, Mullet Bay and Cupecoy have shore break and rips today — Great Bay, Little Bay and Le Galion stay flat.",
+    "SWELL_EAST_CHOPPY": "Trades are up and the Atlantic side is choppy — Orient Bay, Dawn Beach and Guana Bay. Le Galion and Coconut Grove stay flat behind the reef.",
+    "SWELL_CALM": "Flat calm islandwide — even Orient Bay and Dawn Beach are gentle today.",
     "SWELL_DATA_STALE": "No water reading today.",
     "SARGASSUM_LIKELY": "Sargassum season — the Atlantic-facing beaches (Orient, Le Galion, Dawn, Coconut Grove) are the ones to check before you drive out.",
     "SARGASSUM_POSSIBLE": "Edge of sargassum season — the Atlantic-facing beaches are the ones worth checking before you drive out.",
@@ -36,6 +36,12 @@
     "EVENT_PUBLIC_HOLIDAY_FRENCH": "French-side holiday. Grand Case and Marigot will be mostly shut.",
     "CLOSURE_SEPTEMBER": "Low season, so a good part of the French side is closed for the year. Call before you drive to Grand Case.",
     "SPECIALS_WEEKLY": "",
-    "SPECIALS_LOW_SEASON_CAVEAT": "Plenty of the weekly specials go on hiatus in low season. Call first."
+    "SPECIALS_LOW_SEASON_CAVEAT": "Low season, so call ahead. Most of the French side shuts from late August to mid-October.",
+    "BRIDGE_SIMPSON_BAY": "Simpson Bay Bridge is due to open at {time}. Welfare Road through the village stops for about fifteen minutes — if you are heading to Cole Bay or Philipsburg, be past the Yacht Club before then.",
+    "BRIDGE_SANDY_GROUND": "Sandy Ground Bridge is due to open at {time}. That is the only road from Marigot out to Baie Nettlé and Terres Basses, and there is no short way round, so wait it out.",
+    "BRIDGE_BOTH_0830": "Simpson Bay Bridge and Sandy Ground Bridge are both due at 8:30, in the middle of the morning rush. Welfare Road and the Marigot sandbar road stop at the same time.",
+    "BRIDGE_BOTH_1700": "Worst window of the day. Simpson Bay Bridge and Sandy Ground Bridge are both due at 5:00, right as the ships leave and everyone drives home. If you have a flight, be east of Cole Bay by 4:45.",
+    "SWELL_NORTH_WEST_DANGEROUS": "Dangerous shore break at Baie Rouge, Plum Bay, Mullet Bay and Cupecoy — waves dumping onto a steep slope and dragging people back out. There are no lifeguards anywhere on this island. Swim at Great Bay or Le Galion today.",
+    "SWELL_EAST_WINDY": "Wind is over twenty knots. Orient Bay and Dawn Beach will be blown sand and flying umbrellas — go to Little Bay or Friar's Bay for shelter, or to Le Galion if you would rather kitesurf than sunbathe."
   }
 }
