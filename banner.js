@@ -102,15 +102,19 @@
   }
 
   var CSS =
-    '.brow{display:grid;grid-template-columns:58px 1fr;gap:9px;padding:5px 0;border-top:1px solid #EFDCB4}' +
+    '.brow{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:6px 0;border-top:1px solid #EFDCB4}' +
     '.brow:first-child{border-top:0;padding-top:0}' +
-    '.bk{font-family:Montserrat,sans-serif;font-weight:700;font-size:8px;letter-spacing:.11em;color:#A6813C;padding-top:2px}' +
-    '.bv{font-size:11.5px;color:#7A5410;line-height:1.45;margin:0}' +
-    '.bv + .bv{margin-top:4px}' +
-    '.barea span{display:inline-block;min-width:86px;font-family:Montserrat,sans-serif;' +
-      'font-weight:700;font-size:8px;letter-spacing:.09em;color:#B08E48;vertical-align:1px}' +
-    '@media(min-width:820px){.brow{grid-template-columns:74px 1fr}.bv{font-size:13px}' +
-      '.barea span{min-width:104px}}';
+    '.bk{font-family:Montserrat,sans-serif;font-weight:700;font-size:8px;letter-spacing:.11em;color:#A6813C;padding-top:3px}' +
+    '.bv{font-size:11.5px;color:#7A5410;line-height:1.5;margin:0}' +
+    '.bv + .bv{margin-top:5px}' +
+    /* area rows are their own grid so wrapped lines stay in the text column */
+    '.barea{display:grid;grid-template-columns:78px 1fr;gap:8px;align-items:baseline}' +
+    '.barea > span{font-family:Montserrat,sans-serif;font-weight:700;font-size:8px;' +
+      'letter-spacing:.09em;color:#B08E48;line-height:1.6}' +
+    /* stop "13 mph NE" breaking across three lines */
+    '.wx{white-space:nowrap}' +
+    '@media(min-width:820px){.brow{grid-template-columns:82px 1fr}.bv{font-size:13px}' +
+      '.barea{grid-template-columns:104px 1fr}.barea > span{font-size:8.5px}}';
   var st = document.createElement('style'); st.textContent = CSS;
   document.head.appendChild(st);
 
