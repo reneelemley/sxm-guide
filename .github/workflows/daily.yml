@@ -1,0 +1,37 @@
+name: Build today.json
+
+on:
+  schedule:
+    - cron: "20 9 * * *"      # 09:20 UTC = 05:20 Atlantic, before anyone is up
+  workflow_dispatch:           # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run the tests
+        run: python -m unittest discover -s tools -p "test_*.py" -v
+
+      - name: Build today.json
+        run: python tools/build_today.py
+
+      - name: Commit if it changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet today.json; then
+            echo "No change."
+          else
+            git add today.json
+            git commit -m "Daily: $(python -c "import json;d=json.load(open('today.json'));t=d['traffic'];print(f\"{d['date']} {d['season']} {t['ship_count']} ships {t['cruise_pax']} pax {t['severity']}\")")"
+            git push
+          fi
