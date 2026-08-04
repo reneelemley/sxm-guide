@@ -1,63 +1,225 @@
 {
-  "_note": "Lookup tables for the TODAY IN SXM engine. Hand-editable. Figures from Sint Maarten Dept. of Statistics 2025 actuals; refresh annually.",
-
-  "expected_pax": {
-    "1": 7903, "2": 7041, "3": 6252, "4": 3797, "5": 2259, "6": 1749,
-    "7": 2426, "8": 1285, "9": 1661, "10": 2166, "11": 7140, "12": 9012
+ "_note": "Lookup tables for the TODAY IN SXM engine. Hand-editable. Figures from Sint Maarten Dept. of Statistics 2025 actuals; refresh annually.",
+ "expected_pax": {
+  "1": 7903,
+  "2": 7041,
+  "3": 6252,
+  "4": 3797,
+  "5": 2259,
+  "6": 1749,
+  "7": 2426,
+  "8": 1285,
+  "9": 1661,
+  "10": 2166,
+  "11": 7140,
+  "12": 9012
+ },
+ "pax_bands": [
+  {
+   "max": 0,
+   "key": "none"
   },
-
-  "pax_bands": [
-    {"max": 0,     "key": "none"},
-    {"max": 2999,  "key": "light"},
-    {"max": 5999,  "key": "moderate"},
-    {"max": 9999,  "key": "heavy"},
-    {"max": 14999, "key": "very_heavy"},
-    {"max": null,  "key": "capacity"}
-  ],
-
-  "traffic_matrix": {
-    "PEAK_HOLIDAY":    ["BUSY",   "BUSY",   "CONGESTED", "CONGESTED", "GRIDLOCK",  "GRIDLOCK"],
-    "HIGH":            ["NORMAL", "BUSY",   "BUSY",      "CONGESTED", "GRIDLOCK",  "GRIDLOCK"],
-    "SHOULDER_FALL":   ["NORMAL", "NORMAL", "BUSY",      "BUSY",      "CONGESTED", "GRIDLOCK"],
-    "SHOULDER_SPRING": ["QUIET",  "NORMAL", "NORMAL",    "BUSY",      "CONGESTED", "GRIDLOCK"],
-    "LOW":             ["QUIET",  "NORMAL", "NORMAL",    "BUSY",      "CONGESTED", "GRIDLOCK"],
-    "DEAD":            ["EMPTY",  "QUIET",  "NORMAL",    "BUSY",      "BUSY",      "CONGESTED"]
+  {
+   "max": 2999,
+   "key": "light"
   },
-
-  "anomaly_bands": [
-    {"max": 0.5,  "key": "BELOW_NORMAL"},
-    {"max": 1.5,  "key": "TYPICAL"},
-    {"max": 3.0,  "key": "HEAVIER_THAN_USUAL"},
-    {"max": null, "key": "EXCEPTIONAL_FOR_SEASON"}
-  ],
-
-  "bridges": {
-    "simpson_bay": {"label": "Simpson Bay", "side": "dutch", "times": ["08:30","09:30","10:30","11:30","14:00","16:00","17:00"]},
-    "causeway":    {"label": "Causeway",    "side": "dutch", "times": ["08:00","10:00","16:30"]},
-    "sandy_ground":{"label": "Sandy Ground","side": "french","times": ["08:30","17:00"]}
+  {
+   "max": 5999,
+   "key": "moderate"
   },
-  "bridge_closure_minutes": 20,
-  "bridge_compound_windows": [
-    {"key": "BRIDGE_COMPOUND_AM", "start": "08:00", "end": "08:50"},
-    {"key": "BRIDGE_COMPOUND_AM", "start": "10:00", "end": "10:50"},
-    {"key": "BRIDGE_COMPOUND_PM", "start": "16:00", "end": "17:20"}
-  ],
-
-  "crowd_window": {"start": "09:30", "end": "16:00"},
-
-  "regatta": {
-    "2026": ["2026-03-05", "2026-03-08"],
-    "2027": ["2027-03-04", "2027-03-07"]
+  {
+   "max": 9999,
+   "key": "heavy"
   },
-  "dutch_carnival": {
-    "2026": ["2026-04-10", "2026-05-05"]
+  {
+   "max": 14999,
+   "key": "very_heavy"
   },
-
-  "swell": {
-    "groundswell_min_period": 9,
-    "min_height": 1.5,
-    "nw_arc": [300, 30],
-    "e_arc": [45, 135],
-    "probe": {"latitude": 18.30, "longitude": -62.80}
+  {
+   "max": null,
+   "key": "capacity"
   }
+ ],
+ "traffic_matrix": {
+  "PEAK_HOLIDAY": [
+   "BUSY",
+   "BUSY",
+   "CONGESTED",
+   "CONGESTED",
+   "GRIDLOCK",
+   "GRIDLOCK"
+  ],
+  "HIGH": [
+   "NORMAL",
+   "BUSY",
+   "BUSY",
+   "CONGESTED",
+   "GRIDLOCK",
+   "GRIDLOCK"
+  ],
+  "SHOULDER_FALL": [
+   "NORMAL",
+   "NORMAL",
+   "BUSY",
+   "BUSY",
+   "CONGESTED",
+   "GRIDLOCK"
+  ],
+  "SHOULDER_SPRING": [
+   "QUIET",
+   "NORMAL",
+   "NORMAL",
+   "BUSY",
+   "CONGESTED",
+   "GRIDLOCK"
+  ],
+  "LOW": [
+   "QUIET",
+   "NORMAL",
+   "NORMAL",
+   "BUSY",
+   "CONGESTED",
+   "GRIDLOCK"
+  ],
+  "DEAD": [
+   "EMPTY",
+   "QUIET",
+   "NORMAL",
+   "BUSY",
+   "BUSY",
+   "CONGESTED"
+  ]
+ },
+ "anomaly_bands": [
+  {
+   "max": 0.5,
+   "key": "BELOW_NORMAL"
+  },
+  {
+   "max": 1.5,
+   "key": "TYPICAL"
+  },
+  {
+   "max": 3.0,
+   "key": "HEAVIER_THAN_USUAL"
+  },
+  {
+   "max": null,
+   "key": "EXCEPTIONAL_FOR_SEASON"
+  }
+ ],
+ "bridges": {
+  "_note": "Published times are when a bridge is PREPARED to open, not when it will. No boats, no opening. Causeway is on-demand only - locals report never seeing it open. Simpson Bay causes the bulk of island traffic. All three are free to cars; the fee is charged to boats.",
+  "simpson_bay": {
+   "label": "Simpson Bay Bridge",
+   "side": "dutch",
+   "road": "Welfare Road, Simpson Bay village",
+   "connects": "Simpson Bay and the airport to Cole Bay and Philipsburg",
+   "detour": "west past the airport and over the Causeway - roughly double the distance",
+   "times": [
+    "08:30",
+    "09:30",
+    "10:30",
+    "11:30",
+    "14:00",
+    "16:00",
+    "17:00"
+   ],
+   "primary": true
+  },
+  "sandy_ground": {
+   "label": "Sandy Ground Bridge",
+   "side": "french",
+   "road": "the Marigot sandbar road",
+   "connects": "Marigot to Baie Nettle and Terres Basses",
+   "detour": "none - the long way round via Cupecoy on the Dutch side",
+   "times": [
+    "08:30",
+    "17:00"
+   ],
+   "primary": true
+  },
+  "causeway": {
+   "label": "Causeway Bridge",
+   "side": "dutch",
+   "road": "the lagoon crossing",
+   "connects": "Airport Road to Union Road, Cole Bay",
+   "detour": "Welfare Road through Simpson Bay village",
+   "times": [
+    "08:00",
+    "10:00",
+    "16:30"
+   ],
+   "on_demand": true,
+   "primary": false
+  }
+ },
+ "bridge_closure_minutes": 20,
+ "bridge_compound_windows": [
+  {
+   "key": "BRIDGE_BOTH_0830",
+   "start": "08:25",
+   "end": "08:55"
+  },
+  {
+   "key": "BRIDGE_BOTH_1700",
+   "start": "16:55",
+   "end": "17:25"
+  }
+ ],
+ "crowd_window": {
+  "start": "09:30",
+  "end": "16:00"
+ },
+ "regatta": {
+  "2026": [
+   "2026-03-05",
+   "2026-03-08"
+  ],
+  "2027": [
+   "2027-03-04",
+   "2027-03-07"
+  ]
+ },
+ "dutch_carnival": {
+  "2026": [
+   "2026-04-10",
+   "2026-05-05"
+  ]
+ },
+ "swell": {
+  "_note": "Calibrated against a 40-year eastern Caribbean swell study (JMSE 2022). The ordinary east trade state is 1.5-1.7m at 8.1-8.2s, so the old 1.5m/9s trigger fired on about half of all days. North swell - the dangerous regime - is 2.0-2.5m at 10.2-10.6s and occurs on 16% of Nov-Apr days.",
+  "nw_arc": [
+   290,
+   50
+  ],
+  "e_arc": [
+   50,
+   160
+  ],
+  "watch": {
+   "height": 1.2,
+   "period": 10
+  },
+  "alert": {
+   "height": 1.8,
+   "period": 11
+  },
+  "severe": {
+   "height": 2.5,
+   "period": 13
+  },
+  "east_choppy_wave": 1.2,
+  "wind_kt_choppy": 18,
+  "wind_kt_unpleasant": 22,
+  "calm": {
+   "wave": 1.2,
+   "period": 9,
+   "wind_kt": 12
+  },
+  "probe": {
+   "latitude": 18.2,
+   "longitude": -63.2
+  }
+ }
 }
