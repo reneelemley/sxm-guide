@@ -1,0 +1,45 @@
+{
+  "_note": "Recurring weekly things, by area. Hand-maintained - nothing here is scraped. First pass drafted from the SHTA weekly calendar (visitstmaarten.com), which covers the December-May high season and is almost entirely Dutch side. VERIFY BEFORE TRUSTING: venues change these constantly. Areas with no entries simply do not appear.",
+  "source": "https://www.visitstmaarten.com/st-maarten-high-season-week-by-week-events-calendar/",
+  "checked": "2026-08-04",
+  "high_season_only": true,
+
+  "areas": {
+    "Simpson Bay": {
+      "daily": ["Happy hour at D's 4–6, Buccaneer 5–7, Replay 3–6. Karaoke at Topper's from 8."],
+      "mon": ["All-you-can-eat ribs and chicken at Buccaneer", "$12 pizza all day at Replay"],
+      "tue": ["Taco Tuesday and margaritas all day at D's", "All-you-can-eat ribs and chicken at Buccaneer"],
+      "wed": ["Live jazz and a chef's menu at D's"],
+      "thu": ["Line dancing and live music from 6 at D's", "Pizza night at Buccaneer"],
+      "fri": ["Movie night at D's", "Family night at Buccaneer with live music", "Sunset tapas and a DJ at Karakter from 5"],
+      "sat": ["Live rock and roll, tapas and paella at D's from 6", "Percy Rankin and the Bunfire Band at Buccaneer from 6", "Maxime singing at Karakter from 6"],
+      "sun": ["Brunch from 10 and acoustic music 12–3 at D's", "Sunday Funday with live music at Buccaneer"]
+    },
+
+    "Maho": {
+      "daily": ["Happy hour at Tortuga 3–5, live music from 6."],
+      "mon": ["Wine Down Monday at SALT — 25% off bottles"],
+      "tue": ["Tortuga pop-up market 9–4 with live music", "Wine and cheese with tapas at SALT 5–8"],
+      "wed": ["All-you-can-eat sushi at Sandbar 5–7 with a DJ", "Steak and ale night with live music at SALT 7–10"],
+      "thu": ["Ladies night at SALT — live music 6–9, bubbles 6–8"],
+      "fri": ["After Work Fridays at SALT, live entertainment 7–10"],
+      "sat": ["SOLEY playing at SALT from 8"],
+      "sun": ["Island Soul Vibes with Maxime and Amin at SALT 6–9"]
+    },
+
+    "Philipsburg": {
+      "daily": ["Happy hour at sunset at Seaview, on the Boardwalk."],
+      "mon": ["Wings and drink specials at 721 Brews & Bites"],
+      "tue": ["2+4+2 drink specials at 721 Brews & Bites"],
+      "wed": ["Taco day at The Pier", "Ladies night at 721 and at Seaview 7–11", "Wine Down Wednesday at MIX — 50% off bottles 5–9"],
+      "thu": ["Hungover Thursdays at 721 with live DJs", "Paella station and sangria at MIX 6–9"],
+      "fri": ["DJ at Holland House", "TGIF at Seaview 4–7 with free bites", "Boardwalk Friday at 721 from 8", "Beer and Dutch snacks at The Pier"],
+      "sat": ["Groove and Vibe Saturdays at 721", "Dominican platter at The Pier"],
+      "sun": ["Chill Sundays at 721 from 5"]
+    },
+
+    "Grand Case":  {"_gap": "No published weekly calendar for the French side. Needs Renée."},
+    "Orient Bay":  {"_gap": "No published weekly calendar for the French side. Needs Renée."},
+    "Anse Marcel": {"_gap": "No published weekly calendar for the French side. Needs Renée."}
+  }
+}

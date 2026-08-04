@@ -58,8 +58,7 @@
 
   /* ---- grouping: cap per category, never drop a whole subject ---- */
   var GROUPS = [
-    { key: 'ROADS',   label: 'ROADS',     max: 2, match: /^(TRAFFIC|ANOMALY)_/ },
-    { key: 'BRIDGES', label: 'BRIDGES',   max: 1, match: /^BRIDGE_/ },
+    { key: 'ROADS',   label: 'ROADS',     max: 3, match: /^(TRAFFIC|ANOMALY|BRIDGE)_/ },
     { key: 'WATER',   label: 'WATER',     max: 1, match: /^SWELL_/ },
     { key: 'BEACHES', label: 'BEACHES',   max: 2, match: /^(SARGASSUM|CROWD)_/ },
     { key: 'WHATSON', label: "WHAT'S ON", max: 2, match: /^(EVENT|CLOSURE|SPECIALS)_/ }
@@ -92,7 +91,11 @@
     '.brow:first-child{border-top:0;padding-top:0}' +
     '.bk{font-family:Montserrat,sans-serif;font-weight:700;font-size:8px;letter-spacing:.11em;color:#A6813C;padding-top:2px}' +
     '.bv{font-size:11.5px;color:#7A5410;line-height:1.45;margin:0}' +
-    '@media(min-width:820px){.brow{grid-template-columns:74px 1fr}.bv{font-size:13px}}';
+    '.bv + .bv{margin-top:4px}' +
+    '.barea span{display:inline-block;min-width:86px;font-family:Montserrat,sans-serif;' +
+      'font-weight:700;font-size:8px;letter-spacing:.09em;color:#B08E48;vertical-align:1px}' +
+    '@media(min-width:820px){.brow{grid-template-columns:74px 1fr}.bv{font-size:13px}' +
+      '.barea span{min-width:104px}}';
   var st = document.createElement('style'); st.textContent = CSS;
   document.head.appendChild(st);
 
@@ -132,14 +135,32 @@
       }
     }
 
+    var esc = function (x) {
+      return String(x).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    };
     var rows = [], used = [];
     group(slots).forEach(function (g) {
       var parts = g.slots.map(line).filter(Boolean);
       if (g.key === 'ROADS' && shipsLine) parts.unshift(shipsLine);
-      if (!parts.length) return;                       // silent category disappears
+
+      var body = '';
+      if (g.key === 'WHATSON') {
+        var areas = t.specials || {};
+        var names = Object.keys(areas);
+        if (parts.length) body += '<p class="bv">' + parts.join(' ') + '</p>';
+        names.forEach(function (a) {
+          body += '<p class="bv barea"><span>' + esc(a) + '</span>' +
+                  esc(areas[a].join('. ')) + '</p>';
+        });
+        if (!body) return;
+      } else {
+        if (!parts.length) return;                     // silent category disappears
+        body = '<p class="bv">' + parts.join(' ') + '</p>';
+      }
       used = used.concat(g.slots);
-      rows.push('<div class="brow"><div class="bk">' + g.label +
-                '</div><p class="bv">' + parts.join(' ') + '</p></div>');
+      rows.push('<div class="brow"><div class="bk">' + g.label + '</div><div>' + body + '</div></div>');
     });
 
     var host = $('wx-advice');
