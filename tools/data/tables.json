@@ -1,0 +1,63 @@
+{
+  "_note": "Lookup tables for the TODAY IN SXM engine. Hand-editable. Figures from Sint Maarten Dept. of Statistics 2025 actuals; refresh annually.",
+
+  "expected_pax": {
+    "1": 7903, "2": 7041, "3": 6252, "4": 3797, "5": 2259, "6": 1749,
+    "7": 2426, "8": 1285, "9": 1661, "10": 2166, "11": 7140, "12": 9012
+  },
+
+  "pax_bands": [
+    {"max": 0,     "key": "none"},
+    {"max": 2999,  "key": "light"},
+    {"max": 5999,  "key": "moderate"},
+    {"max": 9999,  "key": "heavy"},
+    {"max": 14999, "key": "very_heavy"},
+    {"max": null,  "key": "capacity"}
+  ],
+
+  "traffic_matrix": {
+    "PEAK_HOLIDAY":    ["BUSY",   "BUSY",   "CONGESTED", "CONGESTED", "GRIDLOCK",  "GRIDLOCK"],
+    "HIGH":            ["NORMAL", "BUSY",   "BUSY",      "CONGESTED", "GRIDLOCK",  "GRIDLOCK"],
+    "SHOULDER_FALL":   ["NORMAL", "NORMAL", "BUSY",      "BUSY",      "CONGESTED", "GRIDLOCK"],
+    "SHOULDER_SPRING": ["QUIET",  "NORMAL", "NORMAL",    "BUSY",      "CONGESTED", "GRIDLOCK"],
+    "LOW":             ["QUIET",  "NORMAL", "NORMAL",    "BUSY",      "CONGESTED", "GRIDLOCK"],
+    "DEAD":            ["EMPTY",  "QUIET",  "NORMAL",    "BUSY",      "BUSY",      "CONGESTED"]
+  },
+
+  "anomaly_bands": [
+    {"max": 0.5,  "key": "BELOW_NORMAL"},
+    {"max": 1.5,  "key": "TYPICAL"},
+    {"max": 3.0,  "key": "HEAVIER_THAN_USUAL"},
+    {"max": null, "key": "EXCEPTIONAL_FOR_SEASON"}
+  ],
+
+  "bridges": {
+    "simpson_bay": {"label": "Simpson Bay", "side": "dutch", "times": ["08:30","09:30","10:30","11:30","14:00","16:00","17:00"]},
+    "causeway":    {"label": "Causeway",    "side": "dutch", "times": ["08:00","10:00","16:30"]},
+    "sandy_ground":{"label": "Sandy Ground","side": "french","times": ["08:30","17:00"]}
+  },
+  "bridge_closure_minutes": 20,
+  "bridge_compound_windows": [
+    {"key": "BRIDGE_COMPOUND_AM", "start": "08:00", "end": "08:50"},
+    {"key": "BRIDGE_COMPOUND_AM", "start": "10:00", "end": "10:50"},
+    {"key": "BRIDGE_COMPOUND_PM", "start": "16:00", "end": "17:20"}
+  ],
+
+  "crowd_window": {"start": "09:30", "end": "16:00"},
+
+  "regatta": {
+    "2026": ["2026-03-05", "2026-03-08"],
+    "2027": ["2027-03-04", "2027-03-07"]
+  },
+  "dutch_carnival": {
+    "2026": ["2026-04-10", "2026-05-05"]
+  },
+
+  "swell": {
+    "groundswell_min_period": 9,
+    "min_height": 1.5,
+    "nw_arc": [300, 30],
+    "e_arc": [45, 135],
+    "probe": {"latitude": 18.30, "longitude": -62.80}
+  }
+}
