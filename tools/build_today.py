@@ -35,6 +35,30 @@ def ships_for(day: dt.date) -> tuple[list, int, bool]:
     return todays, sum(a.get("pax", 0) or 0 for a in todays), known
 
 
+DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+
+
+def specials_for(day: dt.date, band: str) -> dict:
+    """Recurring weekly items by area. Hand-maintained, never scraped."""
+    try:
+        data = json.loads((ROOT / "specials.json").read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {}
+    key, out = DAYS[day.weekday()], {}
+    md = day.strftime("%m-%d")
+    for area, v in data.get("areas", {}).items():
+        cw = v.get("closed_window")
+        if cw:
+            a, b = cw
+            shut = (a <= md <= b) if a <= b else (md >= a or md <= b)
+            if shut:
+                continue               # venue closed for the off-season
+        items = list(v.get(key, [])) + list(v.get("daily", []))
+        if items:
+            out[area] = items
+    return out
+
+
 def build(day: dt.date | None = None) -> dict:
     day = day or dt.datetime.now(TZ).date()
     band = L.season_band(day)
@@ -61,6 +85,11 @@ def build(day: dt.date | None = None) -> dict:
 
     sarg = L.sargassum(day.month)
     slots.append(sarg)
+    specials = specials_for(day, band)
+    if specials:
+        slots.append("SPECIALS_WEEKLY")
+        if band in ("LOW", "DEAD", "SHOULDER_FALL"):
+            slots.append("SPECIALS_LOW_SEASON_CAVEAT")
     slots += L.events(day)
     slots += L.closures(band)
 
@@ -82,6 +111,7 @@ def build(day: dt.date | None = None) -> dict:
         "sargassum": sarg,
         "events": L.events(day),
         "closures": L.closures(band),
+        "specials": specials,
         "slots": slots,                       # pre-resolution; client adds live ones
         "beaches": {
             "crowd": L.crowd_lists(),

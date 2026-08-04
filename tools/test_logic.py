@@ -88,23 +88,44 @@ class Events(unittest.TestCase):
 
 
 class Swell(unittest.TestCase):
-    def test_winter_groundswell_hits_the_leeward_side(self):
-        s = L.swell_state(2.0, 340, 11)
-        self.assertEqual(s, "SWELL_NORTH_WEST_ROUGH")
-        b = L.beaches_for(s, 1)
-        self.assertIn("Baie Rouge", b["rough"])
-        self.assertIn("Mullet Bay", b["rough"])
-        self.assertIn("Le Galion", b["calm"])
+    def test_ordinary_trade_state_is_not_an_alert(self):
+        """1.5m at 8s from the east is the most common day of the year.
+        The old threshold fired on this, which would have trained people to ignore it."""
+        self.assertNotIn("NORTH_WEST", L.swell_state(1.5, 80, 8))
 
-    def test_summer_trade_chop_is_not_groundswell(self):
-        """Live reading 4 Aug 2026: 0.9m, 80 deg, 5s. Short period, low height."""
+    def test_live_reading_4_aug_2026(self):
         self.assertEqual(L.swell_state(0.9, 80, 5), "SWELL_CALM")
 
-    def test_big_short_period_east_swell_is_chop_not_groundswell(self):
-        self.assertEqual(L.swell_state(1.8, 80, 6), "SWELL_EAST_CHOPPY")
+    def test_north_swell_is_graded(self):
+        self.assertEqual(L.swell_state(1.3, 340, 10), "SWELL_NORTH_WEST_ROUGH")
+        self.assertEqual(L.swell_state(2.0, 340, 11), "SWELL_NORTH_WEST_ROUGH")
+        self.assertEqual(L.swell_state(2.6, 340, 11), "SWELL_NORTH_WEST_DANGEROUS")
+
+    def test_long_period_alone_is_dangerous(self):
+        """1.5m at 13s dumps harder on a steep beach than 2.5m at 7s."""
+        self.assertEqual(L.swell_state(1.5, 340, 13), "SWELL_NORTH_WEST_DANGEROUS")
+
+    def test_north_swell_hits_the_leeward_beaches(self):
+        b = L.beaches_for("SWELL_NORTH_WEST_ROUGH", 1)
+        for x in ("Baie Rouge", "Mullet Bay", "Plum Bay", "Happy Bay"):
+            self.assertIn(x, b["rough"], x)
+        self.assertIn("Le Galion", b["calm"])
+        self.assertIn("Great Bay", b["calm"])
+
+    def test_strong_wind_is_its_own_state(self):
+        self.assertEqual(L.swell_state(1.0, 80, 6, wind_kt=24), "SWELL_EAST_WINDY")
 
     def test_missing_data_is_explicit_not_calm(self):
         self.assertEqual(L.swell_state(None, None, None), "SWELL_DATA_STALE")
+
+    def test_rip_list_names_the_documented_hazards(self):
+        b = L.beaches_for("SWELL_CALM", 1)
+        for x in ("Mullet Bay", "Guana Bay", "Baie Rouge"):
+            self.assertIn(x, b["high_rip"], x)
+
+    def test_wind_spots_improve_in_trades(self):
+        self.assertEqual(sorted(L.beaches_for("SWELL_CALM", 1)["wind_spots"]),
+                         ["Coconut Grove", "Le Galion"])
 
 
 class Resolver(unittest.TestCase):

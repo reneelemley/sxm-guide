@@ -152,29 +152,53 @@ def _in_arc(deg: float, arc) -> bool:
     return (lo <= deg <= 360 or 0 <= deg <= hi) if lo > hi else (lo <= deg <= hi)
 
 
-def swell_state(height: float, direction: float, period: float) -> str:
-    """Period is the discriminator: groundswell wraps into leeward bays, chop does not."""
+def swell_state(height, direction, period, wind_kt=None):
+    """Graded, and routed on direction first.
+
+    Calibrated against the eastern Caribbean swell climatology: the ordinary
+    east trade state is ~1.5-1.7m at ~8s, so the old 1.5m/9s trigger fired on
+    roughly half of all days. North swell is 2.0-2.5m at 10.2-10.6s.
+
+    Period is a trigger in its own right, not just a discriminator - 1.5m at
+    13s dumps harder on a steep beach than 2.5m at 7s.
+    """
     s = T["swell"]
     if height is None or direction is None:
         return "SWELL_DATA_STALE"
-    if period is not None and period >= s["groundswell_min_period"] \
-            and _in_arc(direction, s["nw_arc"]) and height >= s["min_height"]:
-        return "SWELL_NORTH_WEST_ROUGH"
-    if _in_arc(direction, s["e_arc"]) and height >= s["min_height"]:
+
+    if _in_arc(direction, s["nw_arc"]):
+        sev, al, wa = s["severe"], s["alert"], s["watch"]
+        if height >= sev["height"] or (period or 0) >= sev["period"]:
+            return "SWELL_NORTH_WEST_DANGEROUS"
+        if height >= al["height"] and (period or 0) >= al["period"]:
+            return "SWELL_NORTH_WEST_ROUGH"
+        if height >= wa["height"] and (period or 0) >= wa["period"]:
+            return "SWELL_NORTH_WEST_ROUGH"
+
+    if wind_kt is not None and wind_kt >= s["wind_kt_unpleasant"]:
+        return "SWELL_EAST_WINDY"
+    if _in_arc(direction, s["e_arc"]) and height >= s["east_choppy_wave"]:
         return "SWELL_EAST_CHOPPY"
+
+    c = s["calm"]
+    if height < c["wave"] and (period or 0) < c["period"] \
+            and (wind_kt is None or wind_kt < c["wind_kt"]):
+        return "SWELL_CALM"
     return "SWELL_CALM"
 
 
 def beaches_for(state: str, month: int) -> dict:
     rough, calm, weed = [], [], []
     for b in BEACHES:
-        if state == "SWELL_NORTH_WEST_ROUGH":
+        if state.startswith("SWELL_NORTH_WEST"):
             (rough if b["nw_swell"] == "high" else calm).append(b["n"])
-        elif state == "SWELL_EAST_CHOPPY":
-            (rough if b["chop"] == "high" else calm).append(b["n"])
+        elif state in ("SWELL_EAST_CHOPPY", "SWELL_EAST_WINDY"):
+            (rough if b.get("wind") == "exposed" else calm).append(b["n"])
         if 3 <= month <= 10 and b["sargassum"] == "high":
             weed.append(b["n"])
-    return {"rough": rough, "calm": calm, "sargassum_risk": weed}
+    return {"rough": rough, "calm": calm, "sargassum_risk": weed,
+            "high_rip": [b["n"] for b in BEACHES if b.get("rip") in ("high", "severe")],
+            "wind_spots": [b["n"] for b in BEACHES if b.get("wind") == "better"]}
 
 
 def crowd_lists() -> dict:
