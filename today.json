@@ -1,41 +1,41 @@
 {
- "generated": "2026-08-04T22:56:30-04:00",
- "date": "2026-08-04",
+ "generated": "2026-08-05T09:51:37-04:00",
+ "date": "2026-08-05",
  "season": "LOW",
  "traffic": {
-  "severity": "BUSY",
+  "severity": "NORMAL",
   "ships_known": true,
-  "cruise_pax": 7600,
+  "cruise_pax": 4272,
   "ship_count": 1,
   "ships": [
    {
-    "ship": "Icon Of The Seas",
-    "line": "Royal Caribbean",
-    "pax": 7600,
-    "time": "08:00"
+    "ship": "Regal Princess",
+    "line": "Princess Cruises",
+    "pax": 4272,
+    "time": "07:00"
    }
   ],
   "expected_pax_for_month": 1285,
   "anomaly": "EXCEPTIONAL_FOR_SEASON",
-  "anomaly_ratio": 5.91
+  "anomaly_ratio": 3.32
  },
- "sargassum": "SARGASSUM_WINDWARD_ONLY_HIGH",
+ "sargassum": "SARGASSUM_HIGH",
  "sargassum_observed": {
   "island_max": 3,
-  "island_mean": 2.09,
+  "island_mean": 3.0,
   "windward_max": 3,
-  "leeward_max": 2,
+  "leeward_max": 3,
   "sectors": {
    "E": {
     "max": 3,
     "n": 153
    },
    "N": {
-    "max": 2,
+    "max": 3,
     "n": 103
    },
    "W": {
-    "max": 2,
+    "max": 3,
     "n": 131
    },
    "S": {
@@ -44,68 +44,70 @@
    }
   },
   "vertices": 466,
-  "observed_date": "2026-08-03",
+  "observed_date": "2026-08-04",
   "days_old": 1,
   "source": "https://cwcgom.aoml.noaa.gov/SIR/",
   "attribution": "NOAA/AOML CoastWatch & University of South Florida - Sargassum Inundation Risk v1.5 (experimental)",
   "experimental": true
  },
  "sargassum_by_beach": {
-  "Cupecoy": 2,
-  "Mullet Bay": 2,
-  "Maho": 2,
-  "Simpson Bay": 2,
-  "Kim Sha": 2,
-  "Indigo Bay": 2,
-  "Cole Bay": 2,
-  "Great Bay": 2,
-  "Little Bay": 2,
+  "Cupecoy": 3,
+  "Mullet Bay": 3,
+  "Maho": 3,
+  "Simpson Bay": 3,
+  "Kim Sha": 3,
+  "Indigo Bay": 3,
+  "Cole Bay": 3,
+  "Great Bay": 3,
+  "Little Bay": 3,
   "Guana Bay": 3,
   "Dawn Beach": 3,
   "Oyster Pond": 3,
   "Coconut Grove": 3,
   "Le Galion": 3,
   "Orient Bay": 3,
-  "Pinel Island": 2,
-  "Anse Marcel": 2,
-  "Grand Case": 2,
-  "Happy Bay": 2,
-  "Friar's Bay": 2,
-  "Petites Cayes": 2,
-  "Galisbay": 2,
-  "Baie Rouge": 2,
-  "Plum Bay": 2
+  "Pinel Island": 3,
+  "Anse Marcel": 3,
+  "Grand Case": 3,
+  "Happy Bay": 3,
+  "Friar's Bay": 3,
+  "Petites Cayes": 3,
+  "Galisbay": 3,
+  "Baie Rouge": 3,
+  "Plum Bay": 3
  },
  "events": [],
  "closures": [],
  "specials": {
   "Grand Case": [
-   "Acoustic guitar at Rainbow Caf\u00e9, 7\u201310"
+   "Beach day with a DJ at Captain Frenchy's, 4\u20138",
+   "Ladies night at Rainbow Caf\u00e9, half-price cocktails"
   ],
-  "Anse Marcel": [
-   "Live music at the Beach House, 7 till midnight"
+  "Orient Bay": [
+   "Tapas at Bikini Beach, 5\u20138"
   ],
   "Marigot": [
+   "Fish auction at the market \u2014 get there before 10",
    "Marigot market on Boulevard de France, 8 till 1, every day but Sunday."
   ],
   "Simpson Bay": [
-   "Latin night at Soggy Dollar \u2014 salsa class at 7, band at 9",
-   "Taco Tuesday at D's",
+   "Ladies night at Soggy Dollar from 8:30",
+   "Live jazz and a chef's menu at D's",
    "Happy hour at D's 4\u20136, Buccaneer 5\u20137, Replay 3\u20136."
   ],
   "Maho": [
-   "Pop-up local market at Tortuga, 9 till noon",
-   "Live music at Hole in the Wall, 7\u201311",
+   "All-you-can-eat sushi at Sandbar 5\u20137 with a DJ",
    "Happy hour at Tortuga 3\u20135, live music from 6."
   ],
   "Philipsburg": [
+   "Ladies night with free prosecco at The Rusty Parrot, 7\u201310",
    "Happy hour at sunset at Seaview, on the Boardwalk."
   ]
  },
  "slots": [
-  "TRAFFIC_BUSY",
+  "TRAFFIC_NORMAL",
   "ANOMALY_EXCEPTIONAL",
-  "SARGASSUM_WINDWARD_ONLY_HIGH",
+  "SARGASSUM_HIGH",
   "SPECIALS_WEEKLY",
   "SPECIALS_LOW_SEASON_CAVEAT"
  ],
