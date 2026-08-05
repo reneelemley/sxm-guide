@@ -13,6 +13,7 @@ import json, datetime as dt, sys, pathlib
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import sxm_logic as L
+import sargassum_sir
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TZ = dt.timezone(dt.timedelta(hours=-4))          # Atlantic Standard, no DST
@@ -59,10 +60,14 @@ def specials_for(day: dt.date, band: str) -> dict:
     return out
 
 
-def build(day: dt.date | None = None) -> dict:
+def build(day: dt.date | None = None, fetch_sargassum: bool = True) -> dict:
     day = day or dt.datetime.now(TZ).date()
     band = L.season_band(day)
     in_port, pax, ships_known = ships_for(day)
+
+    # Satellite read of the water. Returns None on any failure, in which case
+    # sargassum_state falls back to the calendar and says so.
+    sir = sargassum_sir.observe(day) if fetch_sargassum else None
 
     sev = L.severity(band, pax)
     anom_key, ratio = L.anomaly(pax, day.month)
@@ -83,7 +88,7 @@ def build(day: dt.date | None = None) -> dict:
         slots.append("ANOMALY_" + anom_key.replace("_FOR_SEASON", "")
                                         .replace("HEAVIER_THAN_USUAL", "HEAVIER"))
 
-    sarg = L.sargassum(day.month)
+    sarg = L.sargassum_state(sir, day.month)
     slots.append(sarg)
     specials = specials_for(day, band)
     if specials:
@@ -109,6 +114,8 @@ def build(day: dt.date | None = None) -> dict:
             "anomaly_ratio": ratio if ships_known else None,
         },
         "sargassum": sarg,
+        "sargassum_observed": sir,                       # None when unreachable
+        "sargassum_by_beach": L.sargassum_beach_risk(sir),
         "events": L.events(day),
         "closures": L.closures(band),
         "specials": specials,
@@ -135,4 +142,10 @@ if __name__ == "__main__":
     print(f"today.json  {out['date']}  {out['season']}  "
           f"{t['ship_count']} ships / {t['cruise_pax']:,} pax  "
           f"-> {t['severity']} + {t['anomaly']} ({t['anomaly_ratio']}x)")
+    s = out["sargassum_observed"]
+    if s:
+        print(f"sargassum   {out['sargassum']}  (SIR {s['observed_date']}, "
+              f"{s['days_old']}d old, windward={s['windward_max']} leeward={s['leeward_max']})")
+    else:
+        print(f"sargassum   {out['sargassum']}  (SIR unreachable - calendar fallback)")
     print("slots:", ", ".join(out["slots"]))

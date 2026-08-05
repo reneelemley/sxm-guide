@@ -169,7 +169,7 @@ class Coverage(unittest.TestCase):
     """A date outside ships.json must not be reported as a quiet day."""
     def test_unknown_date_is_stale_not_quiet(self):
         import build_today
-        out = build_today.build(dt.date(2030, 2, 14))
+        out = build_today.build(dt.date(2030, 2, 14), fetch_sargassum=False)
         self.assertIn("TRAFFIC_DATA_STALE", out["slots"])
         self.assertFalse(any(s.startswith("TRAFFIC_") and s != "TRAFFIC_DATA_STALE"
                              for s in out["slots"]))
@@ -177,6 +177,148 @@ class Coverage(unittest.TestCase):
 
     def test_known_date_reports_normally(self):
         import build_today
-        out = build_today.build(dt.date(2026, 8, 4))
+        out = build_today.build(dt.date(2026, 8, 4), fetch_sargassum=False)
         self.assertTrue(out["traffic"]["ships_known"])
         self.assertIsNotNone(out["traffic"]["severity"])
+
+
+# ---------------------------------------------------------------- sargassum
+
+import sargassum_sir as S
+
+# Mirrors the real KMZ: LineString placemarks carrying an int risk. Includes
+# an Anguilla vertex (lat 18.22) and a St Barths one (lon -62.83) that must be
+# rejected, and a St Maarten vertex on each coast.
+FIXTURE_KML = """<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document id="root_doc">
+<Folder><name>Risk_20260803</name>
+  <Placemark id="a">
+    <ExtendedData><SchemaData><SimpleData name="risk">3</SimpleData></SchemaData></ExtendedData>
+    <LineString><coordinates>-63.010,18.098 -63.006,18.086 -63.010,18.045</coordinates></LineString>
+  </Placemark>
+  <Placemark id="b">
+    <ExtendedData><SchemaData><SimpleData name="risk">1</SimpleData></SchemaData></ExtendedData>
+    <LineString><coordinates>-63.129,18.073 -63.053,18.104 -63.129,18.043</coordinates></LineString>
+  </Placemark>
+  <Placemark id="offisland">
+    <ExtendedData><SchemaData><SimpleData name="risk">3</SimpleData></SchemaData></ExtendedData>
+    <LineString><coordinates>-63.050,18.220 -62.830,17.900</coordinates></LineString>
+  </Placemark>
+</Folder></Document></kml>"""
+
+
+class SargassumParsing(unittest.TestCase):
+    def test_parses_risk_and_coordinates(self):
+        pts = S.parse_kml(FIXTURE_KML)
+        self.assertEqual(len(pts), 6)          # 3 + 3, off-island pair dropped
+        self.assertEqual({p[2] for p in pts}, {1, 3})
+
+    def test_neighbouring_islands_are_excluded(self):
+        """Anguilla sits 12km north and St Barths 25km east. Neither is us."""
+        pts = S.parse_kml(FIXTURE_KML)
+        self.assertFalse(any(lat > 18.13 for _, lat, _ in pts))
+        self.assertFalse(any(lon > -62.95 for lon, _, _ in pts))
+
+    def test_windward_sectors_are_east_and_south(self):
+        self.assertEqual(S.sector_of(-63.010, 18.045), "E")     # Dawn Beach
+        self.assertEqual(S.sector_of(-63.129, 18.043), "W")     # Mullet Bay
+        self.assertEqual(S.sector_of(-63.053, 18.104), "N")     # Grand Case
+        self.assertEqual(S.sector_of(-63.048, 18.010), "S")     # Great Bay
+
+    def test_summary_splits_windward_from_leeward(self):
+        s = S.summarise(S.parse_kml(FIXTURE_KML))
+        self.assertEqual(s["island_max"], 3)
+        self.assertEqual(s["windward_max"], 3)
+        self.assertEqual(s["leeward_max"], 1)
+
+    def test_empty_input_is_none_not_zero(self):
+        """No data must never be reported as a clean beach."""
+        self.assertIsNone(S.summarise([]))
+
+
+class SargassumState(unittest.TestCase):
+    def obs(self, wind, lee, days_old=0):
+        return {"island_max": max(wind, lee), "windward_max": wind,
+                "leeward_max": lee, "days_old": days_old, "sectors": {}}
+
+    def test_split_is_the_useful_state(self):
+        """Atlantic fouled, Caribbean clean - the day the banner earns its keep."""
+        self.assertEqual(L.sargassum_state(self.obs(3, 1), 7),
+                         "SARGASSUM_WINDWARD_ONLY_HIGH")
+        self.assertEqual(L.sargassum_state(self.obs(2, 1), 7),
+                         "SARGASSUM_WINDWARD_ONLY")
+
+    def test_uniform_island_reports_a_level(self):
+        self.assertEqual(L.sargassum_state(self.obs(0, 0), 1), "SARGASSUM_NONE")
+        self.assertEqual(L.sargassum_state(self.obs(3, 3), 7), "SARGASSUM_HIGH")
+
+    def test_january_observation_beats_the_calendar(self):
+        """The regression that matters. Raw AFAI peaks in Nov-Jan on sun glint
+        and whitecaps; the SIR archive reads 0 across every vertex on
+        2026-01-15. An observed clean January must never say 'sargassum season'."""
+        self.assertEqual(L.sargassum_state(self.obs(0, 0), 1), "SARGASSUM_NONE")
+
+    def test_august_observation_can_say_clean(self):
+        """The complaint that started this: a calendar rule shouting in a month
+        when the water is actually clear."""
+        self.assertEqual(L.sargassum_state(self.obs(0, 0), 8), "SARGASSUM_NONE")
+
+    def test_missing_observation_falls_back_and_admits_it(self):
+        for month in range(1, 13):
+            state = L.sargassum_state(None, month)
+            self.assertTrue(state.endswith("_UNOBSERVED"), state)
+
+    def test_stale_observation_is_not_passed_off_as_fresh(self):
+        self.assertEqual(L.sargassum_state(self.obs(3, 3, days_old=4), 7),
+                         "SARGASSUM_OBSERVED_STALE")
+
+    def test_observed_and_guessed_states_never_share_a_name(self):
+        """Copy must be able to tell a measurement from a guess."""
+        guessed = {L.sargassum_calendar(m) for m in range(1, 13)}
+        observed = {L.sargassum_state(self.obs(w, l), 7)
+                    for w in range(4) for l in range(4)}
+        self.assertFalse(guessed & observed)
+
+
+class SargassumBeaches(unittest.TestCase):
+    def test_beaches_inherit_their_coast(self):
+        obs = {"sectors": {"E": {"max": 3, "n": 10}, "W": {"max": 0, "n": 10},
+                           "N": {"max": 0, "n": 10}, "S": {"max": 2, "n": 10}},
+               "island_max": 3, "windward_max": 3, "leeward_max": 0, "days_old": 0}
+        risk = L.sargassum_beach_risk(obs)
+        self.assertEqual(risk["Orient Bay"], 3)      # faces E/NE
+        self.assertEqual(risk["Dawn Beach"], 3)      # faces E
+        self.assertEqual(risk["Baie Rouge"], 0)      # faces W/SW
+        self.assertEqual(risk["Grand Case"], 0)      # faces W/NW
+        self.assertEqual(risk["Simpson Bay"], 2)     # faces S
+
+    def test_no_observation_yields_no_claims(self):
+        self.assertEqual(L.sargassum_beach_risk(None), {})
+
+
+class RealNoaaSample(unittest.TestCase):
+    """Parses an unmodified slice of NOAA's Risk_20260803.kml.
+
+    Expected values were computed independently in the browser against the
+    full 12.7 MB file before this fixture was cut, so a parser bug shows up as
+    a mismatch rather than a silently agreeing reimplementation.
+    """
+    def setUp(self):
+        p = pathlib.Path(__file__).parent / "data" / "sir_sample_20260803.kml"
+        self.pts = S.parse_kml(p.read_text(encoding="utf-8"))
+
+    def test_vertex_count_matches_independent_count(self):
+        self.assertEqual(len(self.pts), 88)
+
+    def test_summary_matches_independent_summary(self):
+        s = S.summarise(self.pts)
+        self.assertEqual(s["island_max"], 3)
+        self.assertEqual({k: v["max"] for k, v in s["sectors"].items()},
+                         {"E": 2, "S": 3, "N": 2})
+
+    def test_high_risk_is_windward(self):
+        """The physical check: sargassum arrives from the east, so a 3 has no
+        business showing up on the Caribbean shore while the Atlantic reads 2."""
+        s = S.summarise(self.pts)
+        self.assertEqual(s["windward_max"], 3)
+        self.assertLess(s["leeward_max"], s["windward_max"])

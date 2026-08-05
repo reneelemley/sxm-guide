@@ -136,12 +136,85 @@ def closures(band: str) -> list[str]:
 
 # ---------------------------------------------------------------- sargassum
 
-def sargassum(month: int) -> str:
+def sargassum_calendar(month: int) -> str:
+    """Fallback only. A rule about the month, not a look at the water.
+
+    Kept because the satellite read can fail, but every state it returns is
+    suffixed so the copy can admit it is a guess.
+    """
     if 4 <= month <= 9:
-        return "SARGASSUM_LIKELY"
+        return "SARGASSUM_LIKELY_UNOBSERVED"
     if month in (3, 10):
-        return "SARGASSUM_POSSIBLE"
-    return "SARGASSUM_UNLIKELY"
+        return "SARGASSUM_POSSIBLE_UNOBSERVED"
+    return "SARGASSUM_UNLIKELY_UNOBSERVED"
+
+
+# The gap that makes a split worth mentioning. SIR levels are 0-3, and one
+# whole level between the Atlantic and Caribbean shores is the difference
+# between "go to Grand Case instead" and noise.
+SPLIT_THRESHOLD = 1
+
+
+def sargassum_state(obs: dict | None, month: int) -> str:
+    """Observed risk if we have it, calendar if we do not.
+
+    `obs` is the summary from sargassum_sir.observe(). The split states are the
+    genuinely useful ones: they say the windward side is fouled and the
+    Caribbean side is not, which is an actual instruction to a visitor.
+    """
+    if not obs:
+        return sargassum_calendar(month)
+
+    if obs.get("days_old", 0) > 3:
+        return "SARGASSUM_OBSERVED_STALE"
+
+    wind, lee = obs.get("windward_max"), obs.get("leeward_max")
+    level = obs.get("island_max", 0)
+
+    if wind is not None and lee is not None and wind - lee >= SPLIT_THRESHOLD:
+        return "SARGASSUM_WINDWARD_ONLY_HIGH" if wind >= 3 else "SARGASSUM_WINDWARD_ONLY"
+
+    return {
+        0: "SARGASSUM_NONE",
+        1: "SARGASSUM_TRACE",
+        2: "SARGASSUM_MODERATE",
+        3: "SARGASSUM_HIGH",
+    }.get(level, "SARGASSUM_OBSERVED_STALE")
+
+
+def sargassum_beach_risk(obs: dict | None) -> dict:
+    """Per-beach observed level, mapped through each beach's coast sector.
+
+    Honest limitation: SIR analyses a 50-100 km neighbourhood around each
+    coastal pixel, so neighbouring beaches share nearly all their input. This
+    resolves Atlantic-side from Caribbean-side. It does not resolve Orient from
+    Le Galion, and the copy must not pretend otherwise.
+    """
+    if not obs:
+        return {}
+    sectors = obs.get("sectors", {})
+    out = {}
+    for b in BEACHES:
+        sec = _face_sector(b.get("faces", ""))
+        if sec and sec in sectors:
+            out[b["n"]] = sectors[sec]["max"]
+    return out
+
+
+def _face_sector(faces: str) -> str | None:
+    """Primary compass sector from a beach's aspect string, e.g. 'E/NE' -> 'E'."""
+    first = faces.split("/")[0].strip().upper()
+    if not first:
+        return None
+    if first.startswith("N"):
+        return "N"
+    if first.startswith("S"):
+        return "S"
+    if first.startswith("E"):
+        return "E"
+    if first.startswith("W"):
+        return "W"
+    return None
 
 
 # ---------------------------------------------------------------- beaches
