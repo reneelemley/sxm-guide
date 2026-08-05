@@ -113,16 +113,18 @@
       'letter-spacing:.09em;color:#B08E48;line-height:1.6}' +
     /* stop "13 mph NE" breaking across three lines */
     '.wx{white-space:nowrap}' +
-    '.bigram{display:flex;justify-content:flex-end;align-items:center;gap:7px;' +
-      'margin-top:10px;text-decoration:none}' +
-    '.bigram b{font-family:Montserrat,sans-serif;font-weight:700;font-size:9px;' +
-      'letter-spacing:.07em;color:#7A5410}' +
-    '.bigram i{display:inline-flex;width:22px;height:22px;border-radius:6px;' +
+    '.bfoot{display:flex;align-items:center;justify-content:space-between;' +
+      'gap:8px 16px;flex-wrap:wrap;margin-top:8px}' +
+    '.bfoot .ext{margin-top:0;align-self:center}' +
+    '.bigram{display:inline-flex;align-items:center;gap:6px;margin:0;' +
+      'text-decoration:none;width:fit-content}' +
+    '.bigram b{font-weight:500;font-size:11.5px;color:#9A5A12}' +
+    '.bigram i{display:inline-flex;width:20px;height:20px;border-radius:5px;' +
       'align-items:center;justify-content:center;flex:none;' +
       'background:linear-gradient(45deg,#F9CE34 5%,#EE2A7B 50%,#6228D7 95%)}' +
     '@media(min-width:820px){.brow{grid-template-columns:82px 1fr}.bv{font-size:13px}' +
       '.barea{grid-template-columns:104px 1fr}.barea > span{font-size:8.5px}' +
-      '.bigram b{font-size:9.5px}.bigram i{width:24px;height:24px}}';
+      '.bigram b{font-size:13px}.bigram i{width:22px;height:22px}}';
   var st = document.createElement('style'); st.textContent = CSS;
   document.head.appendChild(st);
 
@@ -193,17 +195,6 @@
       rows.push('<div class="brow"><div class="bk">' + g.label + '</div><div>' + body + '</div></div>');
     });
 
-    rows.push(
-      '<a class="bigram" href="https://www.instagram.com/todayinsxm" target="_blank"' +
-      ' rel="noopener" aria-label="Follow Today In SXM on Instagram">' +
-      '<b>Follow for daily updates</b><i>' +
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff"' +
-      ' stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<rect x="2" y="2" width="20" height="20" rx="5.5"/>' +
-      '<circle cx="12" cy="12" r="4.2"/>' +
-      '<circle cx="17.6" cy="6.4" r="1.15" fill="#fff" stroke="none"/>' +
-      '</svg></i></a>');
-
     var host = $('wx-advice');
     if (host.tagName === 'P') {                        // divs cannot live inside a <p>
       var div = document.createElement('div');
@@ -213,6 +204,32 @@
     }
     host.innerHTML = rows.join('');
     host.setAttribute('data-slots', used.join(','));
+    mountFooterRow(host);
+  }
+
+  var IG_HTML =
+    '<a class="bigram" href="https://www.instagram.com/todayinsxm" target="_blank"' +
+    ' rel="noopener" aria-label="Follow Today In SXM on Instagram">' +
+    '<b>Follow for daily updates</b><i>' +
+    '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff"' +
+    ' stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<rect x="2" y="2" width="20" height="20" rx="5.5"/>' +
+    '<circle cx="12" cy="12" r="4.2"/>' +
+    '<circle cx="17.6" cy="6.4" r="1.15" fill="#fff" stroke="none"/>' +
+    '</svg></i></a>';
+
+  /* Sargassum link and Instagram link on one line at the foot of the box.
+     They are siblings in every page's HTML, so this is done here once rather
+     than editing nine files. Idempotent. */
+  function mountFooterRow(host) {
+    var section = host.parentNode;
+    if (!section || section.querySelector('.bfoot')) return;
+    var ext = section.querySelector('.ext');
+    var row = document.createElement('div');
+    row.className = 'bfoot';
+    if (ext) { ext.parentNode.insertBefore(row, ext); row.appendChild(ext); }
+    else { section.appendChild(row); }
+    row.insertAdjacentHTML('beforeend', IG_HTML);
   }
 
   function weather() {
