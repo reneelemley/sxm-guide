@@ -1,178 +1,167 @@
 {
-  "_note": "Recurring weekly things by area. Hand-maintained, nothing scraped. Items marked venue-confirmed come from the business's own website; aggregator items are less reliable, and named performers rotate constantly - treat the venue and the night as durable, the artist as not. VERIFY BEFORE TRUSTING.",
-  "checked": "2026-08-04",
-  "_seasonality": "The earlier assumption that specials only run Dec-May was wrong. Plenty runs through June, July and August. What actually happens is a hard French-side shutdown from roughly 26 August to mid-October - WeAreSXM puts it at about 90% of French venues closed in September.",
-  "areas": {
-    "Grand Case": {
-      "closed_window": [
-        "08-26",
-        "10-15"
-      ],
-      "mon": [
-        "All-you-can-eat sushi at Rainbow Café"
-      ],
-      "tue": [
-        "Acoustic guitar at Rainbow Café, 7–10"
-      ],
-      "wed": [
-        "Beach day with a DJ at Captain Frenchy's, 4–8",
-        "Ladies night at Rainbow Café, half-price cocktails"
-      ],
-      "thu": [
-        "Deep house at Rainbow Café, 6–10",
-        "Free salsa class at Blue Martini from 8, band after"
-      ],
-      "fri": [
-        "Jungle Party at Rainbow Café — every week, no exception",
-        "Live reggae at Captain Frenchy's, 6–11"
-      ],
-      "sat": [
-        "Resident DJs and beach party at Rainbow Café, 4–11",
-        "Salsa and bachata at Captain Frenchy's, 7–11",
-        "Reggae band at Blue Martini from 9"
-      ],
-      "sun": [
-        "Guest DJ at Rainbow Café — they fly someone in every Sunday"
-      ]
-    },
-    "Orient Bay": {
-      "closed_window": [
-        "08-26",
-        "10-15"
-      ],
-      "mon": [
-        "Surf and turf with live jazz at L'Astrolabe, dinner 6–10"
-      ],
-      "wed": [
-        "Tapas at Bikini Beach, 5–8"
-      ],
-      "thu": [
-        "Live music at Rancho del Sol from 6",
-        "Tapas at Bikini Beach, 5–8"
-      ],
-      "fri": [
-        "Lobster party with live music at L'Astrolabe, 6–10",
-        "Brasero party at Waï Plage, music 7:30–10:30"
-      ],
-      "sat": [
-        "Waï Plage music night — grill, live band or DJ, different every week",
-        "Pool party at Le Sud",
-        "Tapas at Bikini Beach, 5–8"
-      ],
-      "sun": [
-        "Disco lunch with DJs at Kontiki from 1:30 — high season only"
-      ]
-    },
-    "Anse Marcel": {
-      "closed_window": [
-        "08-26",
-        "11-01"
-      ],
-      "tue": [
-        "Live music at the Beach House, 7 till midnight"
-      ],
-      "sat": [
-        "DJ at the Beach House"
-      ]
-    },
-    "Marigot": {
-      "daily": [
-        "Marigot market on Boulevard de France, 8 till 1, every day but Sunday."
-      ],
-      "wed": [
-        "Fish auction at the market — get there before 10"
-      ],
-      "sat": [
-        "Fish auction at the market — get there before 10"
-      ]
-    },
-    "Simpson Bay": {
-      "daily": [
-        "Happy hour at D's 4–6, Buccaneer 5–7, Replay 3–6."
-      ],
-      "mon": [
-        "Industry night at The Tap & Still from 9 — $3 beers",
-        "Mellow Mondays at Soggy Dollar"
-      ],
-      "tue": [
-        "Latin night at Soggy Dollar — salsa class at 7, band at 9",
-        "Taco Tuesday at D's"
-      ],
-      "wed": [
-        "Ladies night at Soggy Dollar from 8:30",
-        "Live jazz and a chef's menu at D's"
-      ],
-      "thu": [
-        "Rock night at Soggy Dollar from 9",
-        "Line dancing and live music at D's from 6"
-      ],
-      "fri": [
-        "DJs at Soggy Dollar from 9",
-        "Reggae at Nowhere Special, 9–12",
-        "Movie night at D's"
-      ],
-      "sat": [
-        "Live rock and roll, tapas and paella at D's from 6",
-        "Percy Rankin and the Bunfire Band at Buccaneer from 6"
-      ],
-      "sun": [
-        "Brunch from 10 and acoustic music 12–3 at D's"
-      ]
-    },
-    "Maho": {
-      "daily": [
-        "Happy hour at Tortuga 3–5, live music from 6."
-      ],
-      "mon": [
-        "Live music at Hole in the Wall, 7–11"
-      ],
-      "tue": [
-        "Pop-up local market at Tortuga, 9 till noon",
-        "Live music at Hole in the Wall, 7–11"
-      ],
-      "wed": [
-        "All-you-can-eat sushi at Sandbar 5–7 with a DJ"
-      ],
-      "thu": [
-        "Ladies night at SALT, 6–8"
-      ],
-      "fri": [
-        "Percy Rankin reggae at Sandbar, 6–9"
-      ],
-      "sat": [
-        "Live music at Tortuga 6–9",
-        "Percy Rankin and the Bunfire Band at Buccaneer, 6–9"
-      ],
-      "sun": [
-        "Island Soul Vibes at SALT, 6–9"
-      ]
-    },
-    "Philipsburg": {
-      "daily": [
-        "Happy hour at sunset at Seaview, on the Boardwalk."
-      ],
-      "wed": [
-        "Ladies night with free prosecco at The Rusty Parrot, 7–10"
-      ],
-      "thu": [
-        "Steel pan at Jump Up Casino, 10 till midnight"
-      ],
-      "fri": [
-        "Karaoke at Dutch Blonde Beach Bar, 8–11",
-        "Live music at Bold Buddha from 6:30"
-      ],
-      "sat": [
-        "Groove and Vibe Saturdays at 721 Brews & Bites"
-      ],
-      "sun": [
-        "Chill Sundays at 721 from 5"
-      ]
-    }
+ "_note": "Recurring weekly things by area. Hand-maintained, nothing scraped. Items marked venue-confirmed come from the business's own website; aggregator items are less reliable, and named performers rotate constantly - treat the venue and the night as durable, the artist as not. VERIFY BEFORE TRUSTING.",
+ "checked": "2026-08-04",
+ "_seasonality": "The earlier assumption that specials only run Dec-May was wrong. Plenty runs through June, July and August. What actually happens is a hard French-side shutdown from roughly 26 August to mid-October - WeAreSXM puts it at about 90% of French venues closed in September.",
+ "areas": {
+  "Grand Case": {
+   "mon": [
+    "All-you-can-eat sushi at Rainbow Café"
+   ],
+   "tue": [
+    "Acoustic guitar at Rainbow Café, 7–10"
+   ],
+   "wed": [
+    "Beach day with a DJ at Captain Frenchy's, 4–8",
+    "Ladies night at Rainbow Café, half-price cocktails"
+   ],
+   "thu": [
+    "Deep house at Rainbow Café, 6–10",
+    "Free salsa class at Blue Martini from 8, band after"
+   ],
+   "fri": [
+    "Jungle Party at Rainbow Café — every week, no exception",
+    "Live reggae at Captain Frenchy's, 6–11"
+   ],
+   "sat": [
+    "Resident DJs and beach party at Rainbow Café, 4–11",
+    "Salsa and bachata at Captain Frenchy's, 7–11",
+    "Reggae band at Blue Martini from 9"
+   ],
+   "sun": [
+    "Guest DJ at Rainbow Café — they fly someone in every Sunday"
+   ]
   },
-  "notes_for_renee": {
-    "harmony_nights": "Les Mardis de Grand Case did NOT complete its 2026 season — four of six Tuesdays ran, then it was suspended over unconfirmed Collectivité subsidies. Organiser now advertises 16 Feb – 30 Mar 2027. If the guide mentions it anywhere, that needs updating.",
-    "kontiki": "Closes about 26 August, reopens around 15 October. Their own site posts the dates.",
-    "orient_beach_clubs": "The beach clubs at Orient are Kontiki, Kakao, Bikini, Waikiki and Coco Beach, plus Waï Plage. An earlier draft said 'Palm Beach' — that was wrong, it is Coco Beach.",
-    "mullet_bay": "Often lovely, but it faces southwest and picks up winter north swell, so conditions are worth checking before you drive out. Three drownings on record (2017 x2, 2019). No lifeguards anywhere on the island."
+  "Orient Bay": {
+   "mon": [
+    "Surf and turf with live jazz at L'Astrolabe, dinner 6–10"
+   ],
+   "wed": [
+    "Tapas at Bikini Beach, 5–8"
+   ],
+   "thu": [
+    "Live music at Rancho del Sol from 6",
+    "Tapas at Bikini Beach, 5–8"
+   ],
+   "fri": [
+    "Lobster party with live music at L'Astrolabe, 6–10",
+    "Brasero party at Waï Plage, music 7:30–10:30"
+   ],
+   "sat": [
+    "Waï Plage music night — grill, live band or DJ, different every week",
+    "Pool party at Le Sud",
+    "Tapas at Bikini Beach, 5–8"
+   ],
+   "sun": [
+    "Disco lunch with DJs at Kontiki from 1:30 — high season only"
+   ]
+  },
+  "Anse Marcel": {
+   "tue": [
+    "Live music at the Beach House, 7 till midnight"
+   ],
+   "sat": [
+    "DJ at the Beach House"
+   ]
+  },
+  "Marigot": {
+   "daily": [
+    "Marigot market on Boulevard de France, 8 till 1, every day but Sunday."
+   ],
+   "wed": [
+    "Fish auction at the market — get there before 10"
+   ],
+   "sat": [
+    "Fish auction at the market — get there before 10"
+   ]
+  },
+  "Simpson Bay": {
+   "daily": [
+    "Happy hour at D's 4–6, Buccaneer 5–7, Replay 3–6."
+   ],
+   "mon": [
+    "Industry night at The Tap & Still from 9 — $3 beers",
+    "Mellow Mondays at Soggy Dollar"
+   ],
+   "tue": [
+    "Latin night at Soggy Dollar — salsa class at 7, band at 9",
+    "Taco Tuesday at D's"
+   ],
+   "wed": [
+    "Ladies night at Soggy Dollar from 8:30",
+    "Live jazz and a chef's menu at D's"
+   ],
+   "thu": [
+    "Rock night at Soggy Dollar from 9",
+    "Line dancing and live music at D's from 6"
+   ],
+   "fri": [
+    "DJs at Soggy Dollar from 9",
+    "Reggae at Nowhere Special, 9–12",
+    "Movie night at D's"
+   ],
+   "sat": [
+    "Live rock and roll, tapas and paella at D's from 6",
+    "Percy Rankin and the Bunfire Band at Buccaneer from 6"
+   ],
+   "sun": [
+    "Brunch from 10 and acoustic music 12–3 at D's"
+   ]
+  },
+  "Maho": {
+   "daily": [
+    "Happy hour at Tortuga 3–5, live music from 6."
+   ],
+   "mon": [
+    "Live music at Hole in the Wall, 7–11"
+   ],
+   "tue": [
+    "Pop-up local market at Tortuga, 9 till noon",
+    "Live music at Hole in the Wall, 7–11"
+   ],
+   "wed": [
+    "All-you-can-eat sushi at Sandbar 5–7 with a DJ"
+   ],
+   "thu": [
+    "Ladies night at SALT, 6–8"
+   ],
+   "fri": [
+    "Percy Rankin reggae at Sandbar, 6–9"
+   ],
+   "sat": [
+    "Live music at Tortuga 6–9",
+    "Percy Rankin and the Bunfire Band at Buccaneer, 6–9"
+   ],
+   "sun": [
+    "Island Soul Vibes at SALT, 6–9"
+   ]
+  },
+  "Philipsburg": {
+   "daily": [
+    "Happy hour at sunset at Seaview, on the Boardwalk."
+   ],
+   "wed": [
+    "Ladies night with free prosecco at The Rusty Parrot, 7–10"
+   ],
+   "thu": [
+    "Steel pan at Jump Up Casino, 10 till midnight"
+   ],
+   "fri": [
+    "Karaoke at Dutch Blonde Beach Bar, 8–11",
+    "Live music at Bold Buddha from 6:30"
+   ],
+   "sat": [
+    "Groove and Vibe Saturdays at 721 Brews & Bites"
+   ],
+   "sun": [
+    "Chill Sundays at 721 from 5"
+   ]
   }
+ },
+ "notes_for_renee": {
+  "harmony_nights": "Les Mardis de Grand Case did NOT complete its 2026 season — four of six Tuesdays ran, then it was suspended over unconfirmed Collectivité subsidies. Organiser now advertises 16 Feb – 30 Mar 2027. If the guide mentions it anywhere, that needs updating.",
+  "kontiki": "Closes about 26 August, reopens around 15 October. Their own site posts the dates.",
+  "orient_beach_clubs": "The beach clubs at Orient are Kontiki, Kakao, Bikini, Waikiki and Coco Beach, plus Waï Plage. An earlier draft said 'Palm Beach' — that was wrong, it is Coco Beach.",
+  "mullet_bay": "Often lovely, but it faces southwest and picks up winter north swell, so conditions are worth checking before you drive out. Three drownings on record (2017 x2, 2019). No lifeguards anywhere on the island."
+ },
+ "_closures": "Individual restaurants on the French side close for about a month somewhere between late August and October, staggered. The coast does not shut together, so no area is blacked out here. The banner low-season line tells people to call ahead or check Instagram."
 }
