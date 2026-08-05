@@ -92,7 +92,12 @@ def sector_of(lon: float, lat: float) -> str:
     return "W"
 
 
-WINDWARD = ("E", "S")
+# S is deliberately in neither. The south coast is two coasts: Guana and Dawn
+# at its eastern end face the open Atlantic, while Mullet, Maho and Great Bay
+# at its western end are sheltered Caribbean water. Counting the whole of it as
+# windward inflates the reading; counting it as leeward hides a real one. It
+# still contributes to island_max, it just does not decide the split.
+WINDWARD = ("E",)
 LEEWARD = ("N", "W")
 
 

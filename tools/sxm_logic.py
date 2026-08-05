@@ -183,38 +183,41 @@ def sargassum_state(obs: dict | None, month: int) -> str:
 
 
 def sargassum_beach_risk(obs: dict | None) -> dict:
-    """Per-beach observed level, mapped through each beach's coast sector.
+    """Per-beach level: NOAA supplies the timing, the beach table the geography.
 
-    Honest limitation: SIR analyses a 50-100 km neighbourhood around each
-    coastal pixel, so neighbouring beaches share nearly all their input. This
-    resolves Atlantic-side from Caribbean-side. It does not resolve Orient from
-    Le Galion, and the copy must not pretend otherwise.
+    The first version of this mapped beaches to compass sectors and read the
+    satellite risk straight off the sector. It was wrong, and wrong in the
+    quiet way. This island's south coast is two different coasts: the southeast
+    (Guana, Dawn, Oyster Pond) takes the Atlantic full on, while the southwest
+    (Mullet, Maho, Simpson Bay, Great Bay, Little Bay) is sheltered Caribbean
+    water. A single "S" sector put Mullet Bay on the same reading as Dawn
+    Beach, inherited from a coastal segment eight kilometres east of it.
+
+    No sector geometry fixes that, because the coastline curves through it.
+    What does fix it is the exposure rating already curated in beaches.json,
+    which encodes which shores actually catch weed. So:
+
+        NOAA  -> how much sargassum is around the island today
+        table -> which beaches catch it when there is any
+
+    High-exposure beaches take the windward reading, low-exposure the leeward,
+    and the handful of genuinely in-between ones sit between the two.
     """
     if not obs:
         return {}
-    sectors = obs.get("sectors", {})
+    wind, lee = obs.get("windward_max"), obs.get("leeward_max")
+    if wind is None or lee is None:
+        return {}
     out = {}
     for b in BEACHES:
-        sec = _face_sector(b.get("faces", ""))
-        if sec and sec in sectors:
-            out[b["n"]] = sectors[sec]["max"]
+        exposure = b.get("sargassum")
+        if exposure == "high":
+            out[b["n"]] = wind
+        elif exposure == "low":
+            out[b["n"]] = lee
+        else:
+            out[b["n"]] = round((wind + lee) / 2)
     return out
-
-
-def _face_sector(faces: str) -> str | None:
-    """Primary compass sector from a beach's aspect string, e.g. 'E/NE' -> 'E'."""
-    first = faces.split("/")[0].strip().upper()
-    if not first:
-        return None
-    if first.startswith("N"):
-        return "N"
-    if first.startswith("S"):
-        return "S"
-    if first.startswith("E"):
-        return "E"
-    if first.startswith("W"):
-        return "W"
-    return None
 
 
 # ---------------------------------------------------------------- beaches

@@ -281,19 +281,40 @@ class SargassumState(unittest.TestCase):
 
 
 class SargassumBeaches(unittest.TestCase):
-    def test_beaches_inherit_their_coast(self):
-        obs = {"sectors": {"E": {"max": 3, "n": 10}, "W": {"max": 0, "n": 10},
-                           "N": {"max": 0, "n": 10}, "S": {"max": 2, "n": 10}},
-               "island_max": 3, "windward_max": 3, "leeward_max": 0, "days_old": 0}
-        risk = L.sargassum_beach_risk(obs)
-        self.assertEqual(risk["Orient Bay"], 3)      # faces E/NE
-        self.assertEqual(risk["Dawn Beach"], 3)      # faces E
-        self.assertEqual(risk["Baie Rouge"], 0)      # faces W/SW
-        self.assertEqual(risk["Grand Case"], 0)      # faces W/NW
-        self.assertEqual(risk["Simpson Bay"], 2)     # faces S
+    def obs(self, wind, lee):
+        return {"island_max": max(wind, lee), "windward_max": wind,
+                "leeward_max": lee, "days_old": 0, "sectors": {}}
+
+    def test_atlantic_beaches_take_the_windward_reading(self):
+        risk = L.sargassum_beach_risk(self.obs(3, 0))
+        for name in ("Orient Bay", "Dawn Beach", "Guana Bay",
+                     "Le Galion", "Coconut Grove", "Oyster Pond"):
+            self.assertEqual(risk[name], 3, name)
+
+    def test_caribbean_beaches_take_the_leeward_reading(self):
+        risk = L.sargassum_beach_risk(self.obs(3, 0))
+        for name in ("Grand Case", "Baie Rouge", "Happy Bay", "Plum Bay",
+                     "Friar\'s Bay", "Galisbay", "Cupecoy"):
+            self.assertEqual(risk[name], 0, name)
+
+    def test_southwest_beaches_do_not_inherit_southeast_risk(self):
+        """The bug this replaced. Mullet Bay, Maho, Simpson Bay, Great Bay and
+        Little Bay all face south, so a compass-sector model handed them the
+        reading from the southeast corner - eight kilometres away, across the
+        island, on the other side of the wind. They are Caribbean water and
+        must read as such."""
+        risk = L.sargassum_beach_risk(self.obs(3, 0))
+        for name in ("Mullet Bay", "Maho", "Simpson Bay", "Kim Sha",
+                     "Great Bay", "Little Bay", "Indigo Bay", "Cole Bay"):
+            self.assertEqual(risk[name], 0, name)
+        self.assertNotEqual(risk["Mullet Bay"], risk["Dawn Beach"])
 
     def test_no_observation_yields_no_claims(self):
         self.assertEqual(L.sargassum_beach_risk(None), {})
+
+    def test_partial_observation_yields_no_claims(self):
+        self.assertEqual(L.sargassum_beach_risk(
+            {"windward_max": 3, "leeward_max": None}), {})
 
 
 class RealNoaaSample(unittest.TestCase):
@@ -316,9 +337,9 @@ class RealNoaaSample(unittest.TestCase):
         self.assertEqual({k: v["max"] for k, v in s["sectors"].items()},
                          {"E": 2, "S": 3, "N": 2})
 
-    def test_high_risk_is_windward(self):
+    def test_no_high_risk_on_the_caribbean_shore(self):
         """The physical check: sargassum arrives from the east, so a 3 has no
-        business showing up on the Caribbean shore while the Atlantic reads 2."""
+        business turning up on the north or west coasts."""
         s = S.summarise(self.pts)
-        self.assertEqual(s["windward_max"], 3)
-        self.assertLess(s["leeward_max"], s["windward_max"])
+        self.assertLess(s["leeward_max"], s["island_max"])
+        self.assertEqual(s["sectors"]["N"]["max"], 2)
