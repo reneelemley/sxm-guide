@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-04T18:03:07-04:00",
+ "generated": "2026-08-04T22:52:57-04:00",
  "date": "2026-08-04",
  "season": "LOW",
  "traffic": {
@@ -19,7 +19,63 @@
   "anomaly": "EXCEPTIONAL_FOR_SEASON",
   "anomaly_ratio": 5.91
  },
- "sargassum": "SARGASSUM_LIKELY",
+ "sargassum": "SARGASSUM_WINDWARD_ONLY_HIGH",
+ "sargassum_observed": {
+  "island_max": 3,
+  "island_mean": 2.09,
+  "windward_max": 3,
+  "leeward_max": 2,
+  "sectors": {
+   "E": {
+    "max": 3,
+    "n": 153
+   },
+   "N": {
+    "max": 2,
+    "n": 103
+   },
+   "W": {
+    "max": 2,
+    "n": 131
+   },
+   "S": {
+    "max": 3,
+    "n": 79
+   }
+  },
+  "vertices": 466,
+  "observed_date": "2026-08-03",
+  "days_old": 1,
+  "source": "https://cwcgom.aoml.noaa.gov/SIR/",
+  "attribution": "NOAA/AOML CoastWatch & University of South Florida - Sargassum Inundation Risk v1.5 (experimental)",
+  "experimental": true
+ },
+ "sargassum_by_beach": {
+  "Cupecoy": 2,
+  "Mullet Bay": 3,
+  "Maho": 3,
+  "Simpson Bay": 3,
+  "Kim Sha": 3,
+  "Indigo Bay": 3,
+  "Cole Bay": 3,
+  "Great Bay": 3,
+  "Little Bay": 3,
+  "Guana Bay": 3,
+  "Dawn Beach": 3,
+  "Oyster Pond": 3,
+  "Coconut Grove": 3,
+  "Le Galion": 3,
+  "Orient Bay": 3,
+  "Pinel Island": 3,
+  "Anse Marcel": 2,
+  "Grand Case": 2,
+  "Happy Bay": 2,
+  "Friar's Bay": 2,
+  "Petites Cayes": 2,
+  "Galisbay": 2,
+  "Baie Rouge": 2,
+  "Plum Bay": 2
+ },
  "events": [],
  "closures": [],
  "specials": {
@@ -49,7 +105,7 @@
  "slots": [
   "TRAFFIC_BUSY",
   "ANOMALY_EXCEPTIONAL",
-  "SARGASSUM_LIKELY",
+  "SARGASSUM_WINDWARD_ONLY_HIGH",
   "SPECIALS_WEEKLY",
   "SPECIALS_LOW_SEASON_CAVEAT"
  ],
