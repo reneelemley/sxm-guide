@@ -124,7 +124,7 @@
       'background:linear-gradient(45deg,#F9CE34 5%,#EE2A7B 50%,#6228D7 95%)}' +
     '@media(min-width:820px){.brow{grid-template-columns:82px 1fr}.bv{font-size:13px}' +
       '.barea{grid-template-columns:104px 1fr}.barea > span{font-size:8.5px}' +
-      '.bigram b{font-size:13px}.bigram i{width:22px;height:22px}}';
+      '.bigram i{width:22px;height:22px}}';
   var st = document.createElement('style'); st.textContent = CSS;
   document.head.appendChild(st);
 
