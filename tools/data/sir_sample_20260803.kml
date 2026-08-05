@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Folder><name>Risk_20260803</name>
+<Placemark id="p8823">
+<ExtendedData><SchemaData><SimpleData name="risk">2</SimpleData></SchemaData></ExtendedData>
+<LineString><coordinates>-63.019,18.056 -63.02,18.057 -63.018,18.058 -63.018,18.057 -63.016,18.057 -63.015,18.056 -63.014,18.056 -63.014,18.056 -63.014,18.055 -63.013,18.055 -63.012,18.055 -63.011,18.055 -63.011,18.058 -63.012,18.059 -63.012,18.06 -63.013,18.061 -63.013,18.062 -63.014,18.062 -63.014,18.064 -63.013,18.065 -63.013,18.067 -63.014,18.068 -63.016,18.068 -63.016,18.068 -63.016,18.069</coordinates></LineString>
+</Placemark>
+<Placemark id="p8824">
+<ExtendedData><SchemaData><SimpleData name="risk">3</SimpleData></SchemaData></ExtendedData>
+<LineString><coordinates>-63.046,18.014 -63.045,18.013 -63.046,18.012 -63.046,18.012 -63.046,18.011 -63.046,18.007 -63.045,18.006 -63.043,18.006 -63.042,18.007 -63.04,18.007 -63.038,18.009 -63.038,18.01 -63.037,18.011 -63.037,18.012 -63.037,18.013 -63.033,18.013 -63.033,18.013 -63.033,18.014 -63.03,18.017 -63.03,18.018 -63.029,18.02 -63.028,18.02 -63.027,18.02 -63.027,18.022 -63.028,18.023</coordinates></LineString>
+</Placemark>
+<Placemark id="p8827">
+<ExtendedData><SchemaData><SimpleData name="risk">2</SimpleData></SchemaData></ExtendedData>
+<LineString><coordinates>-63.021,18.033 -63.021,18.034 -63.023,18.034 -63.024,18.034 -63.024,18.038 -63.021,18.041 -63.02,18.041 -63.019,18.042 -63.018,18.042 -63.018,18.042 -63.018,18.043 -63.017,18.044 -63.017,18.045 -63.015,18.047 -63.015,18.047 -63.016,18.048 -63.016,18.053 -63.019,18.056</coordinates></LineString>
+</Placemark>
+<Placemark id="p8833">
+<ExtendedData><SchemaData><SimpleData name="risk">2</SimpleData></SchemaData></ExtendedData>
+<LineString><coordinates>-63.018,18.106 -63.017,18.105 -63.015,18.105 -63.013,18.106 -63.013,18.106 -63.012,18.107 -63.012,18.108 -63.013,18.109 -63.017,18.109 -63.018,18.107 -63.018,18.106</coordinates></LineString>
+</Placemark>
+<Placemark id="p8842">
+<ExtendedData><SchemaData><SimpleData name="risk">2</SimpleData></SchemaData></ExtendedData>
+<LineString><coordinates>-63.012,18.089 -63.012,18.089 -63.011,18.089 -63.01,18.09 -63.01,18.091 -63.01,18.091 -63.012,18.091 -63.012,18.091 -63.012,18.089</coordinates></LineString>
+</Placemark>
+</Folder></Document></kml>
