@@ -2,8 +2,17 @@ name: Build today.json
 
 on:
   schedule:
-    - cron: "20 9 * * *"      # 09:20 UTC = 05:20 Atlantic, before anyone is up
+    - cron: "37 10 * * *"     # 10:37 UTC = 06:37 Atlantic. Deliberately an odd
+                              # minute: GitHub queues cron hardest on the hour and
+                              # on round numbers, and drops them under load.
   workflow_dispatch:           # lets you run it by hand from the Actions tab
+
+# GitHub sometimes fires a scheduled workflow twice. Both copies then race to
+# commit the same file and both die. This keeps one and drops the duplicate
+# quietly instead of mailing about it.
+concurrency:
+  group: build-today
+  cancel-in-progress: false
 
 permissions:
   contents: write
