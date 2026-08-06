@@ -139,9 +139,6 @@
    "daily": [
     "Happy hour at sunset at Seaview, on the Boardwalk."
    ],
-   "wed": [
-    "Ladies night with free prosecco at The Rusty Parrot, 7–10"
-   ],
    "thu": [
     "Steel pan at Jump Up Casino, 10 till midnight"
    ],
@@ -161,7 +158,8 @@
   "harmony_nights": "Les Mardis de Grand Case did NOT complete its 2026 season — four of six Tuesdays ran, then it was suspended over unconfirmed Collectivité subsidies. Organiser now advertises 16 Feb – 30 Mar 2027. If the guide mentions it anywhere, that needs updating.",
   "kontiki": "Closes about 26 August, reopens around 15 October. Their own site posts the dates.",
   "orient_beach_clubs": "The beach clubs at Orient are Kontiki, Kakao, Bikini, Waikiki and Coco Beach, plus Waï Plage. An earlier draft said 'Palm Beach' — that was wrong, it is Coco Beach.",
-  "mullet_bay": "Often lovely, but it faces southwest and picks up winter north swell, so conditions are worth checking before you drive out. Three drownings on record (2017 x2, 2019). No lifeguards anywhere on the island."
+  "mullet_bay": "Often lovely, but it faces southwest and picks up winter north swell, so conditions are worth checking before you drive out. Three drownings on record (2017 x2, 2019). No lifeguards anywhere on the island.",
+  "rusty_parrot": "REMOVED 5 Aug 2026. The Rusty Parrot is permanently closed - Rumhuys Distillery has taken the space. It was listed as a Wednesday ladies night from a single aggregator snapshot. The St Maarten tourist board's own site still had a live page for it, which is how a closed venue survived a check. Everything else in the Philipsburg block comes from that same snapshot and has NOT been re-verified."
  },
  "_closures": "Individual restaurants on the French side close for about a month somewhere between late August and October, staggered. The coast does not shut together, so no area is blacked out here. The banner low-season line tells people to call ahead or check Instagram."
 }
