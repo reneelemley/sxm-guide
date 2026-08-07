@@ -29,7 +29,11 @@ a{color:inherit}
 .mast .badge img{width:36px;height:36px}
 .mast h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:38px;letter-spacing:.1em;color:#FFF6EC;margin:0;line-height:1}
 .mast .sub{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.3em;color:#F2D5C6;margin:8px 0 0}
-.mast .blurb{font-family:Caveat,cursive;font-style:italic;font-size:19px;color:#FFF6EC;margin:14px auto 0;max-width:460px;line-height:1.45}
+/* the bar's own sign, over the lip of the masthead. Capped at its native
+   225px so it never upscales into mush. */
+.shot{display:block;width:210px;max-width:calc(100% - 48px);height:auto;
+ margin:-22px auto 2px;border:7px solid #FFFDF7;border-radius:14px;
+ box-shadow:0 10px 26px rgba(0,0,0,.24);position:relative;z-index:2}
 .sec{padding:6px 16px 0;max-width:760px;margin:0 auto}
 .sec h2{font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;letter-spacing:.09em;color:var(--accent);margin:26px 0 10px}
 .sec p{font-size:15px;color:var(--body);line-height:1.7;margin:0 0 14px}
@@ -74,7 +78,8 @@ footer{background:var(--footer);padding:26px 16px 16px}
 .fbottom a{color:var(--footer-head)}
 @media(min-width:820px){
 .nav,.mast,footer{padding-left:32px;padding-right:32px}
-.mast h1{font-size:54px}.mast .blurb{font-size:22px;max-width:560px}
+.mast h1{font-size:54px}
+.shot{width:225px;margin:-28px auto 4px}
 .sec{padding-left:32px;padding-right:32px}
 .banner{max-width:1080px;margin:40px auto 0;border:1px solid var(--banner-rule);border-radius:8px;padding:14px 22px 15px;display:block}
 .banner-top{margin:0}.wxrow{margin:8px 0 10px;justify-content:flex-start;gap:26px;flex-wrap:nowrap}
@@ -94,8 +99,8 @@ footer{background:var(--footer);padding:26px 16px 16px}
 <div class="badge"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@v15.1.0/assets/svg/1f379.svg" alt=""></div>
 <h1>GRUMPY&rsquo;S</h1>
 <p class="sub">ALL ROADS LEAD HERE</p>
-<p class="blurb">It&rsquo;s our corner bar. We pass it on the way home from anywhere and the car automatically turns into the lot.</p>
 </header>
+<img class="shot" src="photos/grumpys-sign.jpg" width="225" height="225" alt="Grumpy&rsquo;s Sports &amp; Music Bar, Dock Maarten Marina, Philipsburg">
 <section class="sec" id="grumpys">
 <p class="lead">Why? It&rsquo;s our corner bar. We pass it on the way home from anywhere and the car automatically turns into the lot.</p>
 <p>British owners, Tony &amp; Mary, have made the perfect &ldquo;beach bar&rdquo; in between the Cruise Port and Bobby&rsquo;s Marina. The &ldquo;yachties&rdquo; from the mega yachts (yeah, like in Below Deck) that dock at Dock Maarten&rsquo;s right next door keep them busy in the high season. We do our best to keep them busy in every season.</p>
