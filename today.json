@@ -1,23 +1,16 @@
 {
- "generated": "2026-08-05T12:13:45-04:00",
- "date": "2026-08-05",
+ "generated": "2026-08-07T07:54:34-04:00",
+ "date": "2026-08-07",
  "season": "LOW",
  "traffic": {
-  "severity": "NORMAL",
+  "severity": "QUIET",
   "ships_known": true,
-  "cruise_pax": 4272,
-  "ship_count": 1,
-  "ships": [
-   {
-    "ship": "Regal Princess",
-    "line": "Princess Cruises",
-    "pax": 4272,
-    "time": "07:00"
-   }
-  ],
+  "cruise_pax": 0,
+  "ship_count": 0,
+  "ships": [],
   "expected_pax_for_month": 1285,
-  "anomaly": "EXCEPTIONAL_FOR_SEASON",
-  "anomaly_ratio": 3.32
+  "anomaly": "BELOW_NORMAL",
+  "anomaly_ratio": 0.0
  },
  "sargassum": "SARGASSUM_HIGH",
  "sargassum_observed": {
@@ -44,8 +37,8 @@
    }
   },
   "vertices": 466,
-  "observed_date": "2026-08-04",
-  "days_old": 1,
+  "observed_date": "2026-08-05",
+  "days_old": 2,
   "source": "https://cwcgom.aoml.noaa.gov/SIR/",
   "attribution": "NOAA/AOML CoastWatch & University of South Florida - Sargassum Inundation Risk v1.5 (experimental)",
   "experimental": true
@@ -80,33 +73,35 @@
  "closures": [],
  "specials": {
   "Grand Case": [
-   "Beach day with a DJ at Captain Frenchy's, 4\u20138",
-   "Ladies night at Rainbow Caf\u00e9, half-price cocktails"
+   "Jungle Party at Rainbow Caf\u00e9 \u2014 every week, no exception",
+   "Live reggae at Captain Frenchy's, 6\u201311"
   ],
   "Orient Bay": [
-   "Tapas at Bikini Beach, 5\u20138"
+   "Lobster party with live music at L'Astrolabe, 6\u201310",
+   "Brasero party at Wa\u00ef Plage, music 7:30\u201310:30"
   ],
   "Marigot": [
-   "Fish auction at the market \u2014 get there before 10",
    "Marigot market on Boulevard de France, 8 till 1, every day but Sunday."
   ],
   "Simpson Bay": [
-   "Ladies night at Soggy Dollar from 8:30",
-   "Live jazz and a chef's menu at D's",
+   "DJs at Soggy Dollar from 9",
+   "Reggae at Nowhere Special, 9\u201312",
+   "Movie night at D's",
    "Happy hour at D's 4\u20136, Buccaneer 5\u20137, Replay 3\u20136."
   ],
   "Maho": [
-   "All-you-can-eat sushi at Sandbar 5\u20137 with a DJ",
+   "Percy Rankin reggae at Sandbar, 6\u20139",
    "Happy hour at Tortuga 3\u20135, live music from 6."
   ],
   "Philipsburg": [
-   "Ladies night with free prosecco at The Rusty Parrot, 7\u201310",
+   "Karaoke at Dutch Blonde Beach Bar, 8\u201311",
+   "Live music at Bold Buddha from 6:30",
    "Happy hour at sunset at Seaview, on the Boardwalk."
   ]
  },
  "slots": [
-  "TRAFFIC_NORMAL",
-  "ANOMALY_EXCEPTIONAL",
+  "TRAFFIC_QUIET",
+  "ANOMALY_BELOW_NORMAL",
   "SARGASSUM_HIGH",
   "SPECIALS_WEEKLY",
   "SPECIALS_LOW_SEASON_CAVEAT"
