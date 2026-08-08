@@ -1,6 +1,6 @@
 {
- "generated": "2026-08-07T07:54:34-04:00",
- "date": "2026-08-07",
+ "generated": "2026-08-08T07:02:16-04:00",
+ "date": "2026-08-08",
  "season": "LOW",
  "traffic": {
   "severity": "QUIET",
@@ -37,7 +37,7 @@
    }
   },
   "vertices": 466,
-  "observed_date": "2026-08-05",
+  "observed_date": "2026-08-06",
   "days_old": 2,
   "source": "https://cwcgom.aoml.noaa.gov/SIR/",
   "attribution": "NOAA/AOML CoastWatch & University of South Florida - Sargassum Inundation Risk v1.5 (experimental)",
@@ -73,29 +73,34 @@
  "closures": [],
  "specials": {
   "Grand Case": [
-   "Jungle Party at Rainbow Caf\u00e9 \u2014 every week, no exception",
-   "Live reggae at Captain Frenchy's, 6\u201311"
+   "Resident DJs and beach party at Rainbow Caf\u00e9, 4\u201311",
+   "Salsa and bachata at Captain Frenchy's, 7\u201311",
+   "Reggae band at Blue Martini from 9"
   ],
   "Orient Bay": [
-   "Lobster party with live music at L'Astrolabe, 6\u201310",
-   "Brasero party at Wa\u00ef Plage, music 7:30\u201310:30"
+   "Wa\u00ef Plage music night \u2014 grill, live band or DJ, different every week",
+   "Pool party at Le Sud",
+   "Tapas at Bikini Beach, 5\u20138"
+  ],
+  "Anse Marcel": [
+   "DJ at the Beach House"
   ],
   "Marigot": [
+   "Fish auction at the market \u2014 get there before 10",
    "Marigot market on Boulevard de France, 8 till 1, every day but Sunday."
   ],
   "Simpson Bay": [
-   "DJs at Soggy Dollar from 9",
-   "Reggae at Nowhere Special, 9\u201312",
-   "Movie night at D's",
+   "Live rock and roll, tapas and paella at D's from 6",
+   "Percy Rankin and the Bunfire Band at Buccaneer from 6",
    "Happy hour at D's 4\u20136, Buccaneer 5\u20137, Replay 3\u20136."
   ],
   "Maho": [
-   "Percy Rankin reggae at Sandbar, 6\u20139",
+   "Live music at Tortuga 6\u20139",
+   "Percy Rankin and the Bunfire Band at Buccaneer, 6\u20139",
    "Happy hour at Tortuga 3\u20135, live music from 6."
   ],
   "Philipsburg": [
-   "Karaoke at Dutch Blonde Beach Bar, 8\u201311",
-   "Live music at Bold Buddha from 6:30",
+   "Groove and Vibe Saturdays at 721 Brews & Bites",
    "Happy hour at sunset at Seaview, on the Boardwalk."
   ]
  },
